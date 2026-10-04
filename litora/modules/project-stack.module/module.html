@@ -1,0 +1,19 @@
+{% set bg_classes = {"primary":"background-color-primary","secondary":"background-color-secondary","inverse":"theme-inverse"} %}
+<section class="section_project-stack" aria-label="{{ module.labelText|escape_attr }}" id="inside" data-nav-theme="inverse">
+{% for item in module.items %}<figure class="project-stack_panel" id="inside-{{ loop.index }}" data-stack-panel>
+<picture>
+<source media="(max-width: 767px)" srcset="{% if '/litora/images/' in item.imageTall.src %}/hubfs/{{ (item.imageTall.src|split('/hubfs/' ~ hub_id ~ '/'))|last|replace('-709.', '-480.') }} 480w, /hubfs/{{ (item.imageTall.src|split('/hubfs/' ~ hub_id ~ '/'))|last|replace('-709.', '-709.') }} 709w{% else %}/hs-fs/hubfs/{{ (item.imageTall.src|split('/hubfs/' ~ hub_id ~ '/'))|last }}?width=480 480w, /hs-fs/hubfs/{{ (item.imageTall.src|split('/hubfs/' ~ hub_id ~ '/'))|last }}?width=709 709w{% endif %}" sizes="100vw" width="{{ item.imageTall.width }}" height="{{ item.imageTall.height }}">
+<img class="project-stack_image" src="{{ resize_image_url(item.image.src, 1280) }}" srcset="{% if '/litora/images/' in item.image.src %}/hubfs/{{ (item.image.src|split('/hubfs/' ~ hub_id ~ '/'))|last|replace('-2560.', '-1440.') }} 1440w, /hubfs/{{ (item.image.src|split('/hubfs/' ~ hub_id ~ '/'))|last|replace('-2560.', '-1920.') }} 1920w, /hubfs/{{ (item.image.src|split('/hubfs/' ~ hub_id ~ '/'))|last|replace('-2560.', '-2560.') }} 2560w{% else %}/hs-fs/hubfs/{{ (item.image.src|split('/hubfs/' ~ hub_id ~ '/'))|last }}?width=1440 1440w, /hs-fs/hubfs/{{ (item.image.src|split('/hubfs/' ~ hub_id ~ '/'))|last }}?width=1920 1920w, /hs-fs/hubfs/{{ (item.image.src|split('/hubfs/' ~ hub_id ~ '/'))|last }}?width=2560 2560w{% endif %}" sizes="100vw" width="{{ item.image.width }}" height="{{ item.image.height }}" alt="{{ item.image.alt|escape_attr }}" loading="lazy" decoding="async" data-stack-image>
+</picture>
+<div class="project-stack_veil" aria-hidden="true"></div>
+<div class="project-stack_index" aria-hidden="true">
+{% set panel_index = loop.index %}{% for mark in module.items %}{% if not loop.first %}<span class="project-stack_index-line"></span>{% endif %}<span class="project-stack_index-mark{% if loop.index == panel_index %} is-current{% endif %}"></span>{% endfor %}
+</div>
+<figcaption class="project-stack_caption">
+<span class="text-style-eyebrow">{{ item.labelText|escape_html }}</span>
+<span class="heading-style-h2">{{ item.nameText|escape_html }}</span>
+<span class="text-style-eyebrow">{{ item.caption|escape_html }}</span>
+</figcaption>
+</figure>
+{% endfor %}
+</section>

@@ -1,0 +1,39 @@
+{% set bg_classes = {"primary":"background-color-primary","secondary":"background-color-secondary","inverse":"theme-inverse"} %}
+<section class="section_faq-accordion {{ bg_classes[module.background] }}" id="faq">
+<div class="padding-global padding-section-medium">
+<div class="container-large">
+<span class="faq-accordion_line" aria-hidden="true" data-line></span>
+<div class="faq-accordion_layout">
+<div class="faq-accordion_header" data-reveal>
+<h2>{{ module.heading|escape_html|replace("EB-5", '<span class="text-style-nowrap">EB-5</span>') }}</h2>
+{% if module.intro %}<p class="faq-accordion_intro">{{ module.intro|escape_html }}</p>{% endif %}
+<div class="faq_timeline">
+<ol class="faq_timeline-list" role="list" data-timeline>
+{% for milestone in module.timeline.items %}<li class="faq_timeline-item">
+<span class="faq_timeline-trace{% if not loop.first %} is-dashed{% endif %}{% if loop.last %} is-open{% endif %}" aria-hidden="true" data-timeline-trace="{% if not loop.first %}dashed{% else %}solid{% endif %}"></span>
+{% if loop.last %}{% else %}<span class="faq_timeline-point" aria-hidden="true"></span>{% endif %}
+<span class="heading-style-h3">{{ milestone.title|escape_html }}</span>
+<p>{{ milestone.text|escape_html }}{% if milestone.trace %} <span class="visually-hidden">({{ milestone.trace|escape_html }})</span>{% endif %}</p>
+</li>
+{% endfor %}
+</ol>
+<p class="text-size-small text-color-secondary">{{ module.timeline.legend|escape_html }}</p>
+</div>
+</div>
+<div class="faq-accordion_list">
+{% for item in module.items %}<details class="faq_item" name="faq"{% if loop.index0 %}{% else %} open{% endif %} data-reveal>
+<summary class="faq_question"><h3>{{ item.question|escape_html|replace("EB-5", '<span class="text-style-nowrap">EB-5</span>') }}</h3><svg class="faq_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 15.5 12 8.5 19 15.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+<div class="faq_answer">
+{% for paragraph in item.answer %}{% if paragraph.list %}<ul class="faq_answer-list">
+{% for entry in paragraph.list %}<li>{{ entry|escape_html }}</li>
+{% endfor %}
+</ul>{% else %}<p>{{ paragraph.text|escape_html }}</p>{% endif %}
+{% endfor %}
+</div>
+</details>
+{% endfor %}
+</div>
+</div>
+</div>
+</div>
+</section>

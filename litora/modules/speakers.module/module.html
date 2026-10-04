@@ -1,0 +1,23 @@
+{% set bg_classes = {"primary":"background-color-primary","secondary":"background-color-secondary","inverse":"theme-inverse"} %}
+<section class="section_speakers {{ bg_classes[module.background] }}" id="speakers">
+<div class="padding-global padding-section-medium">
+<div class="container-large">
+<div class="speakers_layout">
+<div class="speakers_header" data-reveal>
+<h2>{{ module.heading|escape_html|replace("EB-5", '<span class="text-style-nowrap">EB-5</span>') }}</h2>
+{% if module.note %}<p class="text-size-small text-color-secondary">{{ module.note|escape_html }}</p>{% endif %}
+</div>
+<ul class="speakers_list" role="list">
+{% for item in module.items %}<li class="speakers_item" data-reveal>
+<div class="photo-card_component">
+<img class="photo-card_media is-focus-top" src="{{ resize_image_url(item.image.src, 840) }}" srcset="{% if '/litora/images/' in item.image.src %}/hubfs/{{ (item.image.src|split('/hubfs/' ~ hub_id ~ '/'))|last|replace('-840.', '-420.') }} 420w, /hubfs/{{ (item.image.src|split('/hubfs/' ~ hub_id ~ '/'))|last|replace('-840.', '-840.') }} 840w{% else %}/hs-fs/hubfs/{{ (item.image.src|split('/hubfs/' ~ hub_id ~ '/'))|last }}?width=420 420w, /hs-fs/hubfs/{{ (item.image.src|split('/hubfs/' ~ hub_id ~ '/'))|last }}?width=840 840w{% endif %}" sizes="(min-width: 992px) 26rem, (min-width: 768px) 50vw, 27rem" width="{{ item.image.width }}" height="{{ item.image.height }}" alt="{{ item.image.alt|escape_attr }}" loading="lazy" decoding="async">
+<div class="photo-card_veil"><h3>{{ item.nameText|escape_html|replace("EB-5", '<span class="text-style-nowrap">EB-5</span>') }}</h3><p class="text-style-eyebrow">{{ item.role|escape_html }}</p></div>
+</div>
+<p class="photo-card_text">{{ item.text|escape_html }}</p>
+</li>
+{% endfor %}
+</ul>
+</div>
+</div>
+</div>
+</section>

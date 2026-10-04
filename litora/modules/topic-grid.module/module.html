@@ -1,0 +1,23 @@
+{% set bg_classes = {"primary":"background-color-primary","secondary":"background-color-secondary","inverse":"theme-inverse"} %}
+<section class="section_topic-grid {{ bg_classes[module.background] }}" id="topics" data-nav-theme="inverse">
+<div class="padding-global padding-section-medium">
+<div class="container-large">
+<div class="topic-grid_header" data-reveal>
+<div class="topic-grid_heading">
+<h2>{{ module.heading|escape_html|replace("EB-5", '<span class="text-style-nowrap">EB-5</span>') }}</h2>
+{% if module.intro %}<p class="text-size-large text-color-secondary">{{ module.intro|escape_html }}</p>{% endif %}
+</div>
+</div>
+<ol class="topic-grid_list" role="list">
+{% for item in module.items %}<li class="topic-row_component">
+<span class="topic-row_line is-bleed" aria-hidden="true" data-line></span>
+<span class="topic-row_number heading-style-h3" aria-hidden="true" data-reveal>{{ "%02d"|format(loop.index) }}</span>
+<h3 class="topic-row_title" data-reveal>{{ item.heading|escape_html|replace("EB-5", '<span class="text-style-nowrap">EB-5</span>') }}</h3>
+<p class="topic-row_text text-color-secondary" data-reveal>{{ item.text|escape_html }}</p>
+<div class="topic-row_media"><img class="topic-row_image" data-topic-image src="{{ resize_image_url(item.image.src, 280) }}" width="{{ item.image.width }}" height="{{ item.image.height }}" alt="{{ item.image.alt|escape_attr }}" loading="lazy" decoding="async"></div>
+</li>
+{% endfor %}
+</ol>
+</div>
+</div>
+</section>

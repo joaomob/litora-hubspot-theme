@@ -1,0 +1,307 @@
+[
+  {
+    "name": "labelText",
+    "label": "Label Text",
+    "type": "text",
+    "default": "Temas"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "default": "O que você vai aprender"
+  },
+  {
+    "name": "intro",
+    "label": "Intro",
+    "type": "text",
+    "default": ""
+  },
+  {
+    "name": "items",
+    "label": "Items",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 20,
+      "default": 6,
+      "sorting_label_field": "items.heading"
+    },
+    "children": [
+      {
+        "name": "heading",
+        "label": "Heading",
+        "type": "text",
+        "default": "Como o EB-5 funciona"
+      },
+      {
+        "name": "text",
+        "label": "Text",
+        "type": "text",
+        "default": "As etapas entre o investimento e o green card, em ordem, e o que a lei exige do negócio que recebe o dinheiro."
+      },
+      {
+        "name": "image",
+        "label": "Image",
+        "type": "image",
+        "responsive": true,
+        "resizable": false,
+        "show_loading": false,
+        "default": {
+          "src": "https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/topics/topic-construction.webp",
+          "alt": "Prédio em obra com dois guindastes e a estrutura de concreto aparente",
+          "width": 280,
+          "height": 240,
+          "loading": "lazy"
+        },
+        "inline_help_text": ""
+      }
+    ],
+    "default": [
+      {
+        "heading": "Como o EB-5 funciona",
+        "text": "As etapas entre o investimento e o green card, em ordem, e o que a lei exige do negócio que recebe o dinheiro.",
+        "image": {
+          "src": "https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/topics/topic-construction.webp",
+          "alt": "Prédio em obra com dois guindastes e a estrutura de concreto aparente",
+          "width": 280,
+          "height": 240,
+          "loading": "lazy"
+        }
+      },
+      {
+        "heading": "Quanto investir",
+        "text": "O mínimo é de 1.050.000 dólares e cai para 800 mil em área TEA, que é zona rural ou de alto desemprego. Você vê o que o reajuste pela inflação muda para pedidos a partir de 2027.",
+        "image": {
+          "src": "https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/topics/topic-scale-model.webp",
+          "alt": "Maquete branca de um prédio de apartamentos com piscina sobre uma mesa de madeira, com régua, lápis e um desenho enrolado ao lado",
+          "width": 280,
+          "height": 240,
+          "loading": "lazy"
+        }
+      },
+      {
+        "heading": "Regional Center ou investimento direto",
+        "text": "O Regional Center é uma entidade aprovada pelo USCIS, o órgão de imigração dos EUA, que reúne vários investidores num mesmo projeto. Você vê como cada caminho chega aos 10 empregos em tempo integral exigidos por investidor.",
+        "image": {
+          "src": "https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/topics/topic-site-plan.webp",
+          "alt": "Planta de implantação impressa sobre uma mesa de madeira, com uma caneta e uma xícara de café",
+          "width": 280,
+          "height": 240,
+          "loading": "lazy"
+        }
+      },
+      {
+        "heading": "Origem do dinheiro",
+        "text": "Como se organiza a prova de onde veio o dinheiro investido. Os exemplos são de quem vendeu imóvel ou empresa no Brasil, de quem recebeu herança e de quem pegou empréstimo.",
+        "image": {
+          "src": "https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/topics/topic-documents.webp",
+          "alt": "Pilha de pastas claras amarradas com uma fita, com uma caneta-tinteiro em cima",
+          "width": 280,
+          "height": 240,
+          "loading": "lazy"
+        }
+      },
+      {
+        "heading": "Risco e capital de volta",
+        "text": "Onde o seu dinheiro entra no projeto, o que acontece se a obra atrasar e do que depende a devolução do capital. A Litora não promete retorno, e o webinar explica por quê.",
+        "image": {
+          "src": "https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/topics/topic-concrete-frame.webp",
+          "alt": "Pilares e lajes de concreto de um prédio em obra, com vergalhões aparentes",
+          "width": 280,
+          "height": 240,
+          "loading": "lazy"
+        }
+      },
+      {
+        "heading": "Família, prazos e impostos",
+        "text": "Quem da família entra no pedido, do que o prazo depende e o que o green card muda no imposto sobre a renda do Brasil. Você sai com as perguntas para levar ao seu contador.",
+        "image": {
+          "src": "https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/topics/topic-kitchen.webp",
+          "alt": "Cozinha com ilha de mármore, armários de madeira e janela para palmeiras",
+          "width": 280,
+          "height": 240,
+          "loading": "lazy"
+        }
+      }
+    ]
+  },
+  {
+    "name": "background",
+    "label": "Section colour",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "primary",
+        "Light"
+      ],
+      [
+        "secondary",
+        "Light alternate"
+      ],
+      [
+        "inverse",
+        "Dark"
+      ]
+    ],
+    "default": "inverse",
+    "inline_help_text": "Colours come from the theme settings.",
+    "tab": "STYLE"
+  },
+  {
+    "name": "links",
+    "label": "Links",
+    "type": "group",
+    "children": [
+      {
+        "name": "self",
+        "label": "Self",
+        "type": "text",
+        "default": "/webinar-visto-eb5"
+      },
+      {
+        "name": "alternate",
+        "label": "Alternate",
+        "type": "text",
+        "default": "/en/eb5-visa-webinar"
+      },
+      {
+        "name": "alternateLang",
+        "label": "Alternate Lang",
+        "type": "text",
+        "default": "en-US"
+      },
+      {
+        "name": "privacy",
+        "label": "Privacy",
+        "type": "text",
+        "default": "/privacidade"
+      }
+    ],
+    "default": {
+      "self": "/webinar-visto-eb5",
+      "alternate": "/en/eb5-visa-webinar",
+      "alternateLang": "en-US",
+      "privacy": "/privacidade"
+    }
+  },
+  {
+    "name": "global",
+    "label": "Global",
+    "type": "group",
+    "children": [
+      {
+        "name": "skipLink",
+        "label": "Skip Link",
+        "type": "text",
+        "default": "Ir para o conteúdo"
+      },
+      {
+        "name": "header",
+        "label": "Header",
+        "type": "group",
+        "children": [
+          {
+            "name": "logoText",
+            "label": "Logo Text",
+            "type": "text",
+            "default": "Litora"
+          },
+          {
+            "name": "languageCurrent",
+            "label": "Language Current",
+            "type": "text",
+            "default": "PT"
+          },
+          {
+            "name": "languageOther",
+            "label": "Language Other",
+            "type": "text",
+            "default": "EN"
+          },
+          {
+            "name": "languageOtherLabel",
+            "label": "Language Other Label",
+            "type": "text",
+            "default": "Ver esta página em inglês"
+          }
+        ],
+        "default": {
+          "logoText": "Litora",
+          "languageCurrent": "PT",
+          "languageOther": "EN",
+          "languageOtherLabel": "Ver esta página em inglês"
+        }
+      },
+      {
+        "name": "footer",
+        "label": "Footer",
+        "type": "group",
+        "children": [
+          {
+            "name": "logoText",
+            "label": "Logo Text",
+            "type": "text",
+            "default": "Litora"
+          },
+          {
+            "name": "about",
+            "label": "About",
+            "type": "text",
+            "default": "A Litora estrutura projetos imobiliários nos EUA para investidores brasileiros pelo EB-5."
+          },
+          {
+            "name": "legalNoticeTitle",
+            "label": "Legal Notice Title",
+            "type": "text",
+            "default": "Aviso legal."
+          },
+          {
+            "name": "legalNotice",
+            "label": "Legal Notice",
+            "type": "text",
+            "default": "Esta página tem fim informativo e não é oferta de venda nem pedido de oferta de compra de valores mobiliários. Qualquer oferta seria feita só por memorando de oferta, e a Litora só apresenta esse memorando a investidores qualificados. Investir num projeto do EB-5 tem risco, inclusive o de perder o capital. Aprovação, prazo e green card dependem das autoridades de imigração dos EUA, e nenhum resultado é garantido. Antes de decidir, consulte um advogado de imigração e um contador. Os valores do programa são de outubro de 2026, com fonte no USCIS e na lei americana (8 U.S.C. 1153), e mudam com a inflação para pedidos feitos a partir de 1º de janeiro de 2027."
+          },
+          {
+            "name": "privacyLabel",
+            "label": "Privacy Label",
+            "type": "text",
+            "default": "Política de privacidade"
+          },
+          {
+            "name": "languageLinkLabel",
+            "label": "Language Link Label",
+            "type": "text",
+            "default": "English"
+          }
+        ],
+        "default": {
+          "logoText": "Litora",
+          "about": "A Litora estrutura projetos imobiliários nos EUA para investidores brasileiros pelo EB-5.",
+          "legalNoticeTitle": "Aviso legal.",
+          "legalNotice": "Esta página tem fim informativo e não é oferta de venda nem pedido de oferta de compra de valores mobiliários. Qualquer oferta seria feita só por memorando de oferta, e a Litora só apresenta esse memorando a investidores qualificados. Investir num projeto do EB-5 tem risco, inclusive o de perder o capital. Aprovação, prazo e green card dependem das autoridades de imigração dos EUA, e nenhum resultado é garantido. Antes de decidir, consulte um advogado de imigração e um contador. Os valores do programa são de outubro de 2026, com fonte no USCIS e na lei americana (8 U.S.C. 1153), e mudam com a inflação para pedidos feitos a partir de 1º de janeiro de 2027.",
+          "privacyLabel": "Política de privacidade",
+          "languageLinkLabel": "English"
+        }
+      }
+    ],
+    "default": {
+      "skipLink": "Ir para o conteúdo",
+      "header": {
+        "logoText": "Litora",
+        "languageCurrent": "PT",
+        "languageOther": "EN",
+        "languageOtherLabel": "Ver esta página em inglês"
+      },
+      "footer": {
+        "logoText": "Litora",
+        "about": "A Litora estrutura projetos imobiliários nos EUA para investidores brasileiros pelo EB-5.",
+        "legalNoticeTitle": "Aviso legal.",
+        "legalNotice": "Esta página tem fim informativo e não é oferta de venda nem pedido de oferta de compra de valores mobiliários. Qualquer oferta seria feita só por memorando de oferta, e a Litora só apresenta esse memorando a investidores qualificados. Investir num projeto do EB-5 tem risco, inclusive o de perder o capital. Aprovação, prazo e green card dependem das autoridades de imigração dos EUA, e nenhum resultado é garantido. Antes de decidir, consulte um advogado de imigração e um contador. Os valores do programa são de outubro de 2026, com fonte no USCIS e na lei americana (8 U.S.C. 1153), e mudam com a inflação para pedidos feitos a partir de 1º de janeiro de 2027.",
+        "privacyLabel": "Política de privacidade",
+        "languageLinkLabel": "English"
+      }
+    }
+  }
+]

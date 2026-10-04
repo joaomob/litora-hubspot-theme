@@ -1,0 +1,1 @@
+Litora theme, a concept made for a design portfolio. Fonts: Jost, Nunito Sans and Unbounded, SIL Open Font License 1.1 (licence files in fonts/).

@@ -1,0 +1,13 @@
+{% set bg_classes = {"primary":"background-color-primary","secondary":"background-color-secondary","inverse":"theme-inverse"} %}
+<section class="section_legal-text {{ bg_classes[module.background] }}">
+<div class="padding-global padding-section-small">
+<div class="container-small">
+<div class="legal-text_content">
+<h1>{{ module.heading|escape_html|replace("EB-5", '<span class="text-style-nowrap">EB-5</span>') }}</h1>
+<p class="text-size-small text-color-secondary">{{ module.updated|escape_html }}</p>
+{% for paragraph in module.paragraphs %}<p class="legal-text_paragraph">{{ paragraph.text|escape_html }}</p>
+{% endfor %}
+</div>
+</div>
+</div>
+</section>

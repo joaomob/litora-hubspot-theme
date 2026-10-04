@@ -1,0 +1,14 @@
+{
+  "label": "Footer with legal notice and links",
+  "icon": "../../images/module-icons/site-footer.svg",
+  "css_assets": [],
+  "external_js": [],
+  "global": false,
+  "host_template_types": [
+    "PAGE"
+  ],
+  "is_available_for_new_content": true,
+  "smart_type": "NOT_SMART",
+  "content_tags": [],
+  "inline_help_text": "Footer with legal notice and links. Every text, photo and alt text is a field."
+}

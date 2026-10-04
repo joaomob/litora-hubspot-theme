@@ -1,0 +1,437 @@
+[
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "default": "O que pode dar errado"
+  },
+  {
+    "name": "intro",
+    "label": "Intro",
+    "type": "text",
+    "default": "As dúvidas de quem estuda o EB-5, respondidas sem promessa."
+  },
+  {
+    "name": "timeline",
+    "label": "Timeline",
+    "type": "group",
+    "children": [
+      {
+        "name": "legend",
+        "label": "Legend",
+        "type": "text",
+        "default": "Traço cheio: o que a lei fixa. Tracejado: o que depende do projeto."
+      },
+      {
+        "name": "items",
+        "label": "Items",
+        "type": "group",
+        "occurrence": {
+          "min": 0,
+          "max": 20,
+          "default": 3,
+          "sorting_label_field": "timeline.items.title"
+        },
+        "children": [
+          {
+            "name": "title",
+            "label": "Title",
+            "type": "text",
+            "default": "Investimento"
+          },
+          {
+            "name": "text",
+            "label": "Text",
+            "type": "text",
+            "default": "O capital entra no projeto."
+          },
+          {
+            "name": "trace",
+            "label": "Trace",
+            "type": "text",
+            "default": "fixado pela lei"
+          }
+        ],
+        "default": [
+          {
+            "title": "Investimento",
+            "text": "O capital entra no projeto.",
+            "trace": "fixado pela lei"
+          },
+          {
+            "title": "2 anos",
+            "text": "Prazo mínimo que a lei pede com o capital investido.",
+            "trace": "depende do projeto"
+          },
+          {
+            "title": "Devolução",
+            "text": "Depende do resultado do projeto. Não tem garantia.",
+            "trace": ""
+          }
+        ]
+      }
+    ],
+    "default": {
+      "legend": "Traço cheio: o que a lei fixa. Tracejado: o que depende do projeto.",
+      "items": [
+        {
+          "title": "Investimento",
+          "text": "O capital entra no projeto.",
+          "trace": "fixado pela lei"
+        },
+        {
+          "title": "2 anos",
+          "text": "Prazo mínimo que a lei pede com o capital investido.",
+          "trace": "depende do projeto"
+        },
+        {
+          "title": "Devolução",
+          "text": "Depende do resultado do projeto. Não tem garantia.",
+          "trace": ""
+        }
+      ]
+    }
+  },
+  {
+    "name": "items",
+    "label": "Items",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 20,
+      "default": 12,
+      "sorting_label_field": "items.question"
+    },
+    "children": [
+      {
+        "name": "question",
+        "label": "Question",
+        "type": "text",
+        "default": "Comprar imóvel nos EUA dá direito a green card?"
+      },
+      {
+        "name": "answer",
+        "label": "Answer",
+        "type": "group",
+        "occurrence": {
+          "min": 0,
+          "max": 20,
+          "default": 1,
+          "sorting_label_field": "items.answer.text"
+        },
+        "children": [
+          {
+            "name": "text",
+            "label": "Text",
+            "type": "text",
+            "default": "Não dá. No EB-5, o dinheiro vai para um negócio que cria pelo menos 10 empregos em tempo integral. O USCIS diz que ter uma casa para morar não conta como esse negócio. No Tavessa, o projeto de exemplo, você investe na empresa do projeto e não recebe um apartamento."
+          },
+          {
+            "name": "list",
+            "label": "List",
+            "type": "text",
+            "occurrence": {
+              "min": 0,
+              "max": 20,
+              "default": 0
+            },
+            "default": []
+          }
+        ],
+        "default": [
+          {
+            "text": "Não dá. No EB-5, o dinheiro vai para um negócio que cria pelo menos 10 empregos em tempo integral. O USCIS diz que ter uma casa para morar não conta como esse negócio. No Tavessa, o projeto de exemplo, você investe na empresa do projeto e não recebe um apartamento."
+          }
+        ]
+      }
+    ],
+    "default": [
+      {
+        "question": "Comprar imóvel nos EUA dá direito a green card?",
+        "answer": [
+          {
+            "text": "Não dá. No EB-5, o dinheiro vai para um negócio que cria pelo menos 10 empregos em tempo integral. O USCIS diz que ter uma casa para morar não conta como esse negócio. No Tavessa, o projeto de exemplo, você investe na empresa do projeto e não recebe um apartamento."
+          }
+        ]
+      },
+      {
+        "question": "Posso perder o dinheiro investido?",
+        "answer": [
+          {
+            "text": "Pode. O EB-5 pede que o capital fique investido por pelo menos 2 anos num negócio, e esse negócio pode dar prejuízo. No webinar, Rafael Moura mostra onde o dinheiro entra no projeto e quais riscos ficam com o investidor."
+          }
+        ]
+      },
+      {
+        "question": "Quando e como o capital volta?",
+        "answer": [
+          {
+            "text": "A lei pede que o capital fique investido por pelo menos 2 anos. Depois disso, a devolução depende do resultado do projeto e não tem garantia. A SEC, o órgão que fiscaliza investimentos nos EUA, e o USCIS mandam desconfiar de quem promete devolver o dinheiro. Os documentos da oferta dizem em que condições a devolução está prevista, e Rafael Moura mostra no webinar onde ler isso."
+          }
+        ]
+      },
+      {
+        "question": "O green card depende do projeto dar certo?",
+        "answer": [
+          {
+            "text": "Em parte, sim. O green card começa condicional, por 2 anos. A retirada da condição se pede no formulário I-829, nos 90 dias antes de completar esse prazo. No I-829, você prova que manteve o capital investido nos 2 anos e que o projeto criou os 10 empregos, ou vai criá-los num prazo razoável. Por isso o andamento do projeto pesa nesse pedido. Se o USCIS negar o I-829, o investidor, o cônjuge e os filhos perdem o green card na data da decisão. A revisão só pode ser pedida no processo de remoção do país, que o USCIS abre em seguida. A Dra. Helena explica o que acontece quando a obra atrasa."
+          }
+        ]
+      },
+      {
+        "question": "Quem da família entra no pedido?",
+        "answer": [
+          {
+            "text": "Entram o cônjuge e os filhos solteiros com menos de 21 anos. Eles recebem o mesmo green card condicional de 2 anos que o investidor. A lei não inclui os pais do investidor nesse pedido. Se um filho está perto de fazer 21 anos, leve o caso ao seu advogado."
+          }
+        ]
+      },
+      {
+        "question": "Quanto tempo demora o visto EB-5?",
+        "answer": [
+          {
+            "text": "Ninguém pode garantir o prazo, nem a Litora. O tempo de análise depende do USCIS, e a emissão do green card depende de haver visto disponível. No webinar, a Dra. Helena mostra as etapas em ordem (petição, green card condicional de 2 anos e pedido I-829)."
+          }
+        ]
+      },
+      {
+        "question": "Posso morar nos EUA enquanto espero?",
+        "answer": [
+          {
+            "text": "Depende de onde você está. Quem está no Brasil pede o visto de imigrante ao governo americano, ainda fora dos EUA, depois que a petição é aprovada. Quem já está nos EUA pode pedir o green card junto com a petição, quando há visto disponível. A Dra. Helena explica os dois caminhos no webinar."
+          }
+        ]
+      },
+      {
+        "question": "Como provo a origem do dinheiro?",
+        "answer": [
+          {
+            "text": "Com documentos que mostram de onde ele veio e que ele foi obtido de forma lícita, como a venda de um imóvel ou de uma empresa. A lei pede o mesmo para o dinheiro das taxas e lista, conforme o caso, registros da empresa e declarações de imposto dos últimos 7 anos. Dinheiro emprestado ou doado só conta se veio de boa-fé, e a lei pede documentos de quem doou e de quem emprestou, quando não for um banco. Quem monta o seu conjunto de documentos é o seu advogado."
+          }
+        ]
+      },
+      {
+        "question": "Vou pagar imposto nos EUA sobre o que tenho no Brasil?",
+        "answer": [
+          {
+            "text": "Quem tem green card é residente fiscal nos EUA, segundo o IRS, a Receita americana. O residente declara lá a renda do mundo inteiro, e isso inclui a renda do Brasil. Quanto você paga depende do seu caso. Leve a pergunta a um contador que conheça os dois países antes de investir."
+          }
+        ]
+      },
+      {
+        "question": "E se a regra mudar no meio do pedido?",
+        "answer": [
+          {
+            "text": "Hoje, o programa de Regional Center, que reúne vários investidores num mesmo projeto, tem autorização até 30 de setembro de 2027. A lei manda o governo seguir com a análise dos pedidos feitos até 30 de setembro de 2026, mesmo se essa autorização acabar. Essa data já passou. Pergunte ao seu advogado o que vale para um pedido feito agora."
+          }
+        ]
+      },
+      {
+        "question": "Qual é o retorno do investimento?",
+        "answer": [
+          {
+            "text": "A Litora não promete retorno. As condições de cada projeto ficam nos documentos da oferta, e a Litora só apresenta esses documentos a investidores qualificados."
+          }
+        ]
+      },
+      {
+        "question": "O que perguntar antes de investir?",
+        "answer": [
+          {
+            "text": "Desconfie de quem garante green card, prazo ou retorno. A Litora não garante nenhum dos três. Antes de transferir qualquer valor, peça os documentos da oferta por escrito e leve estas perguntas ao seu advogado:"
+          },
+          {
+            "list": [
+              "Os projetos anteriores devolveram o capital aos investidores?",
+              "Quanto dinheiro próprio o incorporador pôs no projeto?",
+              "O contrato deixa reaplicar o meu dinheiro em outro projeto sem a minha escolha?",
+              "O empréstimo ao projeto tem garantia?",
+              "Quem me indicou o investimento recebe comissão?"
+            ]
+          },
+          {
+            "text": "Depois do webinar, o passo seguinte é uma conversa com um advogado de imigração escolhido por você."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "background",
+    "label": "Section colour",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "primary",
+        "Light"
+      ],
+      [
+        "secondary",
+        "Light alternate"
+      ],
+      [
+        "inverse",
+        "Dark"
+      ]
+    ],
+    "default": "primary",
+    "inline_help_text": "Colours come from the theme settings.",
+    "tab": "STYLE"
+  },
+  {
+    "name": "links",
+    "label": "Links",
+    "type": "group",
+    "children": [
+      {
+        "name": "self",
+        "label": "Self",
+        "type": "text",
+        "default": "/webinar-visto-eb5"
+      },
+      {
+        "name": "alternate",
+        "label": "Alternate",
+        "type": "text",
+        "default": "/en/eb5-visa-webinar"
+      },
+      {
+        "name": "alternateLang",
+        "label": "Alternate Lang",
+        "type": "text",
+        "default": "en-US"
+      },
+      {
+        "name": "privacy",
+        "label": "Privacy",
+        "type": "text",
+        "default": "/privacidade"
+      }
+    ],
+    "default": {
+      "self": "/webinar-visto-eb5",
+      "alternate": "/en/eb5-visa-webinar",
+      "alternateLang": "en-US",
+      "privacy": "/privacidade"
+    }
+  },
+  {
+    "name": "global",
+    "label": "Global",
+    "type": "group",
+    "children": [
+      {
+        "name": "skipLink",
+        "label": "Skip Link",
+        "type": "text",
+        "default": "Ir para o conteúdo"
+      },
+      {
+        "name": "header",
+        "label": "Header",
+        "type": "group",
+        "children": [
+          {
+            "name": "logoText",
+            "label": "Logo Text",
+            "type": "text",
+            "default": "Litora"
+          },
+          {
+            "name": "languageCurrent",
+            "label": "Language Current",
+            "type": "text",
+            "default": "PT"
+          },
+          {
+            "name": "languageOther",
+            "label": "Language Other",
+            "type": "text",
+            "default": "EN"
+          },
+          {
+            "name": "languageOtherLabel",
+            "label": "Language Other Label",
+            "type": "text",
+            "default": "Ver esta página em inglês"
+          }
+        ],
+        "default": {
+          "logoText": "Litora",
+          "languageCurrent": "PT",
+          "languageOther": "EN",
+          "languageOtherLabel": "Ver esta página em inglês"
+        }
+      },
+      {
+        "name": "footer",
+        "label": "Footer",
+        "type": "group",
+        "children": [
+          {
+            "name": "logoText",
+            "label": "Logo Text",
+            "type": "text",
+            "default": "Litora"
+          },
+          {
+            "name": "about",
+            "label": "About",
+            "type": "text",
+            "default": "A Litora estrutura projetos imobiliários nos EUA para investidores brasileiros pelo EB-5."
+          },
+          {
+            "name": "legalNoticeTitle",
+            "label": "Legal Notice Title",
+            "type": "text",
+            "default": "Aviso legal."
+          },
+          {
+            "name": "legalNotice",
+            "label": "Legal Notice",
+            "type": "text",
+            "default": "Esta página tem fim informativo e não é oferta de venda nem pedido de oferta de compra de valores mobiliários. Qualquer oferta seria feita só por memorando de oferta, e a Litora só apresenta esse memorando a investidores qualificados. Investir num projeto do EB-5 tem risco, inclusive o de perder o capital. Aprovação, prazo e green card dependem das autoridades de imigração dos EUA, e nenhum resultado é garantido. Antes de decidir, consulte um advogado de imigração e um contador. Os valores do programa são de outubro de 2026, com fonte no USCIS e na lei americana (8 U.S.C. 1153), e mudam com a inflação para pedidos feitos a partir de 1º de janeiro de 2027."
+          },
+          {
+            "name": "privacyLabel",
+            "label": "Privacy Label",
+            "type": "text",
+            "default": "Política de privacidade"
+          },
+          {
+            "name": "languageLinkLabel",
+            "label": "Language Link Label",
+            "type": "text",
+            "default": "English"
+          }
+        ],
+        "default": {
+          "logoText": "Litora",
+          "about": "A Litora estrutura projetos imobiliários nos EUA para investidores brasileiros pelo EB-5.",
+          "legalNoticeTitle": "Aviso legal.",
+          "legalNotice": "Esta página tem fim informativo e não é oferta de venda nem pedido de oferta de compra de valores mobiliários. Qualquer oferta seria feita só por memorando de oferta, e a Litora só apresenta esse memorando a investidores qualificados. Investir num projeto do EB-5 tem risco, inclusive o de perder o capital. Aprovação, prazo e green card dependem das autoridades de imigração dos EUA, e nenhum resultado é garantido. Antes de decidir, consulte um advogado de imigração e um contador. Os valores do programa são de outubro de 2026, com fonte no USCIS e na lei americana (8 U.S.C. 1153), e mudam com a inflação para pedidos feitos a partir de 1º de janeiro de 2027.",
+          "privacyLabel": "Política de privacidade",
+          "languageLinkLabel": "English"
+        }
+      }
+    ],
+    "default": {
+      "skipLink": "Ir para o conteúdo",
+      "header": {
+        "logoText": "Litora",
+        "languageCurrent": "PT",
+        "languageOther": "EN",
+        "languageOtherLabel": "Ver esta página em inglês"
+      },
+      "footer": {
+        "logoText": "Litora",
+        "about": "A Litora estrutura projetos imobiliários nos EUA para investidores brasileiros pelo EB-5.",
+        "legalNoticeTitle": "Aviso legal.",
+        "legalNotice": "Esta página tem fim informativo e não é oferta de venda nem pedido de oferta de compra de valores mobiliários. Qualquer oferta seria feita só por memorando de oferta, e a Litora só apresenta esse memorando a investidores qualificados. Investir num projeto do EB-5 tem risco, inclusive o de perder o capital. Aprovação, prazo e green card dependem das autoridades de imigração dos EUA, e nenhum resultado é garantido. Antes de decidir, consulte um advogado de imigração e um contador. Os valores do programa são de outubro de 2026, com fonte no USCIS e na lei americana (8 U.S.C. 1153), e mudam com a inflação para pedidos feitos a partir de 1º de janeiro de 2027.",
+        "privacyLabel": "Política de privacidade",
+        "languageLinkLabel": "English"
+      }
+    }
+  }
+]

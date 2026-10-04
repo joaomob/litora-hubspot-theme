@@ -1,0 +1,14 @@
+{
+  "label": "Project photo opening through a circle",
+  "icon": "../../images/module-icons/project-reveal.svg",
+  "css_assets": [],
+  "external_js": [],
+  "global": false,
+  "host_template_types": [
+    "PAGE"
+  ],
+  "is_available_for_new_content": true,
+  "smart_type": "NOT_SMART",
+  "content_tags": [],
+  "inline_help_text": "Project photo opening through a circle. Every text, photo and alt text is a field."
+}

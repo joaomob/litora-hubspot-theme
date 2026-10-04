@@ -1,0 +1,36 @@
+{% set bg_classes = {"primary":"background-color-primary","secondary":"background-color-secondary","inverse":"theme-inverse"} %}
+<section class="section_confirmation-hero theme-inverse" data-hero>
+<div class="hero_layout is-static">
+<div class="hero_media">
+<picture>
+<source media="(max-width: 767px)" srcset="{% if '/litora/images/' in module.imageTall.src %}/hubfs/{{ (module.imageTall.src|split('/hubfs/' ~ hub_id ~ '/'))|last|replace('-1534.', '-750.') }} 750w, /hubfs/{{ (module.imageTall.src|split('/hubfs/' ~ hub_id ~ '/'))|last|replace('-1534.', '-1534.') }} 1534w{% else %}/hs-fs/hubfs/{{ (module.imageTall.src|split('/hubfs/' ~ hub_id ~ '/'))|last }}?width=750 750w, /hs-fs/hubfs/{{ (module.imageTall.src|split('/hubfs/' ~ hub_id ~ '/'))|last }}?width=1534 1534w{% endif %}" sizes="100vw" width="{{ module.imageTall.width }}" height="{{ module.imageTall.height }}">
+<img class="hero_image" src="{{ resize_image_url(module.image.src, 1280) }}" srcset="{% if '/litora/images/' in module.image.src %}/hubfs/{{ (module.image.src|split('/hubfs/' ~ hub_id ~ '/'))|last|replace('-1920.', '-960.') }} 960w, /hubfs/{{ (module.image.src|split('/hubfs/' ~ hub_id ~ '/'))|last|replace('-1920.', '-1440.') }} 1440w, /hubfs/{{ (module.image.src|split('/hubfs/' ~ hub_id ~ '/'))|last|replace('-1920.', '-1920.') }} 1920w{% else %}/hs-fs/hubfs/{{ (module.image.src|split('/hubfs/' ~ hub_id ~ '/'))|last }}?width=960 960w, /hs-fs/hubfs/{{ (module.image.src|split('/hubfs/' ~ hub_id ~ '/'))|last }}?width=1440 1440w, /hs-fs/hubfs/{{ (module.image.src|split('/hubfs/' ~ hub_id ~ '/'))|last }}?width=1920 1920w{% endif %}" sizes="100vw" width="{{ module.image.width }}" height="{{ module.image.height }}" alt="{{ module.image.alt|escape_attr }}" fetchpriority="high">
+</picture>
+</div>
+<div class="hero_panel">
+<div class="hero_top-banner">
+<a class="logo_component" href="{{ module.links.self|escape_attr }}"><svg class="logo_mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1288 920" aria-hidden="true" focusable="false"><path d="M595 36C461 50,349 114,265 225C215 291,180 390,179 472C179 482,179 483,186 481C225 472,252 468,290 466C311 465,310 465,311 453C312 438,319 411,325 392C368 261,484 170,620 160C638 159,674 159,687 162C692 162,699 163,703 164C734 168,781 186,810 203C873 241,913 283,945 346C958 372,965 392,973 426C974 430,976 439,977 448C979 457,980 464,981 464C982 464,987 465,994 465C1036 468,1059 471,1094 479C1110 482,1110 482,1110 471C1110 442,1102 397,1091 361C1047 217,940 108,795 57C735 36,661 28,595 36M269 508C218 511,179 522,93 559C37 582,31 585,32 589C32 597,70 675,76 679C79 681,92 675,156 648C241 610,312 603,395 623C411 627,447 640,468 650C480 655,509 665,520 668C523 668,530 670,536 672C612 692,686 691,771 668C784 664,805 656,832 646C874 629,891 623,919 618C966 609,1018 611,1065 623C1094 630,1101 633,1163 660C1212 681,1210 681,1213 679C1215 678,1227 657,1234 643C1252 604,1258 590,1257 587C1257 585,1249 581,1236 575C1214 566,1158 543,1150 540C1145 538,1139 535,1138 535C1125 529,1086 518,1068 514C996 500,920 504,850 526C834 531,820 536,798 545C737 569,694 579,646 579C631 579,600 576,590 574C588 574,583 573,581 572C562 570,528 559,485 542C443 526,409 516,380 511C374 511,369 510,368 510C358 506,299 505,269 508M274 708C242 710,201 719,168 731C151 738,148 739,142 742C129 747,125 749,125 750C125 752,130 759,140 770C144 774,149 780,152 784C159 792,193 826,197 829L201 832 211 829C257 813,316 810,366 819C393 824,419 832,452 845C582 899,698 901,822 852C825 851,830 849,832 848C835 847,842 844,848 842C925 810,1006 805,1078 828C1090 832,1089 832,1096 825C1111 812,1164 754,1164 751C1164 748,1158 745,1128 734C1057 706,978 700,902 715C873 720,835 732,802 745C706 784,632 790,544 765C536 763,483 743,472 739C458 733,428 724,408 719C400 717,392 715,388 714C362 708,312 705,274 708" fill="currentColor" fill-rule="evenodd"/></svg><span class="logo_text">{{ module.global.header.logoText|escape_html }}</span></a>
+<ul class="language-switch_list" role="list">
+<li><span class="language-switch_link is-current" aria-current="true">{{ module.global.header.languageCurrent|escape_html }}</span></li>
+<li><a class="language-switch_link" href="{{ module.links.alternate|escape_attr }}" hreflang="{{ module.links.alternateLang|escape_attr }}"><span aria-hidden="true">{{ module.global.header.languageOther|escape_html }}</span><span class="visually-hidden">{{ module.global.header.languageOtherLabel|escape_html }}</span></a></li>
+</ul>
+</div>
+<div class="hero_content">
+<h1>{{ module.heading|escape_html|replace("EB-5", '<span class="text-style-nowrap">EB-5</span>') }}</h1>
+{% if module.details %}<div class="hero_details">
+{% for detail in module.details %}<p class="text-size-large">{{ detail.text|escape_html }}</p>
+{% endfor %}
+</div>{% endif %}
+<div class="hero_time-block">
+<time class="hero_time-day" datetime="{{ module.timeBlock.date|escape_attr }}"><span class="text-style-display-medium text-weight-medium">{{ module.timeBlock.day|escape_html }}</span><span class="text-style-eyebrow">{{ module.timeBlock.month|escape_html }}</span></time>
+<ul class="hero_time-list" role="list">
+{% for row in module.timeBlock.rows %}<li class="hero_time-row text-size-large">{% if row.datetime %}<time class="hero_time-hour" datetime="{{ row.datetime|escape_attr }}">{{ row.time|escape_html }}</time>{% else %}<span class="hero_time-hour">{{ row.time|escape_html }}</span>{% endif %}<span>{{ row.place|escape_html }}</span></li>
+{% endfor %}
+</ul>
+</div>
+{% if module.bodyText %}<p class="text-size-large text-color-secondary">{{ module.bodyText|escape_html }}</p>{% endif %}
+{% if module.showCalendar %}<div class="hero_actions"><a class="button" href="data:text/calendar;charset=utf-8,{{ ('BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Litora//EB-5 webinar//EN\r\nBEGIN:VEVENT\r\nUID:' ~ module.calendar.startUtc ~ '@litora\r\nDTSTAMP:20261002T000000Z\r\nDTSTART:' ~ module.calendar.startUtc ~ '\r\nDTEND:' ~ module.calendar.endUtc ~ '\r\nSUMMARY:' ~ module.calendar.title ~ '\r\nDESCRIPTION:' ~ module.calendar.description ~ '\r\nEND:VEVENT\r\nEND:VCALENDAR\r\n')|urlencode }}" download="{{ module.calendar.fileName|escape_attr }}"><span class="button_text-wrap"><span class="button_text">{{ module.calendar.buttonLabel|escape_html }}</span><span class="button_text is-clone" aria-hidden="true">{{ module.calendar.buttonLabel|escape_html }}</span></span></a></div>{% endif %}
+</div>
+</div>
+</div>
+</section>

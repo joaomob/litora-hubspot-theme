@@ -1,0 +1,71 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Litora webinar thank you (Portuguese)
+  screenshotPath: ../images/template-previews/webinar-thank-you-pt-br.jpg
+-->
+{% extends "./layouts/base.html" %}
+{% block skip_link %}Ir para o conteúdo{% endblock skip_link %}
+{% block header %}
+{% module "site_header" path="../modules/site-header",
+  label="Fixed header with language switch and button",
+  ctaLabel="",
+  ctaTarget="",
+  links={"self":"/webinar-visto-eb5/obrigado","alternate":"/en/eb5-visa-webinar/thank-you","alternateLang":"en-US","privacy":"/privacidade"},
+  global={"skipLink":"Ir para o conteúdo","header":{"logoText":"Litora","languageCurrent":"PT","languageOther":"EN","languageOtherLabel":"Ver esta página em inglês"},"footer":{"logoText":"Litora","about":"A Litora estrutura projetos imobiliários nos EUA para investidores brasileiros pelo EB-5.","legalNoticeTitle":"Aviso legal.","legalNotice":"Esta página tem fim informativo e não é oferta de venda nem pedido de oferta de compra de valores mobiliários. Qualquer oferta seria feita só por memorando de oferta, e a Litora só apresenta esse memorando a investidores qualificados. Investir num projeto do EB-5 tem risco, inclusive o de perder o capital. Aprovação, prazo e green card dependem das autoridades de imigração dos EUA, e nenhum resultado é garantido. Antes de decidir, consulte um advogado de imigração e um contador. Os valores do programa são de outubro de 2026, com fonte no USCIS e na lei americana (8 U.S.C. 1153), e mudam com a inflação para pedidos feitos a partir de 1º de janeiro de 2027.","privacyLabel":"Política de privacidade","languageLinkLabel":"English"}}
+%}
+{% endblock header %}
+{% block body %}
+{% dnd_area "main" label="Page sections" %}
+  {% dnd_section full_width=true %}
+    {% dnd_module path="../modules/confirmation-hero",
+      label="Confirmation hero with photo and schedule",
+      heading="Sua inscrição no webinar está confirmada",
+      details=[{"text":"Quinta-feira, 12 de novembro de 2026, às 20h de Brasília, no Zoom."}],
+      bodyText="",
+      timeBlock={"date":"2026-11-12","day":"12","month":"nov","rows":[{"time":"20h","datetime":"2026-11-12T20:00-03:00","place":"São Paulo"},{"time":"18h","datetime":"2026-11-12T18:00-05:00","place":"Nova York"}]},
+      calendar={"buttonLabel":"Adicionar ao calendário","fileName":"litora-eb5-webinar.ics","title":"Webinar sobre o visto EB-5 · Litora","description":"O link da sala chega por e-mail 24 horas antes.","startUtc":"20261112T230000Z","endUtc":"20261113T001500Z"},
+      image={"src":"https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/hero/hero-wide-1920.webp","alt":"Prédio residencial branco, com varandas de vidro em todos os andares, visto da água no fim da tarde, com palmeiras na orla e duas lanchas no píer","width":1920,"height":1200,"loading":"lazy"},
+      imageTall={"src":"https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/hero/hero-tall-1534.webp","alt":"Prédio residencial branco, com varandas de vidro em todos os andares, visto da água no fim da tarde, com palmeiras na orla e duas lanchas no píer","width":1534,"height":1227,"loading":"lazy"},
+      showCalendar=true,
+      links={"self":"/webinar-visto-eb5/obrigado","alternate":"/en/eb5-visa-webinar/thank-you","alternateLang":"en-US","privacy":"/privacidade"},
+      global={"skipLink":"Ir para o conteúdo","header":{"logoText":"Litora","languageCurrent":"PT","languageOther":"EN","languageOtherLabel":"Ver esta página em inglês"},"footer":{"logoText":"Litora","about":"A Litora estrutura projetos imobiliários nos EUA para investidores brasileiros pelo EB-5.","legalNoticeTitle":"Aviso legal.","legalNotice":"Esta página tem fim informativo e não é oferta de venda nem pedido de oferta de compra de valores mobiliários. Qualquer oferta seria feita só por memorando de oferta, e a Litora só apresenta esse memorando a investidores qualificados. Investir num projeto do EB-5 tem risco, inclusive o de perder o capital. Aprovação, prazo e green card dependem das autoridades de imigração dos EUA, e nenhum resultado é garantido. Antes de decidir, consulte um advogado de imigração e um contador. Os valores do programa são de outubro de 2026, com fonte no USCIS e na lei americana (8 U.S.C. 1153), e mudam com a inflação para pedidos feitos a partir de 1º de janeiro de 2027.","privacyLabel":"Política de privacidade","languageLinkLabel":"English"}}
+    %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+  {% dnd_section full_width=true %}
+    {% dnd_module path="../modules/steps-list",
+      label="Numbered steps list",
+      heading="O que acontece agora",
+      intro="",
+      items=[{"text":"Um e-mail de confirmação chega agora no endereço que você informou. Se ele não aparecer em alguns minutos, procure na pasta de spam."},{"text":"No dia 11 de novembro, às 20h de Brasília, mandamos o link da sala no Zoom."},{"text":"No dia 12, a sala abre às 20h. Os últimos minutos ficam para as perguntas."},{"text":"Depois do webinar, a equipe da Litora fala com você pelo WhatsApp que você informou."}],
+      background="primary",
+      links={"self":"/webinar-visto-eb5/obrigado","alternate":"/en/eb5-visa-webinar/thank-you","alternateLang":"en-US","privacy":"/privacidade"},
+      global={"skipLink":"Ir para o conteúdo","header":{"logoText":"Litora","languageCurrent":"PT","languageOther":"EN","languageOtherLabel":"Ver esta página em inglês"},"footer":{"logoText":"Litora","about":"A Litora estrutura projetos imobiliários nos EUA para investidores brasileiros pelo EB-5.","legalNoticeTitle":"Aviso legal.","legalNotice":"Esta página tem fim informativo e não é oferta de venda nem pedido de oferta de compra de valores mobiliários. Qualquer oferta seria feita só por memorando de oferta, e a Litora só apresenta esse memorando a investidores qualificados. Investir num projeto do EB-5 tem risco, inclusive o de perder o capital. Aprovação, prazo e green card dependem das autoridades de imigração dos EUA, e nenhum resultado é garantido. Antes de decidir, consulte um advogado de imigração e um contador. Os valores do programa são de outubro de 2026, com fonte no USCIS e na lei americana (8 U.S.C. 1153), e mudam com a inflação para pedidos feitos a partir de 1º de janeiro de 2027.","privacyLabel":"Política de privacidade","languageLinkLabel":"English"}}
+    %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+  {% dnd_section full_width=true %}
+    {% dnd_module path="../modules/steps-list",
+      label="Numbered steps list",
+      heading="Prepare suas perguntas",
+      intro="Vale levar estas quatro para a sala.",
+      items=[{"text":"Que documentos provam a origem do meu dinheiro?"},{"text":"Em que parte do projeto o meu investimento entra, e o que acontece se a obra atrasar?"},{"text":"Quando e em que condições o capital volta?"},{"text":"Quanto vou pagar além do valor investido, entre taxas do USCIS e honorários?"}],
+      background="secondary",
+      links={"self":"/webinar-visto-eb5/obrigado","alternate":"/en/eb5-visa-webinar/thank-you","alternateLang":"en-US","privacy":"/privacidade"},
+      global={"skipLink":"Ir para o conteúdo","header":{"logoText":"Litora","languageCurrent":"PT","languageOther":"EN","languageOtherLabel":"Ver esta página em inglês"},"footer":{"logoText":"Litora","about":"A Litora estrutura projetos imobiliários nos EUA para investidores brasileiros pelo EB-5.","legalNoticeTitle":"Aviso legal.","legalNotice":"Esta página tem fim informativo e não é oferta de venda nem pedido de oferta de compra de valores mobiliários. Qualquer oferta seria feita só por memorando de oferta, e a Litora só apresenta esse memorando a investidores qualificados. Investir num projeto do EB-5 tem risco, inclusive o de perder o capital. Aprovação, prazo e green card dependem das autoridades de imigração dos EUA, e nenhum resultado é garantido. Antes de decidir, consulte um advogado de imigração e um contador. Os valores do programa são de outubro de 2026, com fonte no USCIS e na lei americana (8 U.S.C. 1153), e mudam com a inflação para pedidos feitos a partir de 1º de janeiro de 2027.","privacyLabel":"Política de privacidade","languageLinkLabel":"English"}}
+    %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+{% end_dnd_area %}
+{% endblock body %}
+{% block footer %}
+{% module "site_footer" path="../modules/site-footer",
+  label="Footer with legal notice and links",
+  fictionalNotice="Litora é uma marca fictícia, criada para um portfólio de design. Esta página não é oferta de venda de valores mobiliários. O empreendimento Tavessa e os palestrantes também são fictícios.",
+  background="primary",
+  links={"self":"/webinar-visto-eb5/obrigado","alternate":"/en/eb5-visa-webinar/thank-you","alternateLang":"en-US","privacy":"/privacidade"},
+  global={"skipLink":"Ir para o conteúdo","header":{"logoText":"Litora","languageCurrent":"PT","languageOther":"EN","languageOtherLabel":"Ver esta página em inglês"},"footer":{"logoText":"Litora","about":"A Litora estrutura projetos imobiliários nos EUA para investidores brasileiros pelo EB-5.","legalNoticeTitle":"Aviso legal.","legalNotice":"Esta página tem fim informativo e não é oferta de venda nem pedido de oferta de compra de valores mobiliários. Qualquer oferta seria feita só por memorando de oferta, e a Litora só apresenta esse memorando a investidores qualificados. Investir num projeto do EB-5 tem risco, inclusive o de perder o capital. Aprovação, prazo e green card dependem das autoridades de imigração dos EUA, e nenhum resultado é garantido. Antes de decidir, consulte um advogado de imigração e um contador. Os valores do programa são de outubro de 2026, com fonte no USCIS e na lei americana (8 U.S.C. 1153), e mudam com a inflação para pedidos feitos a partir de 1º de janeiro de 2027.","privacyLabel":"Política de privacidade","languageLinkLabel":"English"}}
+%}
+{% endblock footer %}
+{% block scripts %}{% endblock scripts %}

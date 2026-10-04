@@ -1,0 +1,4 @@
+node_modules/
+.hs/
+hubspot.config.yml
+*.log

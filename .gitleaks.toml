@@ -1,0 +1,6 @@
+[extend]
+useDefault = true
+
+[allowlist]
+description = "HubSpot form ids: public by design, every published HubSpot form carries them"
+regexes = ['''4c3db844-aa48-49c3-b045-830e43b1b1da''', '''1fef69a8-b922-47ee-8063-023076c04d42''']

@@ -1,0 +1,11 @@
+{% set bg_classes = {"primary":"background-color-primary","secondary":"background-color-secondary","inverse":"theme-inverse"} %}
+<section class="section_statement-reveal {{ bg_classes[module.background] }}">
+<div class="padding-global padding-section-large">
+<div class="container-small">
+<div class="statement-reveal_component">
+<p class="text-style-eyebrow text-color-secondary">{{ module.labelText|escape_html }}</p>
+<p class="heading-style-h2 text-style-statement" data-statement>{{ module.text|escape_html }}</p>
+</div>
+</div>
+</div>
+</section>

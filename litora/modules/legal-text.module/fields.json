@@ -1,0 +1,231 @@
+[
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "default": "Política de privacidade"
+  },
+  {
+    "name": "updated",
+    "label": "Updated",
+    "type": "text",
+    "default": "Atualizada em 2 de outubro de 2026."
+  },
+  {
+    "name": "paragraphs",
+    "label": "Paragraphs",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 20,
+      "default": 6,
+      "sorting_label_field": "paragraphs.text"
+    },
+    "children": [
+      {
+        "name": "text",
+        "label": "Text",
+        "type": "text",
+        "default": "Litora é uma marca fictícia, criada para um portfólio de design. Esta política descreve como a Litora trataria os dados enviados pelos formulários do webinar e do evento."
+      }
+    ],
+    "default": [
+      {
+        "text": "Litora é uma marca fictícia, criada para um portfólio de design. Esta política descreve como a Litora trataria os dados enviados pelos formulários do webinar e do evento."
+      },
+      {
+        "text": "Os dados são os que você informa no formulário: nome, sobrenome, e-mail, WhatsApp, cidade, país onde mora e, no evento, o período preferido. Junto vão a confirmação de que você sabe do investimento mínimo, a sua autorização e o endereço da página."
+      },
+      {
+        "text": "A Litora usaria esses dados para enviar o link e os avisos do webinar, confirmar o horário do evento e falar com você sobre o EB-5. A base é o seu consentimento, conforme a Lei Geral de Proteção de Dados Pessoais (LGPD, Lei 13.709/2018)."
+      },
+      {
+        "text": "Os dados ficariam no CRM da HubSpot, a ferramenta que recebe os formulários. A HubSpot trataria os dados como operadora, em nome da Litora e só para os fins acima. Os servidores da HubSpot ficam fora do Brasil."
+      },
+      {
+        "text": "Você pode pedir a confirmação, o acesso, a correção ou a exclusão dos seus dados e retirar o consentimento quando quiser."
+      },
+      {
+        "text": "Como a Litora é fictícia, não existe um canal para esses pedidos."
+      }
+    ]
+  },
+  {
+    "name": "background",
+    "label": "Section colour",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "primary",
+        "Light"
+      ],
+      [
+        "secondary",
+        "Light alternate"
+      ],
+      [
+        "inverse",
+        "Dark"
+      ]
+    ],
+    "default": "primary",
+    "inline_help_text": "Colours come from the theme settings.",
+    "tab": "STYLE"
+  },
+  {
+    "name": "links",
+    "label": "Links",
+    "type": "group",
+    "children": [
+      {
+        "name": "self",
+        "label": "Self",
+        "type": "text",
+        "default": "/privacidade"
+      },
+      {
+        "name": "alternate",
+        "label": "Alternate",
+        "type": "text",
+        "default": "/en/privacy"
+      },
+      {
+        "name": "alternateLang",
+        "label": "Alternate Lang",
+        "type": "text",
+        "default": "en-US"
+      },
+      {
+        "name": "privacy",
+        "label": "Privacy",
+        "type": "text",
+        "default": "/privacidade"
+      }
+    ],
+    "default": {
+      "self": "/privacidade",
+      "alternate": "/en/privacy",
+      "alternateLang": "en-US",
+      "privacy": "/privacidade"
+    }
+  },
+  {
+    "name": "global",
+    "label": "Global",
+    "type": "group",
+    "children": [
+      {
+        "name": "skipLink",
+        "label": "Skip Link",
+        "type": "text",
+        "default": "Ir para o conteúdo"
+      },
+      {
+        "name": "header",
+        "label": "Header",
+        "type": "group",
+        "children": [
+          {
+            "name": "logoText",
+            "label": "Logo Text",
+            "type": "text",
+            "default": "Litora"
+          },
+          {
+            "name": "languageCurrent",
+            "label": "Language Current",
+            "type": "text",
+            "default": "PT"
+          },
+          {
+            "name": "languageOther",
+            "label": "Language Other",
+            "type": "text",
+            "default": "EN"
+          },
+          {
+            "name": "languageOtherLabel",
+            "label": "Language Other Label",
+            "type": "text",
+            "default": "Ver esta página em inglês"
+          }
+        ],
+        "default": {
+          "logoText": "Litora",
+          "languageCurrent": "PT",
+          "languageOther": "EN",
+          "languageOtherLabel": "Ver esta página em inglês"
+        }
+      },
+      {
+        "name": "footer",
+        "label": "Footer",
+        "type": "group",
+        "children": [
+          {
+            "name": "logoText",
+            "label": "Logo Text",
+            "type": "text",
+            "default": "Litora"
+          },
+          {
+            "name": "about",
+            "label": "About",
+            "type": "text",
+            "default": "A Litora estrutura projetos imobiliários nos EUA para investidores brasileiros pelo EB-5."
+          },
+          {
+            "name": "legalNoticeTitle",
+            "label": "Legal Notice Title",
+            "type": "text",
+            "default": "Aviso legal."
+          },
+          {
+            "name": "legalNotice",
+            "label": "Legal Notice",
+            "type": "text",
+            "default": "Esta página tem fim informativo e não é oferta de venda nem pedido de oferta de compra de valores mobiliários. Qualquer oferta seria feita só por memorando de oferta, e a Litora só apresenta esse memorando a investidores qualificados. Investir num projeto do EB-5 tem risco, inclusive o de perder o capital. Aprovação, prazo e green card dependem das autoridades de imigração dos EUA, e nenhum resultado é garantido. Antes de decidir, consulte um advogado de imigração e um contador. Os valores do programa são de outubro de 2026, com fonte no USCIS e na lei americana (8 U.S.C. 1153), e mudam com a inflação para pedidos feitos a partir de 1º de janeiro de 2027."
+          },
+          {
+            "name": "privacyLabel",
+            "label": "Privacy Label",
+            "type": "text",
+            "default": "Política de privacidade"
+          },
+          {
+            "name": "languageLinkLabel",
+            "label": "Language Link Label",
+            "type": "text",
+            "default": "English"
+          }
+        ],
+        "default": {
+          "logoText": "Litora",
+          "about": "A Litora estrutura projetos imobiliários nos EUA para investidores brasileiros pelo EB-5.",
+          "legalNoticeTitle": "Aviso legal.",
+          "legalNotice": "Esta página tem fim informativo e não é oferta de venda nem pedido de oferta de compra de valores mobiliários. Qualquer oferta seria feita só por memorando de oferta, e a Litora só apresenta esse memorando a investidores qualificados. Investir num projeto do EB-5 tem risco, inclusive o de perder o capital. Aprovação, prazo e green card dependem das autoridades de imigração dos EUA, e nenhum resultado é garantido. Antes de decidir, consulte um advogado de imigração e um contador. Os valores do programa são de outubro de 2026, com fonte no USCIS e na lei americana (8 U.S.C. 1153), e mudam com a inflação para pedidos feitos a partir de 1º de janeiro de 2027.",
+          "privacyLabel": "Política de privacidade",
+          "languageLinkLabel": "English"
+        }
+      }
+    ],
+    "default": {
+      "skipLink": "Ir para o conteúdo",
+      "header": {
+        "logoText": "Litora",
+        "languageCurrent": "PT",
+        "languageOther": "EN",
+        "languageOtherLabel": "Ver esta página em inglês"
+      },
+      "footer": {
+        "logoText": "Litora",
+        "about": "A Litora estrutura projetos imobiliários nos EUA para investidores brasileiros pelo EB-5.",
+        "legalNoticeTitle": "Aviso legal.",
+        "legalNotice": "Esta página tem fim informativo e não é oferta de venda nem pedido de oferta de compra de valores mobiliários. Qualquer oferta seria feita só por memorando de oferta, e a Litora só apresenta esse memorando a investidores qualificados. Investir num projeto do EB-5 tem risco, inclusive o de perder o capital. Aprovação, prazo e green card dependem das autoridades de imigração dos EUA, e nenhum resultado é garantido. Antes de decidir, consulte um advogado de imigração e um contador. Os valores do programa são de outubro de 2026, com fonte no USCIS e na lei americana (8 U.S.C. 1153), e mudam com a inflação para pedidos feitos a partir de 1º de janeiro de 2027.",
+        "privacyLabel": "Política de privacidade",
+        "languageLinkLabel": "English"
+      }
+    }
+  }
+]

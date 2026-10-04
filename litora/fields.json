@@ -1,0 +1,142 @@
+[
+  {
+    "label": "Brand colours",
+    "name": "brand_colors",
+    "type": "group",
+    "inline_help_text": "The colours of the Litora brand. Text contrast passes WCAG AA with these values; check it again after a change.",
+    "children": [
+      {
+        "label": "Palm darkest",
+        "name": "palm_darkest",
+        "type": "color",
+        "default": {
+          "color": "#0d271e",
+          "opacity": 100
+        }
+      },
+      {
+        "label": "Palm darker",
+        "name": "palm_darker",
+        "type": "color",
+        "default": {
+          "color": "#14382b",
+          "opacity": 100
+        }
+      },
+      {
+        "label": "Palm",
+        "name": "palm",
+        "type": "color",
+        "alternate_names": [
+          "primary_color"
+        ],
+        "default": {
+          "color": "#1c6146",
+          "opacity": 100
+        }
+      },
+      {
+        "label": "Coral",
+        "name": "coral",
+        "type": "color",
+        "default": {
+          "color": "#ff7a66",
+          "opacity": 100
+        }
+      },
+      {
+        "label": "Coral light",
+        "name": "coral_light",
+        "type": "color",
+        "default": {
+          "color": "#ff8f7d",
+          "opacity": 100
+        }
+      },
+      {
+        "label": "Sun",
+        "name": "sun",
+        "type": "color",
+        "alternate_names": [
+          "secondary_color"
+        ],
+        "default": {
+          "color": "#f6c23f",
+          "opacity": 100
+        }
+      },
+      {
+        "label": "Sun light",
+        "name": "sun_light",
+        "type": "color",
+        "default": {
+          "color": "#f9cc63",
+          "opacity": 100
+        }
+      },
+      {
+        "label": "Cream",
+        "name": "cream",
+        "type": "color",
+        "default": {
+          "color": "#fbf5e9",
+          "opacity": 100
+        }
+      },
+      {
+        "label": "Cream dark",
+        "name": "cream_dark",
+        "type": "color",
+        "default": {
+          "color": "#f1e8d5",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "label": "Fonts",
+    "name": "fonts",
+    "type": "group",
+    "children": [
+      {
+        "label": "Heading font",
+        "name": "heading_font",
+        "type": "font",
+        "load_external_fonts": false,
+        "inline_help_text": "Titles. The theme carries Jost 300, 400 and 500; another font needs its files in the theme.",
+        "visibility": {
+          "hidden_subfields": {
+            "size": true,
+            "color": true,
+            "styles": true
+          }
+        },
+        "default": {
+          "font": "Jost",
+          "font_set": "GOOGLE",
+          "fallback": "sans-serif"
+        }
+      },
+      {
+        "label": "Body font",
+        "name": "body_font",
+        "type": "font",
+        "load_external_fonts": false,
+        "inline_help_text": "Text. The theme carries Nunito Sans 400, 500 and 600; another font needs its files in the theme.",
+        "visibility": {
+          "hidden_subfields": {
+            "size": true,
+            "color": true,
+            "styles": true
+          }
+        },
+        "default": {
+          "font": "Nunito Sans",
+          "font_set": "GOOGLE",
+          "fallback": "sans-serif"
+        }
+      }
+    ]
+  }
+]

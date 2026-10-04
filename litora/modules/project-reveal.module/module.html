@@ -1,0 +1,30 @@
+{% set bg_classes = {"primary":"background-color-primary","secondary":"background-color-secondary","inverse":"theme-inverse"} %}
+<section class="section_project-reveal {{ bg_classes[module.background] }}">
+<div class="padding-global padding-section-large">
+<div class="container-large">
+<div class="project-reveal_header">
+<div class="project-reveal_intro" data-reveal>
+<p class="text-style-eyebrow text-color-secondary">{{ module.labelText|escape_html }}</p>
+<p class="text-size-large">{{ module.text|escape_html }}</p>
+</div>
+<div class="project-reveal_action" data-reveal><a class="button is-secondary" href="{{ module.buttonTarget|escape_attr }}"><span class="button_text-wrap"><span class="button_text">{{ module.buttonLabel|escape_html }}</span><span class="button_text is-clone" aria-hidden="true">{{ module.buttonLabel|escape_html }}</span></span></a></div>
+</div>
+<div class="project-reveal_track" id="project" data-project-track>
+<figure class="project-reveal_figure" data-project-figure>
+<div class="project-reveal_frame">
+<div class="project-reveal_ring" aria-hidden="true" data-project-ring></div>
+<div class="project-reveal_media" data-project-media>
+<picture>
+<source media="(max-width: 479px)" srcset="{% if '/litora/images/' in module.imageTall.src %}/hubfs/{{ (module.imageTall.src|split('/hubfs/' ~ hub_id ~ '/'))|last|replace('-864.', '-480.') }} 480w, /hubfs/{{ (module.imageTall.src|split('/hubfs/' ~ hub_id ~ '/'))|last|replace('-864.', '-864.') }} 864w{% else %}/hs-fs/hubfs/{{ (module.imageTall.src|split('/hubfs/' ~ hub_id ~ '/'))|last }}?width=480 480w, /hs-fs/hubfs/{{ (module.imageTall.src|split('/hubfs/' ~ hub_id ~ '/'))|last }}?width=864 864w{% endif %}" sizes="100vw" width="{{ module.imageTall.width }}" height="{{ module.imageTall.height }}">
+<img class="project-reveal_image" src="{{ resize_image_url(module.image.src, 1280) }}" srcset="{% if '/litora/images/' in module.image.src %}/hubfs/{{ (module.image.src|split('/hubfs/' ~ hub_id ~ '/'))|last|replace('-1920.', '-960.') }} 960w, /hubfs/{{ (module.image.src|split('/hubfs/' ~ hub_id ~ '/'))|last|replace('-1920.', '-1280.') }} 1280w, /hubfs/{{ (module.image.src|split('/hubfs/' ~ hub_id ~ '/'))|last|replace('-1920.', '-1920.') }} 1920w{% else %}/hs-fs/hubfs/{{ (module.image.src|split('/hubfs/' ~ hub_id ~ '/'))|last }}?width=960 960w, /hs-fs/hubfs/{{ (module.image.src|split('/hubfs/' ~ hub_id ~ '/'))|last }}?width=1280 1280w, /hs-fs/hubfs/{{ (module.image.src|split('/hubfs/' ~ hub_id ~ '/'))|last }}?width=1920 1920w{% endif %}" sizes="(min-width: 1440px) 80rem, 100vw" width="{{ module.image.width }}" height="{{ module.image.height }}" alt="{{ module.image.alt|escape_attr }}" loading="lazy" decoding="async">
+</picture>
+<div class="project-reveal_veil" aria-hidden="true"></div>
+</div>
+<h2 class="project-reveal_title"><span class="visually-hidden">{{ module.nameText|escape_html|replace("EB-5", '<span class="text-style-nowrap">EB-5</span>') }}</span><span class="project-reveal_word text-style-display-large" aria-hidden="true" data-project-word>{{ module.word|escape_html|replace("EB-5", '<span class="text-style-nowrap">EB-5</span>') }}</span></h2>
+</div>
+<figcaption class="project-reveal_caption text-size-small text-color-secondary">{{ module.caption|escape_html }}</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>

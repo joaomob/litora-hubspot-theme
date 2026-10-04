@@ -1,0 +1,35 @@
+{% set bg_classes = {"primary":"background-color-primary","secondary":"background-color-secondary","inverse":"theme-inverse"} %}
+<section class="section_stat-row {{ bg_classes[module.background] }}" id="numbers" data-nav-theme="inverse">
+<div class="padding-global padding-section-medium">
+<div class="container-large">
+<div class="section-header_component" data-reveal>
+<h2>{{ module.heading|escape_html|replace("EB-5", '<span class="text-style-nowrap">EB-5</span>') }}</h2>
+</div>
+<div class="stat-ruler_component" data-ruler>
+<span class="stat-ruler_line" aria-hidden="true" data-ruler-line></span>
+<span class="stat-ruler_ticks" aria-hidden="true" data-ruler-ticks></span>
+<ul class="stat-ruler_list" role="list">
+{% for item in module.items %}<li class="stat-ruler_item">
+<span class="stat-ruler_mark" aria-hidden="true"></span>
+<p class="stat-ruler_value text-style-display-medium" data-reveal>{{ item.value|escape_html }}</p>
+<p class="stat-ruler_caption text-color-secondary" data-reveal>{{ item.caption|escape_html }}</p>
+</li>
+{% endfor %}
+</ul>
+</div>
+<p class="stat-row_source text-size-small text-color-secondary">{{ module.source|escape_html }}</p>
+<div class="stat-row_cost" data-reveal>
+<h3>{{ module.cost.heading|escape_html|replace("EB-5", '<span class="text-style-nowrap">EB-5</span>') }}</h3>
+<dl class="cost-list_component">
+{% for row in module.cost.rows %}<div class="cost-list_row">
+<dt class="cost-list_label">{{ row.labelText|escape_html }}</dt>
+{% for cell in row.values %}<dd class="cost-list_value"><span class="text-weight-semibold">{{ cell.amount|escape_html }}</span>{% if cell.when %}<span class="text-color-secondary">{{ cell.when|escape_html }}</span>{% endif %}</dd>
+{% endfor %}
+</div>
+{% endfor %}
+</dl>
+<p class="text-size-small text-color-secondary">{{ module.cost.note|escape_html }}</p>
+</div>
+</div>
+</div>
+</section>

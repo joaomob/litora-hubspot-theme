@@ -1,0 +1,706 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "default": "Online e gratuito"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "default": "Webinar ao vivo sobre o visto EB-5 para brasileiros"
+  },
+  {
+    "name": "details",
+    "label": "Details",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 20,
+      "default": 2,
+      "sorting_label_field": "details.text"
+    },
+    "children": [
+      {
+        "name": "text",
+        "label": "Text",
+        "type": "text",
+        "default": "Quinta-feira, 12 de novembro de 2026, às 20h de Brasília."
+      }
+    ],
+    "default": [
+      {
+        "text": "Quinta-feira, 12 de novembro de 2026, às 20h de Brasília."
+      },
+      {
+        "text": "75 minutos no Zoom."
+      }
+    ]
+  },
+  {
+    "name": "timeBlock",
+    "label": "Time Block",
+    "type": "group",
+    "children": [
+      {
+        "name": "date",
+        "label": "Date",
+        "type": "text",
+        "default": "2026-11-12"
+      },
+      {
+        "name": "day",
+        "label": "Day",
+        "type": "text",
+        "default": "12"
+      },
+      {
+        "name": "month",
+        "label": "Month",
+        "type": "text",
+        "default": "nov"
+      },
+      {
+        "name": "rows",
+        "label": "Rows",
+        "type": "group",
+        "occurrence": {
+          "min": 0,
+          "max": 20,
+          "default": 2
+        },
+        "children": [
+          {
+            "name": "time",
+            "label": "Time",
+            "type": "text",
+            "default": "20h"
+          },
+          {
+            "name": "datetime",
+            "label": "Datetime",
+            "type": "text",
+            "default": "2026-11-12T20:00-03:00"
+          },
+          {
+            "name": "place",
+            "label": "Place",
+            "type": "text",
+            "default": "São Paulo"
+          }
+        ],
+        "default": [
+          {
+            "time": "20h",
+            "datetime": "2026-11-12T20:00-03:00",
+            "place": "São Paulo"
+          },
+          {
+            "time": "18h",
+            "datetime": "2026-11-12T18:00-05:00",
+            "place": "Nova York"
+          }
+        ]
+      }
+    ],
+    "default": {
+      "date": "2026-11-12",
+      "day": "12",
+      "month": "nov",
+      "rows": [
+        {
+          "time": "20h",
+          "datetime": "2026-11-12T20:00-03:00",
+          "place": "São Paulo"
+        },
+        {
+          "time": "18h",
+          "datetime": "2026-11-12T18:00-05:00",
+          "place": "Nova York"
+        }
+      ]
+    }
+  },
+  {
+    "name": "bodyText",
+    "label": "Body Text",
+    "type": "text",
+    "default": "O visto EB-5 para brasileiros é o caminho até o green card para quem investe pelo menos 800 mil dólares num negócio nos EUA. No webinar, a Dra. Helena Prado, advogada de imigração nos EUA, e Rafael Moura, da Litora, mostram para onde o dinheiro vai e quando ele pode voltar, e respondem às perguntas no fim."
+  },
+  {
+    "name": "image",
+    "label": "Image",
+    "type": "image",
+    "responsive": true,
+    "resizable": false,
+    "show_loading": false,
+    "default": {
+      "src": "https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/hero/hero-wide-1920.webp",
+      "alt": "Prédio residencial branco, com varandas de vidro em todos os andares, visto da água no fim da tarde, com palmeiras na orla e duas lanchas no píer",
+      "width": 1920,
+      "height": 1200,
+      "loading": "lazy"
+    },
+    "inline_help_text": ""
+  },
+  {
+    "name": "form",
+    "label": "Form",
+    "type": "group",
+    "children": [
+      {
+        "name": "anchorId",
+        "label": "Anchor Id",
+        "type": "text",
+        "default": "register"
+      },
+      {
+        "name": "heading",
+        "label": "Heading",
+        "type": "text",
+        "default": "Faça sua inscrição"
+      },
+      {
+        "name": "hubspotFormGuid",
+        "label": "Hubspot Form Guid",
+        "type": "text",
+        "default": "4c3db844-aa48-49c3-b045-830e43b1b1da"
+      },
+      {
+        "name": "fields",
+        "label": "Fields",
+        "type": "group",
+        "occurrence": {
+          "min": 0,
+          "max": 20,
+          "default": 8,
+          "sorting_label_field": "form.fields.labelText"
+        },
+        "children": [
+          {
+            "name": "propertyName",
+            "label": "Property Name",
+            "type": "text",
+            "default": "firstname"
+          },
+          {
+            "name": "type",
+            "label": "Field type",
+            "type": "choice",
+            "display": "select",
+            "choices": [
+              [
+                "text",
+                "text"
+              ],
+              [
+                "email",
+                "email"
+              ],
+              [
+                "tel",
+                "tel"
+              ],
+              [
+                "radio",
+                "radio"
+              ],
+              [
+                "checkbox",
+                "checkbox"
+              ],
+              [
+                "consent",
+                "consent"
+              ]
+            ],
+            "default": "text"
+          },
+          {
+            "name": "labelText",
+            "label": "Label Text",
+            "type": "text",
+            "default": "Nome"
+          },
+          {
+            "name": "autocomplete",
+            "label": "Autocomplete",
+            "type": "text",
+            "default": "given-name"
+          },
+          {
+            "name": "half",
+            "label": "Half",
+            "type": "boolean",
+            "display": "checkbox",
+            "default": true
+          },
+          {
+            "name": "errors",
+            "label": "Errors",
+            "type": "group",
+            "children": [
+              {
+                "name": "required",
+                "label": "Required",
+                "type": "text",
+                "default": "Escreva seu nome."
+              },
+              {
+                "name": "invalid",
+                "label": "Invalid",
+                "type": "text",
+                "default": ""
+              }
+            ],
+            "default": {
+              "required": "Escreva seu nome."
+            }
+          },
+          {
+            "name": "help",
+            "label": "Help",
+            "type": "text",
+            "default": ""
+          },
+          {
+            "name": "options",
+            "label": "Options",
+            "type": "group",
+            "occurrence": {
+              "min": 0,
+              "max": 20,
+              "default": 0,
+              "sorting_label_field": "form.fields.options.labelText"
+            },
+            "children": [
+              {
+                "name": "value",
+                "label": "Value",
+                "type": "text",
+                "default": ""
+              },
+              {
+                "name": "labelText",
+                "label": "Label Text",
+                "type": "text",
+                "default": ""
+              }
+            ],
+            "default": []
+          },
+          {
+            "name": "linkLabel",
+            "label": "Link Label",
+            "type": "text",
+            "default": ""
+          },
+          {
+            "name": "linkUrl",
+            "label": "Link URL",
+            "type": "text",
+            "default": ""
+          }
+        ],
+        "default": [
+          {
+            "propertyName": "firstname",
+            "type": "text",
+            "labelText": "Nome",
+            "autocomplete": "given-name",
+            "half": true,
+            "errors": {
+              "required": "Escreva seu nome."
+            }
+          },
+          {
+            "propertyName": "lastname",
+            "type": "text",
+            "labelText": "Sobrenome",
+            "autocomplete": "family-name",
+            "half": true,
+            "errors": {
+              "required": "Escreva seu sobrenome."
+            }
+          },
+          {
+            "propertyName": "email",
+            "type": "email",
+            "labelText": "E-mail",
+            "help": "O link da sala chega neste endereço.",
+            "autocomplete": "email",
+            "errors": {
+              "required": "Escreva seu e-mail.",
+              "invalid": "Confira o e-mail. Ele precisa ter @ e um domínio, como gmail.com."
+            }
+          },
+          {
+            "propertyName": "mobilephone",
+            "type": "tel",
+            "labelText": "WhatsApp",
+            "help": "Com o código do país e o DDD, como +55 11 9XXXX XXXX.",
+            "autocomplete": "tel",
+            "errors": {
+              "required": "Escreva seu WhatsApp.",
+              "invalid": "Confira o número. Ele precisa ter o código do país e o DDD."
+            }
+          },
+          {
+            "propertyName": "city",
+            "type": "text",
+            "labelText": "Cidade",
+            "autocomplete": "address-level2",
+            "errors": {
+              "required": "Escreva sua cidade."
+            }
+          },
+          {
+            "propertyName": "residence",
+            "type": "radio",
+            "labelText": "Onde você mora hoje?",
+            "options": [
+              {
+                "value": "brazil",
+                "labelText": "Brasil"
+              },
+              {
+                "value": "united_states_temporary_visa",
+                "labelText": "EUA, com visto temporário"
+              },
+              {
+                "value": "another_country",
+                "labelText": "Outro país"
+              }
+            ],
+            "errors": {
+              "required": "Escolha uma opção."
+            }
+          },
+          {
+            "propertyName": "eb5_minimum_acknowledged",
+            "type": "checkbox",
+            "labelText": "Sei que o EB-5 pede investimento mínimo de 800 mil dólares.",
+            "errors": {
+              "required": "Para se inscrever, confirme que sabe do investimento mínimo."
+            }
+          },
+          {
+            "propertyName": "lgpd_consent",
+            "type": "consent",
+            "labelText": "Autorizo a Litora a usar meus dados (nome, e-mail, WhatsApp, cidade e país onde moro) para enviar o link e os avisos deste webinar e para falar comigo sobre o EB-5, conforme a Lei Geral de Proteção de Dados Pessoais (LGPD, Lei 13.709/2018). Posso pedir a correção ou a exclusão dos meus dados quando quiser.",
+            "linkLabel": "Política de privacidade",
+            "errors": {
+              "required": "Para se inscrever, marque a autorização de uso dos dados."
+            },
+            "linkUrl": "/privacidade"
+          }
+        ]
+      },
+      {
+        "name": "submitLabel",
+        "label": "Submit Label",
+        "type": "text",
+        "default": "Confirmar inscrição"
+      },
+      {
+        "name": "submitNote",
+        "label": "Submit Note",
+        "type": "text",
+        "default": "Você recebe a confirmação agora e o link da sala 24 horas antes."
+      },
+      {
+        "name": "notice",
+        "label": "Notice",
+        "type": "text",
+        "default": "Litora é uma marca fictícia, criada para um portfólio de design. Esta página não é oferta de venda de valores mobiliários."
+      },
+      {
+        "name": "submitError",
+        "label": "Submit Error",
+        "type": "text",
+        "default": "A inscrição não foi enviada. Confira a sua conexão e tente de novo."
+      },
+      {
+        "name": "redirectUrl",
+        "label": "Redirect URL",
+        "type": "text",
+        "default": "/webinar-visto-eb5/obrigado"
+      }
+    ],
+    "default": {
+      "anchorId": "register",
+      "heading": "Faça sua inscrição",
+      "hubspotFormGuid": "4c3db844-aa48-49c3-b045-830e43b1b1da",
+      "fields": [
+        {
+          "propertyName": "firstname",
+          "type": "text",
+          "labelText": "Nome",
+          "autocomplete": "given-name",
+          "half": true,
+          "errors": {
+            "required": "Escreva seu nome."
+          }
+        },
+        {
+          "propertyName": "lastname",
+          "type": "text",
+          "labelText": "Sobrenome",
+          "autocomplete": "family-name",
+          "half": true,
+          "errors": {
+            "required": "Escreva seu sobrenome."
+          }
+        },
+        {
+          "propertyName": "email",
+          "type": "email",
+          "labelText": "E-mail",
+          "help": "O link da sala chega neste endereço.",
+          "autocomplete": "email",
+          "errors": {
+            "required": "Escreva seu e-mail.",
+            "invalid": "Confira o e-mail. Ele precisa ter @ e um domínio, como gmail.com."
+          }
+        },
+        {
+          "propertyName": "mobilephone",
+          "type": "tel",
+          "labelText": "WhatsApp",
+          "help": "Com o código do país e o DDD, como +55 11 9XXXX XXXX.",
+          "autocomplete": "tel",
+          "errors": {
+            "required": "Escreva seu WhatsApp.",
+            "invalid": "Confira o número. Ele precisa ter o código do país e o DDD."
+          }
+        },
+        {
+          "propertyName": "city",
+          "type": "text",
+          "labelText": "Cidade",
+          "autocomplete": "address-level2",
+          "errors": {
+            "required": "Escreva sua cidade."
+          }
+        },
+        {
+          "propertyName": "residence",
+          "type": "radio",
+          "labelText": "Onde você mora hoje?",
+          "options": [
+            {
+              "value": "brazil",
+              "labelText": "Brasil"
+            },
+            {
+              "value": "united_states_temporary_visa",
+              "labelText": "EUA, com visto temporário"
+            },
+            {
+              "value": "another_country",
+              "labelText": "Outro país"
+            }
+          ],
+          "errors": {
+            "required": "Escolha uma opção."
+          }
+        },
+        {
+          "propertyName": "eb5_minimum_acknowledged",
+          "type": "checkbox",
+          "labelText": "Sei que o EB-5 pede investimento mínimo de 800 mil dólares.",
+          "errors": {
+            "required": "Para se inscrever, confirme que sabe do investimento mínimo."
+          }
+        },
+        {
+          "propertyName": "lgpd_consent",
+          "type": "consent",
+          "labelText": "Autorizo a Litora a usar meus dados (nome, e-mail, WhatsApp, cidade e país onde moro) para enviar o link e os avisos deste webinar e para falar comigo sobre o EB-5, conforme a Lei Geral de Proteção de Dados Pessoais (LGPD, Lei 13.709/2018). Posso pedir a correção ou a exclusão dos meus dados quando quiser.",
+          "linkLabel": "Política de privacidade",
+          "errors": {
+            "required": "Para se inscrever, marque a autorização de uso dos dados."
+          },
+          "linkUrl": "/privacidade"
+        }
+      ],
+      "submitLabel": "Confirmar inscrição",
+      "submitNote": "Você recebe a confirmação agora e o link da sala 24 horas antes.",
+      "notice": "Litora é uma marca fictícia, criada para um portfólio de design. Esta página não é oferta de venda de valores mobiliários.",
+      "submitError": "A inscrição não foi enviada. Confira a sua conexão e tente de novo.",
+      "redirectUrl": "/webinar-visto-eb5/obrigado"
+    }
+  },
+  {
+    "name": "imageTall",
+    "label": "Image, phone crop",
+    "type": "image",
+    "responsive": true,
+    "resizable": false,
+    "show_loading": false,
+    "default": {
+      "src": "https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/hero/hero-tall-1534.webp",
+      "alt": "Prédio residencial branco, com varandas de vidro em todos os andares, visto da água no fim da tarde, com palmeiras na orla e duas lanchas no píer",
+      "width": 1534,
+      "height": 1227,
+      "loading": "lazy"
+    },
+    "inline_help_text": "The crop shown on phones (767 px and narrower)."
+  },
+  {
+    "name": "links",
+    "label": "Links",
+    "type": "group",
+    "children": [
+      {
+        "name": "self",
+        "label": "Self",
+        "type": "text",
+        "default": "/webinar-visto-eb5"
+      },
+      {
+        "name": "alternate",
+        "label": "Alternate",
+        "type": "text",
+        "default": "/en/eb5-visa-webinar"
+      },
+      {
+        "name": "alternateLang",
+        "label": "Alternate Lang",
+        "type": "text",
+        "default": "en-US"
+      },
+      {
+        "name": "privacy",
+        "label": "Privacy",
+        "type": "text",
+        "default": "/privacidade"
+      }
+    ],
+    "default": {
+      "self": "/webinar-visto-eb5",
+      "alternate": "/en/eb5-visa-webinar",
+      "alternateLang": "en-US",
+      "privacy": "/privacidade"
+    }
+  },
+  {
+    "name": "global",
+    "label": "Global",
+    "type": "group",
+    "children": [
+      {
+        "name": "skipLink",
+        "label": "Skip Link",
+        "type": "text",
+        "default": "Ir para o conteúdo"
+      },
+      {
+        "name": "header",
+        "label": "Header",
+        "type": "group",
+        "children": [
+          {
+            "name": "logoText",
+            "label": "Logo Text",
+            "type": "text",
+            "default": "Litora"
+          },
+          {
+            "name": "languageCurrent",
+            "label": "Language Current",
+            "type": "text",
+            "default": "PT"
+          },
+          {
+            "name": "languageOther",
+            "label": "Language Other",
+            "type": "text",
+            "default": "EN"
+          },
+          {
+            "name": "languageOtherLabel",
+            "label": "Language Other Label",
+            "type": "text",
+            "default": "Ver esta página em inglês"
+          }
+        ],
+        "default": {
+          "logoText": "Litora",
+          "languageCurrent": "PT",
+          "languageOther": "EN",
+          "languageOtherLabel": "Ver esta página em inglês"
+        }
+      },
+      {
+        "name": "footer",
+        "label": "Footer",
+        "type": "group",
+        "children": [
+          {
+            "name": "logoText",
+            "label": "Logo Text",
+            "type": "text",
+            "default": "Litora"
+          },
+          {
+            "name": "about",
+            "label": "About",
+            "type": "text",
+            "default": "A Litora estrutura projetos imobiliários nos EUA para investidores brasileiros pelo EB-5."
+          },
+          {
+            "name": "legalNoticeTitle",
+            "label": "Legal Notice Title",
+            "type": "text",
+            "default": "Aviso legal."
+          },
+          {
+            "name": "legalNotice",
+            "label": "Legal Notice",
+            "type": "text",
+            "default": "Esta página tem fim informativo e não é oferta de venda nem pedido de oferta de compra de valores mobiliários. Qualquer oferta seria feita só por memorando de oferta, e a Litora só apresenta esse memorando a investidores qualificados. Investir num projeto do EB-5 tem risco, inclusive o de perder o capital. Aprovação, prazo e green card dependem das autoridades de imigração dos EUA, e nenhum resultado é garantido. Antes de decidir, consulte um advogado de imigração e um contador. Os valores do programa são de outubro de 2026, com fonte no USCIS e na lei americana (8 U.S.C. 1153), e mudam com a inflação para pedidos feitos a partir de 1º de janeiro de 2027."
+          },
+          {
+            "name": "privacyLabel",
+            "label": "Privacy Label",
+            "type": "text",
+            "default": "Política de privacidade"
+          },
+          {
+            "name": "languageLinkLabel",
+            "label": "Language Link Label",
+            "type": "text",
+            "default": "English"
+          }
+        ],
+        "default": {
+          "logoText": "Litora",
+          "about": "A Litora estrutura projetos imobiliários nos EUA para investidores brasileiros pelo EB-5.",
+          "legalNoticeTitle": "Aviso legal.",
+          "legalNotice": "Esta página tem fim informativo e não é oferta de venda nem pedido de oferta de compra de valores mobiliários. Qualquer oferta seria feita só por memorando de oferta, e a Litora só apresenta esse memorando a investidores qualificados. Investir num projeto do EB-5 tem risco, inclusive o de perder o capital. Aprovação, prazo e green card dependem das autoridades de imigração dos EUA, e nenhum resultado é garantido. Antes de decidir, consulte um advogado de imigração e um contador. Os valores do programa são de outubro de 2026, com fonte no USCIS e na lei americana (8 U.S.C. 1153), e mudam com a inflação para pedidos feitos a partir de 1º de janeiro de 2027.",
+          "privacyLabel": "Política de privacidade",
+          "languageLinkLabel": "English"
+        }
+      }
+    ],
+    "default": {
+      "skipLink": "Ir para o conteúdo",
+      "header": {
+        "logoText": "Litora",
+        "languageCurrent": "PT",
+        "languageOther": "EN",
+        "languageOtherLabel": "Ver esta página em inglês"
+      },
+      "footer": {
+        "logoText": "Litora",
+        "about": "A Litora estrutura projetos imobiliários nos EUA para investidores brasileiros pelo EB-5.",
+        "legalNoticeTitle": "Aviso legal.",
+        "legalNotice": "Esta página tem fim informativo e não é oferta de venda nem pedido de oferta de compra de valores mobiliários. Qualquer oferta seria feita só por memorando de oferta, e a Litora só apresenta esse memorando a investidores qualificados. Investir num projeto do EB-5 tem risco, inclusive o de perder o capital. Aprovação, prazo e green card dependem das autoridades de imigração dos EUA, e nenhum resultado é garantido. Antes de decidir, consulte um advogado de imigração e um contador. Os valores do programa são de outubro de 2026, com fonte no USCIS e na lei americana (8 U.S.C. 1153), e mudam com a inflação para pedidos feitos a partir de 1º de janeiro de 2027.",
+        "privacyLabel": "Política de privacidade",
+        "languageLinkLabel": "English"
+      }
+    }
+  }
+]

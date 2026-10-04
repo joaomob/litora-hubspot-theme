@@ -1,0 +1,43 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Litora privacy policy (English)
+  screenshotPath: ../images/template-previews/privacy-en-us.jpg
+-->
+{% extends "./layouts/base.html" %}
+{% block skip_link %}Skip to content{% endblock skip_link %}
+{% block header %}
+{% module "site_header" path="../modules/site-header",
+  label="Fixed header with language switch and button",
+  ctaLabel="",
+  ctaTarget="",
+  links={"self":"/en/privacy","alternate":"/privacidade","alternateLang":"pt-BR","privacy":"/en/privacy"},
+  global={"skipLink":"Skip to content","header":{"logoText":"Litora","languageCurrent":"EN","languageOther":"PT","languageOtherLabel":"View this page in Portuguese"},"footer":{"logoText":"Litora","about":"Litora structures U.S. real estate projects for Brazilian investors through EB-5.","legalNoticeTitle":"Legal notice.","legalNotice":"This page is for information only. It is not an offer to sell, or a solicitation of an offer to buy, any securities. Any offer would be made only through an offering memorandum, which Litora shares only with accredited investors. Investing in an EB-5 project carries risk, including the loss of capital. Approval, timing and the green card depend on U.S. immigration authorities, and no result is guaranteed. Consult an immigration attorney and a tax advisor before you decide. Program figures are as of October 2026, from USCIS and U.S. law (8 U.S.C. 1153), and will be adjusted for inflation for petitions filed on or after January 1, 2027.","privacyLabel":"Privacy policy","languageLinkLabel":"Português"}}
+%}
+{% endblock header %}
+{% block body %}
+{% dnd_area "main" label="Page sections" %}
+  {% dnd_section full_width=true %}
+    {% dnd_module path="../modules/legal-text",
+      label="Legal text page body",
+      heading="Privacy policy",
+      updated="Updated October 2, 2026.",
+      paragraphs=[{"text":"Litora is a fictional brand created for a design portfolio. This policy describes how Litora would handle the data sent through the webinar and event forms."},{"text":"The data is what you enter in the form: first name, last name, email, WhatsApp, city, country of residence and, for the event, the preferred time of day. Your confirmation that you know the minimum investment, your consent and the page address go with it."},{"text":"Litora would use this data to send the webinar link and reminders, confirm your event time and contact you about EB-5. The legal basis is your consent, under Brazil's General Personal Data Protection Law (LGPD, Law No. 13,709/2018)."},{"text":"The data would be stored in the HubSpot CRM, the tool that receives the forms. HubSpot would act as a processor, handling the data on Litora's behalf and only for the purposes above. Its servers are outside Brazil."},{"text":"You can ask to confirm, access, correct or delete your data, and withdraw your consent at any time."},{"text":"Since Litora is fictional, there's no channel for these requests."}],
+      background="primary",
+      links={"self":"/en/privacy","alternate":"/privacidade","alternateLang":"pt-BR","privacy":"/en/privacy"},
+      global={"skipLink":"Skip to content","header":{"logoText":"Litora","languageCurrent":"EN","languageOther":"PT","languageOtherLabel":"View this page in Portuguese"},"footer":{"logoText":"Litora","about":"Litora structures U.S. real estate projects for Brazilian investors through EB-5.","legalNoticeTitle":"Legal notice.","legalNotice":"This page is for information only. It is not an offer to sell, or a solicitation of an offer to buy, any securities. Any offer would be made only through an offering memorandum, which Litora shares only with accredited investors. Investing in an EB-5 project carries risk, including the loss of capital. Approval, timing and the green card depend on U.S. immigration authorities, and no result is guaranteed. Consult an immigration attorney and a tax advisor before you decide. Program figures are as of October 2026, from USCIS and U.S. law (8 U.S.C. 1153), and will be adjusted for inflation for petitions filed on or after January 1, 2027.","privacyLabel":"Privacy policy","languageLinkLabel":"Português"}}
+    %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+{% end_dnd_area %}
+{% endblock body %}
+{% block footer %}
+{% module "site_footer" path="../modules/site-footer",
+  label="Footer with legal notice and links",
+  fictionalNotice="Litora is a fictional brand created for a design portfolio. This page is not an offer to sell securities. The Tavessa project and the speakers are fictional too.",
+  background="secondary",
+  links={"self":"/en/privacy","alternate":"/privacidade","alternateLang":"pt-BR","privacy":"/en/privacy"},
+  global={"skipLink":"Skip to content","header":{"logoText":"Litora","languageCurrent":"EN","languageOther":"PT","languageOtherLabel":"View this page in Portuguese"},"footer":{"logoText":"Litora","about":"Litora structures U.S. real estate projects for Brazilian investors through EB-5.","legalNoticeTitle":"Legal notice.","legalNotice":"This page is for information only. It is not an offer to sell, or a solicitation of an offer to buy, any securities. Any offer would be made only through an offering memorandum, which Litora shares only with accredited investors. Investing in an EB-5 project carries risk, including the loss of capital. Approval, timing and the green card depend on U.S. immigration authorities, and no result is guaranteed. Consult an immigration attorney and a tax advisor before you decide. Program figures are as of October 2026, from USCIS and U.S. law (8 U.S.C. 1153), and will be adjusted for inflation for petitions filed on or after January 1, 2027.","privacyLabel":"Privacy policy","languageLinkLabel":"Português"}}
+%}
+{% endblock footer %}
+{% block scripts %}{% endblock scripts %}

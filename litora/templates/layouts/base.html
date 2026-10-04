@@ -1,0 +1,30 @@
+<!--
+  templateType: none
+-->
+<!doctype html>
+<html lang="{{ html_lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page_meta.html_title }}</title>
+<meta name="description" content="{{ page_meta.meta_description }}">
+<meta name="robots" content="noindex">
+<link rel="icon" href="{{ get_asset_url('../../images/favicon.svg') }}" type="image/svg+xml">
+<script>(function(d,w){d.classList.add('js');if(!w.hsInEditor&&!d.classList.contains('hs-inline-edit')&&w.matchMedia('(prefers-reduced-motion: no-preference)').matches)d.classList.add('js-motion')})(document.documentElement,window)</script>
+<style>{% include '../../css/main.css' %}</style>
+{{ standard_header_includes }}
+</head>
+<body>
+<div class="page-wrapper">
+<a class="skip-link_component" href="#main">{% block skip_link %}{% endblock skip_link %}</a>
+{% block header %}{% endblock header %}
+<main class="main-wrapper" id="main">
+{% block body %}{% endblock body %}
+</main>
+{% block footer %}{% endblock footer %}
+</div>
+{% block scripts %}{% endblock scripts %}
+{% if not is_in_editor %}{{ require_js(get_asset_url('../../js/motion.js'), { position: 'footer', defer: true }) }}{% endif %}
+{{ standard_footer_includes }}
+</body>
+</html>

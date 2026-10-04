@@ -1,0 +1,265 @@
+[
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "default": "Quem apresenta"
+  },
+  {
+    "name": "note",
+    "label": "Note",
+    "type": "text",
+    "default": "Helena Prado e Rafael Moura são personagens fictícios, como a Litora."
+  },
+  {
+    "name": "items",
+    "label": "Items",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 20,
+      "default": 2,
+      "sorting_label_field": "items.nameText"
+    },
+    "children": [
+      {
+        "name": "nameText",
+        "label": "Name Text",
+        "type": "text",
+        "default": "Dra. Helena Prado"
+      },
+      {
+        "name": "role",
+        "label": "Role",
+        "type": "text",
+        "default": "Advogada de imigração nos EUA"
+      },
+      {
+        "name": "text",
+        "label": "Text",
+        "type": "text",
+        "default": "Explica o pedido ao USCIS, a prova da origem do dinheiro e o green card condicional. Responde às perguntas sobre imigração."
+      },
+      {
+        "name": "image",
+        "label": "Image",
+        "type": "image",
+        "responsive": true,
+        "resizable": false,
+        "show_loading": false,
+        "default": {
+          "src": "https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/speakers/speaker-helena-square-840.webp",
+          "alt": "Retrato de Helena Prado, mulher de cabelo escuro preso, blazer verde escuro e blusa clara, sorrindo de leve para a câmera diante de uma estante de livros",
+          "width": 840,
+          "height": 840,
+          "loading": "lazy"
+        },
+        "inline_help_text": ""
+      }
+    ],
+    "default": [
+      {
+        "nameText": "Dra. Helena Prado",
+        "role": "Advogada de imigração nos EUA",
+        "text": "Explica o pedido ao USCIS, a prova da origem do dinheiro e o green card condicional. Responde às perguntas sobre imigração.",
+        "image": {
+          "src": "https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/speakers/speaker-helena-square-840.webp",
+          "alt": "Retrato de Helena Prado, mulher de cabelo escuro preso, blazer verde escuro e blusa clara, sorrindo de leve para a câmera diante de uma estante de livros",
+          "width": 840,
+          "height": 840,
+          "loading": "lazy"
+        }
+      },
+      {
+        "nameText": "Rafael Moura",
+        "role": "Diretor de relação com investidores da Litora",
+        "text": "Mostra como um projeto imobiliário do EB-5 se estrutura e onde estão os riscos. Responde às perguntas sobre o projeto.",
+        "image": {
+          "src": "https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/speakers/speaker-rafael-square-840.webp",
+          "alt": "Retrato de Rafael Moura, homem de cabelo cacheado curto e barba grisalha, de paletó de linho bege e camisa branca, sorrindo para a câmera, com a maquete de um prédio ao fundo",
+          "width": 840,
+          "height": 840,
+          "loading": "lazy"
+        }
+      }
+    ]
+  },
+  {
+    "name": "background",
+    "label": "Section colour",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "primary",
+        "Light"
+      ],
+      [
+        "secondary",
+        "Light alternate"
+      ],
+      [
+        "inverse",
+        "Dark"
+      ]
+    ],
+    "default": "secondary",
+    "inline_help_text": "Colours come from the theme settings.",
+    "tab": "STYLE"
+  },
+  {
+    "name": "links",
+    "label": "Links",
+    "type": "group",
+    "children": [
+      {
+        "name": "self",
+        "label": "Self",
+        "type": "text",
+        "default": "/webinar-visto-eb5"
+      },
+      {
+        "name": "alternate",
+        "label": "Alternate",
+        "type": "text",
+        "default": "/en/eb5-visa-webinar"
+      },
+      {
+        "name": "alternateLang",
+        "label": "Alternate Lang",
+        "type": "text",
+        "default": "en-US"
+      },
+      {
+        "name": "privacy",
+        "label": "Privacy",
+        "type": "text",
+        "default": "/privacidade"
+      }
+    ],
+    "default": {
+      "self": "/webinar-visto-eb5",
+      "alternate": "/en/eb5-visa-webinar",
+      "alternateLang": "en-US",
+      "privacy": "/privacidade"
+    }
+  },
+  {
+    "name": "global",
+    "label": "Global",
+    "type": "group",
+    "children": [
+      {
+        "name": "skipLink",
+        "label": "Skip Link",
+        "type": "text",
+        "default": "Ir para o conteúdo"
+      },
+      {
+        "name": "header",
+        "label": "Header",
+        "type": "group",
+        "children": [
+          {
+            "name": "logoText",
+            "label": "Logo Text",
+            "type": "text",
+            "default": "Litora"
+          },
+          {
+            "name": "languageCurrent",
+            "label": "Language Current",
+            "type": "text",
+            "default": "PT"
+          },
+          {
+            "name": "languageOther",
+            "label": "Language Other",
+            "type": "text",
+            "default": "EN"
+          },
+          {
+            "name": "languageOtherLabel",
+            "label": "Language Other Label",
+            "type": "text",
+            "default": "Ver esta página em inglês"
+          }
+        ],
+        "default": {
+          "logoText": "Litora",
+          "languageCurrent": "PT",
+          "languageOther": "EN",
+          "languageOtherLabel": "Ver esta página em inglês"
+        }
+      },
+      {
+        "name": "footer",
+        "label": "Footer",
+        "type": "group",
+        "children": [
+          {
+            "name": "logoText",
+            "label": "Logo Text",
+            "type": "text",
+            "default": "Litora"
+          },
+          {
+            "name": "about",
+            "label": "About",
+            "type": "text",
+            "default": "A Litora estrutura projetos imobiliários nos EUA para investidores brasileiros pelo EB-5."
+          },
+          {
+            "name": "legalNoticeTitle",
+            "label": "Legal Notice Title",
+            "type": "text",
+            "default": "Aviso legal."
+          },
+          {
+            "name": "legalNotice",
+            "label": "Legal Notice",
+            "type": "text",
+            "default": "Esta página tem fim informativo e não é oferta de venda nem pedido de oferta de compra de valores mobiliários. Qualquer oferta seria feita só por memorando de oferta, e a Litora só apresenta esse memorando a investidores qualificados. Investir num projeto do EB-5 tem risco, inclusive o de perder o capital. Aprovação, prazo e green card dependem das autoridades de imigração dos EUA, e nenhum resultado é garantido. Antes de decidir, consulte um advogado de imigração e um contador. Os valores do programa são de outubro de 2026, com fonte no USCIS e na lei americana (8 U.S.C. 1153), e mudam com a inflação para pedidos feitos a partir de 1º de janeiro de 2027."
+          },
+          {
+            "name": "privacyLabel",
+            "label": "Privacy Label",
+            "type": "text",
+            "default": "Política de privacidade"
+          },
+          {
+            "name": "languageLinkLabel",
+            "label": "Language Link Label",
+            "type": "text",
+            "default": "English"
+          }
+        ],
+        "default": {
+          "logoText": "Litora",
+          "about": "A Litora estrutura projetos imobiliários nos EUA para investidores brasileiros pelo EB-5.",
+          "legalNoticeTitle": "Aviso legal.",
+          "legalNotice": "Esta página tem fim informativo e não é oferta de venda nem pedido de oferta de compra de valores mobiliários. Qualquer oferta seria feita só por memorando de oferta, e a Litora só apresenta esse memorando a investidores qualificados. Investir num projeto do EB-5 tem risco, inclusive o de perder o capital. Aprovação, prazo e green card dependem das autoridades de imigração dos EUA, e nenhum resultado é garantido. Antes de decidir, consulte um advogado de imigração e um contador. Os valores do programa são de outubro de 2026, com fonte no USCIS e na lei americana (8 U.S.C. 1153), e mudam com a inflação para pedidos feitos a partir de 1º de janeiro de 2027.",
+          "privacyLabel": "Política de privacidade",
+          "languageLinkLabel": "English"
+        }
+      }
+    ],
+    "default": {
+      "skipLink": "Ir para o conteúdo",
+      "header": {
+        "logoText": "Litora",
+        "languageCurrent": "PT",
+        "languageOther": "EN",
+        "languageOtherLabel": "Ver esta página em inglês"
+      },
+      "footer": {
+        "logoText": "Litora",
+        "about": "A Litora estrutura projetos imobiliários nos EUA para investidores brasileiros pelo EB-5.",
+        "legalNoticeTitle": "Aviso legal.",
+        "legalNotice": "Esta página tem fim informativo e não é oferta de venda nem pedido de oferta de compra de valores mobiliários. Qualquer oferta seria feita só por memorando de oferta, e a Litora só apresenta esse memorando a investidores qualificados. Investir num projeto do EB-5 tem risco, inclusive o de perder o capital. Aprovação, prazo e green card dependem das autoridades de imigração dos EUA, e nenhum resultado é garantido. Antes de decidir, consulte um advogado de imigração e um contador. Os valores do programa são de outubro de 2026, com fonte no USCIS e na lei americana (8 U.S.C. 1153), e mudam com a inflação para pedidos feitos a partir de 1º de janeiro de 2027.",
+        "privacyLabel": "Política de privacidade",
+        "languageLinkLabel": "English"
+      }
+    }
+  }
+]
