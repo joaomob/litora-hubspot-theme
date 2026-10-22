@@ -5,6 +5,9 @@
   screenshotPath: ../images/template-previews/webinar-pt-br.jpg
 -->
 {% extends "./layouts/base.html" %}
+{% block head %}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Event","name":"Webinar ao vivo sobre o visto EB-5 para brasileiros","description":"Webinar gratuito sobre o visto EB-5 para brasileiros, no Zoom, em 12 de novembro de 2026, às 20h de Brasília. Valores, riscos e prazos.","startDate":"2026-11-12T20:00-03:00","endDate":"2026-11-12T21:15-03:00","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OnlineEventAttendanceMode","location":{"@type":"VirtualLocation","url":"https://litora.joaomob.com/webinar-visto-eb5"},"image":["https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/share/og-webinar.jpg"],"inLanguage":"pt-BR","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://litora.joaomob.com/webinar-visto-eb5"},"organizer":{"@type":"Organization","name":"Litora","url":"https://litora.joaomob.com"},"performer":[{"@type":"Person","name":"Dra. Helena Prado","jobTitle":"Advogada de imigração nos EUA"},{"@type":"Person","name":"Rafael Moura","jobTitle":"Diretor de relação com investidores da Litora"}]}</script>
+{% endblock head %}
 {% block skip_link %}Ir para o conteúdo{% endblock skip_link %}
 {% block header %}
 {% module "site_header" path="../modules/site-header",

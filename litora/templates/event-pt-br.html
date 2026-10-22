@@ -5,6 +5,9 @@
   screenshotPath: ../images/template-previews/event-pt-br.jpg
 -->
 {% extends "./layouts/base.html" %}
+{% block head %}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Event","name":"Evento presencial sobre o visto EB-5 em São Paulo","description":"Evento presencial sobre o visto EB-5 em São Paulo, no sábado, 21 de novembro de 2026. Reuniões individuais de 45 minutos com a equipe da Litora.","startDate":"2026-11-21T09:00-03:00","endDate":"2026-11-21T17:00-03:00","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","location":{"@type":"Place","name":"Avenida Brigadeiro Faria Lima, São Paulo","address":{"@type":"PostalAddress","streetAddress":"Avenida Brigadeiro Faria Lima","addressLocality":"São Paulo","addressRegion":"SP","addressCountry":"BR"}},"image":["https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/share/og-webinar.jpg"],"inLanguage":"pt-BR","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://litora.joaomob.com/evento-visto-eb5-sao-paulo"},"organizer":{"@type":"Organization","name":"Litora","url":"https://litora.joaomob.com"},"performer":[{"@type":"Person","name":"Rafael Moura","jobTitle":"Diretor de relação com investidores da Litora"}]}</script>
+{% endblock head %}
 {% block skip_link %}Ir para o conteúdo{% endblock skip_link %}
 {% block header %}
 {% module "site_header" path="../modules/site-header",

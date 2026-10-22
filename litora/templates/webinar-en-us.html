@@ -5,6 +5,9 @@
   screenshotPath: ../images/template-previews/webinar-en-us.jpg
 -->
 {% extends "./layouts/base.html" %}
+{% block head %}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Event","name":"A live EB-5 visa webinar for investors from Brazil","description":"A free EB-5 visa webinar on Zoom for investors from Brazil. Thursday, November 12, 2026, at 6 p.m. New York time. Costs, risks and timing.","startDate":"2026-11-12T20:00-03:00","endDate":"2026-11-12T21:15-03:00","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OnlineEventAttendanceMode","location":{"@type":"VirtualLocation","url":"https://litora.joaomob.com/en/eb5-visa-webinar"},"image":["https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/share/og-webinar.jpg"],"inLanguage":"pt-BR","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://litora.joaomob.com/en/eb5-visa-webinar"},"organizer":{"@type":"Organization","name":"Litora","url":"https://litora.joaomob.com"},"performer":[{"@type":"Person","name":"Helena Prado","jobTitle":"U.S. immigration attorney"},{"@type":"Person","name":"Rafael Moura","jobTitle":"Investor relations director at Litora"}]}</script>
+{% endblock head %}
 {% block skip_link %}Skip to content{% endblock skip_link %}
 {% block header %}
 {% module "site_header" path="../modules/site-header",
