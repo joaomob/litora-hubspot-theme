@@ -27,9 +27,7 @@
         "label": "Palm",
         "name": "palm",
         "type": "color",
-        "alternate_names": [
-          "primary_color"
-        ],
+        "alternate_names": ["primary_color"],
         "default": {
           "color": "#1c6146",
           "opacity": 100
@@ -57,9 +55,7 @@
         "label": "Sun",
         "name": "sun",
         "type": "color",
-        "alternate_names": [
-          "secondary_color"
-        ],
+        "alternate_names": ["secondary_color"],
         "default": {
           "color": "#f6c23f",
           "opacity": 100

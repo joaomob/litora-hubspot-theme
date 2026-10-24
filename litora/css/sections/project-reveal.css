@@ -1,0 +1,143 @@
+/* project-reveal: styles of the project-reveal module. */
+
+.project-reveal_header {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: end;
+  column-gap: var(--_layout---spacing--medium);
+  margin-bottom: var(--_layout---spacing--xhuge);
+}
+.project-reveal_intro {
+  display: flex;
+  flex-direction: column;
+  grid-column: span 8;
+  gap: var(--_layout---spacing--small);
+}
+.project-reveal_action {
+  grid-column: span 4;
+  justify-self: end;
+}
+
+.js-motion .project-reveal_track {
+  height: calc(min(41.25rem, 100dvh - var(--_layout---nav--height) - 5rem) + 28.75rem);
+}
+.project-reveal_figure {
+  position: sticky;
+  top: max(calc(var(--_layout---nav--height) + 1.25rem), calc((100dvh - 41.25rem) / 2));
+}
+.project-reveal_frame {
+  position: relative;
+  height: min(41.25rem, calc(100dvh - var(--_layout---nav--height) - 5rem));
+  overflow: hidden;
+  border-radius: var(--_sizes---border-radius--large);
+  background-color: var(--_theme---background-color--background-dark);
+}
+.project-reveal_media {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.project-reveal_image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-reveal_veil {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: min(
+    45%,
+    calc(min(var(--_typography---display--large), (100vw - 2 * var(--_layout---spacing--global-padding)) / 5.9) + 8rem)
+  );
+  background-image: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--_theme---background-color--background-dark) 64%, transparent)
+      calc(
+        min(var(--_typography---display--large), (100vw - 2 * var(--_layout---spacing--global-padding)) / 5.9) * 0.8 +
+          2rem
+      ),
+    transparent
+  );
+}
+
+.project-reveal_title {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: calc(
+    2rem - min(var(--_typography---display--large), (100vw - 2 * var(--_layout---spacing--global-padding)) / 5.9) *
+      0.125
+  );
+}
+
+.project-reveal_word {
+  color: var(--_theme---text-color--text-on-dark);
+  font-size: min(
+    var(--_typography---display--large),
+    calc((100vw - 2 * var(--_layout---spacing--global-padding)) / 5.9)
+  );
+}
+
+.project-reveal_ring {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  background-color: var(--_theme---text-color--text-brand);
+}
+.project-reveal_caption {
+  margin-top: var(--_layout---spacing--xsmall);
+}
+
+.js-motion .project-reveal_media {
+  clip-path: circle(5rem at 50% 50%);
+}
+
+.js-motion .project-reveal_frame {
+  background-color: transparent;
+}
+.js-motion .project-reveal_word {
+  opacity: 0;
+}
+
+.js-motion .project-reveal_ring {
+  display: block;
+  clip-path: circle(calc(5rem + 1px) at 50% 50%);
+}
+@media (max-width: 991px) {
+  .project-reveal_header {
+    grid-template-columns: 1fr;
+    row-gap: var(--_layout---spacing--large);
+  }
+  .project-reveal_intro {
+    grid-column: auto;
+  }
+  .project-reveal_action {
+    grid-column: auto;
+    justify-self: start;
+  }
+  .js-motion .project-reveal_track {
+    height: calc(min(34.5rem, 100svh - var(--_layout---nav--height) - 5rem) + 28.75rem);
+  }
+  .project-reveal_figure {
+    top: max(calc(var(--_layout---nav--height) + 1.25rem), calc((100svh - 34.5rem) / 2));
+  }
+  .project-reveal_frame {
+    height: min(34.5rem, calc(100svh - var(--_layout---nav--height) - 5rem));
+  }
+}

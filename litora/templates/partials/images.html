@@ -1,0 +1,24 @@
+<!--
+  templateType: none
+-->
+{#
+  srcset of an image field for the given widths, smallest first.
+  The photos the theme ships (litora/images/) have one file per width next to the largest one, already compressed, so
+  each width points to its own file. A photo picked later in the editor is resized by HubSpot on the page's own host
+  (/hs-fs/hubfs/), which avoids a second origin before the first photo.
+#}
+{% macro srcset(image, widths) -%}
+  {%- set path = (image.src|split("/hubfs/" ~ hub_id ~ "/"))|last -%}
+  {%- set largest = widths|last -%}
+  {%- for width in widths -%}
+  {%- if "/litora/images/" in image.src -%}
+    /hubfs/{{ path|replace("-" ~ largest ~ ".", "-" ~ width ~ ".") }}
+    {{ width }}w
+  {%- else -%}
+    /hs-fs/hubfs/{{ path }}?width={{ width }}
+    {{ width }}w
+  {%- endif -%}
+  {%- if not loop.last %},
+  {% endif -%}
+  {%- endfor -%}
+{%- endmacro %}

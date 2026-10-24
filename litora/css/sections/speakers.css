@@ -1,0 +1,39 @@
+/* speakers: styles of the speakers module. */
+
+.speakers_layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: start;
+  gap: var(--_layout---spacing--medium);
+}
+.speakers_header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_layout---spacing--small);
+}
+.speakers_list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column: span 2;
+  gap: var(--_layout---spacing--medium);
+  list-style: none;
+}
+@media (max-width: 991px) {
+  .speakers_layout {
+    grid-template-columns: 1fr;
+    row-gap: var(--_layout---spacing--xhuge);
+  }
+  .speakers_list {
+    grid-column: auto;
+  }
+}
+@media (max-width: 767px) {
+  .speakers_list {
+    grid-template-columns: 1fr;
+    row-gap: var(--_layout---spacing--xlarge);
+  }
+
+  .speakers_item {
+    max-width: 27rem;
+  }
+}

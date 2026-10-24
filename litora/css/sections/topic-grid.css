@@ -1,0 +1,49 @@
+/* topic-grid: styles of the topic-grid module. */
+
+.topic-grid_header {
+  margin-bottom: var(--_layout---spacing--xhuge);
+}
+.topic-grid_heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_layout---spacing--small);
+}
+.topic-grid_list {
+  list-style: none;
+}
+.topic-row_media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 9.375rem;
+}
+.topic-row_image {
+  width: 8.75rem;
+  height: 7.5rem;
+  border-radius: var(--_sizes---border-radius--small);
+  object-fit: cover;
+}
+@media (max-width: 991px) {
+  .topic-row_media {
+    height: 7.5rem;
+  }
+}
+@media (max-width: 767px) {
+  .topic-grid_list .topic-row_component {
+    align-items: center;
+  }
+  .topic-row_number {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  .topic-row_media {
+    grid-row: 1;
+    grid-column: 2;
+  }
+  .topic-row_title {
+    grid-column: 1 / -1;
+  }
+  .topic-row_text {
+    grid-column: 1 / -1;
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "litora-hubspot-theme",
+  "version": "1.0.0",
+  "description": "Litora, a HubSpot CMS theme written in HubL",
+  "private": true,
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "check": "node scripts/check-theme.mjs litora",
+    "verify": "npm run check && npm run lint && npm run format:check",
+    "upload": "npm run verify && hs cms upload litora litora"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@hubspot/cli": "^8.15.0",
+    "@hubspot/prettier-plugin-hubl": "^0.2.5",
+    "eslint": "^10.13.0",
+    "globals": "^17.13.0",
+    "prettier": "^2.8.8"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

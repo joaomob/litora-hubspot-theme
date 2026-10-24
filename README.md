@@ -1,5 +1,7 @@
 # Litora, a HubSpot CMS theme for event landing pages
 
+[![checks](https://github.com/joaomob/litora-hubspot-theme/actions/workflows/checks.yml/badge.svg)](https://github.com/joaomob/litora-hubspot-theme/actions/workflows/checks.yml)
+
 A HubSpot CMS theme for a webinar page, an in-person event page, their two thank you pages and a privacy page, in Portuguese and English. It was built for a design portfolio. Litora, the Tavessa project and the speakers are fictional, and nothing on these pages is an offer.
 
 Live on the HubSpot free plan, with noindex:
@@ -17,10 +19,44 @@ Live on the HubSpot free plan, with noindex:
 ## How it is built
 
 - HubL templates, modules and sections, with Client-First class names.
-- One stylesheet, minified and inlined in the head; the self-hosted fonts load from the theme, and the font settings do not load a second copy from Google.
+- The styles are inlined in the head, from readable files: `css/tokens.css` (fonts and design tokens), `css/system.css` (the shared classes) and one file per section in `css/sections/`. The theme colours and fonts override the tokens in a `:root` block of the base layout. The self-hosted fonts load from the theme, and the font settings do not load a second copy from Google.
+- Every responsive image goes through one macro, `templates/partials/images.html`, which writes the `srcset` from the image and its widths.
 - The sign up form is the theme's own HTML, sent to the HubSpot Forms API, with validation messages written next to each field and an LGPD consent checkbox.
 - Motion runs on GSAP and ScrollTrigger, loaded after the page; nothing hides content inside the HubSpot editor, without JavaScript or with reduced motion.
 - The questions open with the first one, keep one open at a time (`<details name>`) and open and close with an animated height (instant with reduced motion).
+
+## Structure
+
+- `litora/theme.json`, `litora/fields.json`: the theme and its settings.
+- `litora/templates/`: the base layout, the page templates, the sections and the image macro.
+- `litora/modules/`: one folder per module (`module.html`, `fields.json`, `meta.json`).
+- `litora/css/`, `litora/js/`, `litora/fonts/`, `litora/images/`: styles, the motion and form scripts, fonts and photos.
+- `scripts/check-theme.mjs`: the structure check.
+
+## Tools
+
+| Tool                                            | Where                               | Why                                                                                                            |
+| ----------------------------------------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Node 20 or newer                                | system                              | runs everything below                                                                                          |
+| `@hubspot/cli`                                  | `package.json`                      | `hs cms upload`, `hs account auth`                                                                             |
+| Prettier 2 with `@hubspot/prettier-plugin-hubl` | `package.json`, `.prettierrc.json`  | one code style for HubL, CSS, JavaScript and JSON (`npm run format`); the HubL plugin supports Prettier 2 only |
+| ESLint 9                                        | `package.json`, `eslint.config.mjs` | `npm run lint` over the browser scripts                                                                        |
+| gitleaks                                        | system                              | secret scan before every push                                                                                  |
+
+## Commands
+
+```bash
+npm install
+npm run check         # every tag closed, every field a module reads exists, every template extends the base
+npm run lint          # ESLint
+npm run format:check  # Prettier with the HubL plugin
+npm run verify        # all of the above, as CI runs it
+npm run upload        # verify, then hs cms upload litora litora
+```
+
+## Continuous integration
+
+`.github/workflows/checks.yml` runs `npm run verify` on every push and pull request. It does not deploy: that needs the HubSpot key as a repository secret, which is not set up.
 
 ## Checks
 
@@ -31,9 +67,9 @@ Live on the HubSpot free plan, with noindex:
 ## Use
 
 ```bash
-npm install -g @hubspot/cli
-hs account auth
-hs cms upload litora litora
+npm install
+npx hs account auth
+npm run upload
 ```
 
 Theme by [João Marcos](https://joaomob.com).

@@ -1,0 +1,14 @@
+/* form-card: styles of the sign up form inside the hero panel. */
+
+.form-card_component {
+  max-width: 36.5rem;
+  margin-top: var(--_layout---spacing--xxlarge);
+  padding-top: var(--_layout---spacing--xxlarge);
+  border-top: 1px solid var(--_theme---border-color--border-primary);
+}
+.form-card_form {
+  margin-top: var(--_layout---spacing--large);
+}
+.form-card_notice {
+  margin-top: var(--_layout---spacing--large);
+}

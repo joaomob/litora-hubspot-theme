@@ -1,0 +1,9 @@
+/* statement-reveal: styles of the statement-reveal module. */
+
+.statement-reveal_component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--_layout---spacing--large);
+  text-align: center;
+}

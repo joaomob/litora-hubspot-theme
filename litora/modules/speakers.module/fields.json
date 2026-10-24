@@ -90,18 +90,9 @@
     "type": "choice",
     "display": "select",
     "choices": [
-      [
-        "primary",
-        "Light"
-      ],
-      [
-        "secondary",
-        "Light alternate"
-      ],
-      [
-        "inverse",
-        "Dark"
-      ]
+      ["primary", "Light"],
+      ["secondary", "Light alternate"],
+      ["inverse", "Dark"]
     ],
     "default": "secondary",
     "inline_help_text": "Colours come from the theme settings.",

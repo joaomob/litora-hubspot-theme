@@ -1,0 +1,80 @@
+/* project-stack: styles of the project-stack module. */
+
+.project-stack_panel {
+  position: sticky;
+  top: 0;
+  height: 100dvh;
+  overflow: hidden;
+
+  scroll-margin-top: calc(-1 * var(--_layout---nav--height));
+  background-color: var(--_theme---background-color--background-dark);
+  color: var(--_theme---text-color--text-on-dark);
+}
+.project-stack_image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.project-stack_veil {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--_theme---background-color--background-dark) 88%, transparent),
+    color-mix(in srgb, var(--_theme---background-color--background-dark) 78%, transparent) 11rem,
+    transparent 18rem
+  );
+}
+.project-stack_caption {
+  position: absolute;
+  right: 0;
+  bottom: 4rem;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--_layout---spacing--xxsmall);
+  padding-right: var(--_layout---spacing--global-padding);
+  padding-left: var(--_layout---spacing--global-padding);
+  text-align: center;
+}
+.project-stack_index {
+  position: absolute;
+  top: calc(50% - 4rem);
+  right: var(--_layout---spacing--global-padding);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 8rem;
+}
+.project-stack_index-line {
+  flex: 1;
+  width: 1px;
+  background-color: var(--_theme---text-color--text-on-dark);
+}
+.project-stack_index-mark {
+  flex: none;
+  width: var(--_layout---spacing--xxsmall);
+  height: var(--_layout---spacing--xxsmall);
+  border: 1px solid var(--_theme---text-color--text-on-dark);
+  border-radius: var(--_sizes---border-radius--round);
+}
+.project-stack_index-mark.is-current {
+  background-color: var(--_theme---text-color--text-on-dark);
+}
+@media (max-width: 991px) {
+  .project-stack_panel {
+    height: 100svh;
+  }
+}
+@media (max-width: 767px) {
+  .project-stack_caption {
+    bottom: 3rem;
+  }
+}

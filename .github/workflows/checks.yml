@@ -1,0 +1,24 @@
+# Every push and pull request runs the same checks as `npm run upload`, without the upload: theme structure, lint and
+# formatting. Deploying from CI needs the HubSpot key as a repository secret, which is not set up.
+name: checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run verify

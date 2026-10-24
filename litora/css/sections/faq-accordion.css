@@ -1,0 +1,100 @@
+/* faq-accordion: styles of the faq-accordion module. */
+
+.faq-accordion_line {
+  display: block;
+  height: 1px;
+  margin-bottom: var(--_layout---spacing--xhuge);
+  background-color: var(--_theme---border-color--border-primary);
+  transform-origin: left center;
+}
+.faq-accordion_layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: start;
+  gap: var(--_layout---spacing--medium);
+}
+.faq-accordion_header {
+  position: sticky;
+  top: calc(var(--_layout---nav--height) + var(--_layout---spacing--xlarge));
+  display: flex;
+  flex-direction: column;
+  gap: var(--_layout---spacing--small);
+}
+.faq-accordion_intro {
+  max-width: 26.25rem;
+}
+
+.faq_timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_layout---spacing--small);
+  max-width: 26.25rem;
+  margin-top: var(--_layout---spacing--xxlarge);
+}
+.faq_timeline-list {
+  list-style: none;
+}
+.faq_timeline-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--_layout---spacing--tiny);
+  padding-bottom: var(--_layout---spacing--large);
+  padding-left: var(--_layout---spacing--large);
+}
+.faq_timeline-point {
+  position: absolute;
+  top: 0.4375rem;
+  left: 0;
+  width: var(--_layout---spacing--xxsmall);
+  height: var(--_layout---spacing--xxsmall);
+  border-radius: var(--_sizes---border-radius--round);
+  background-color: var(--_theme---text-color--text-brand);
+}
+
+.faq_timeline-trace {
+  position: absolute;
+  top: 0.6875rem;
+  bottom: -0.6875rem;
+  left: 0.21875rem;
+  border-left: 1px solid var(--_theme---text-color--text-brand);
+  transform-origin: center top;
+}
+.faq_timeline-trace.is-dashed {
+  border-left-style: dashed;
+}
+
+.faq_timeline-trace.is-open {
+  top: 0;
+  bottom: 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent);
+  mask-image: linear-gradient(to bottom, #000 40%, transparent);
+}
+.faq-accordion_list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+@media (max-height: 43.5rem) {
+  .faq-accordion_header {
+    position: static;
+  }
+}
+@media (max-width: 991px) {
+  .faq-accordion_layout {
+    grid-template-columns: 3fr 5fr;
+  }
+  .faq-accordion_header {
+    position: static;
+  }
+}
+@media (max-width: 767px) {
+  .faq-accordion_layout {
+    grid-template-columns: 1fr;
+    row-gap: var(--_layout---spacing--xlarge);
+  }
+  .faq-accordion_header {
+    position: static;
+  }
+}

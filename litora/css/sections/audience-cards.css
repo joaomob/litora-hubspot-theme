@@ -1,0 +1,14 @@
+/* audience-cards: styles of the audience-cards module. */
+
+.audience-cards_list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--_layout---spacing--medium);
+  list-style: none;
+}
+@media (max-width: 767px) {
+  .audience-cards_list {
+    grid-template-columns: 1fr;
+    row-gap: var(--_layout---spacing--xlarge);
+  }
+}

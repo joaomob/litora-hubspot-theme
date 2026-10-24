@@ -4,9 +4,7 @@
   "css_assets": [],
   "external_js": [],
   "global": false,
-  "host_template_types": [
-    "PAGE"
-  ],
+  "host_template_types": ["PAGE"],
   "is_available_for_new_content": true,
   "smart_type": "NOT_SMART",
   "content_tags": [],

@@ -1,31 +1,79 @@
 <!--
   templateType: none
 -->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ html_lang }}">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ page_meta.html_title }}</title>
-<meta name="description" content="{{ page_meta.meta_description }}">
-<meta name="robots" content="noindex">
-<link rel="icon" href="{{ get_asset_url('../../images/favicon.svg') }}" type="image/svg+xml">
-<script>(function(d,w){d.classList.add('js');if(!w.hsInEditor&&!d.classList.contains('hs-inline-edit')&&w.matchMedia('(prefers-reduced-motion: no-preference)').matches)d.classList.add('js-motion')})(document.documentElement,window)</script>
-<style>{% include '../../css/main.css' %}</style>
-{% block head %}{% endblock head %}
-{{ standard_header_includes }}
-</head>
-<body>
-<div class="page-wrapper">
-<a class="skip-link_component" href="#main">{% block skip_link %}{% endblock skip_link %}</a>
-{% block header %}{% endblock header %}
-<main class="main-wrapper" id="main">
-{% block body %}{% endblock body %}
-</main>
-{% block footer %}{% endblock footer %}
-</div>
-{% block scripts %}{% endblock scripts %}
-{% if not is_in_editor %}{{ require_js(get_asset_url('../../js/motion.js'), { position: 'footer', defer: true }) }}{% endif %}
-{{ standard_footer_includes }}
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ page_meta.html_title }}</title>
+    <meta name="description" content="{{ page_meta.meta_description }}" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="{{ get_asset_url("../../images/favicon.svg") }}" type="image/svg+xml" />
+    <script>
+      (function (d, w) {
+        d.classList.add("js");
+        if (
+          !w.hsInEditor &&
+          !d.classList.contains("hs-inline-edit") &&
+          w.matchMedia("(prefers-reduced-motion: no-preference)").matches
+        )
+          d.classList.add("js-motion");
+      })(document.documentElement, window);
+    </script>
+    <style>
+      {% include "../../css/tokens.css" %}
+      :root {
+        --base-color-brand--palm-darkest: {{ theme.brand_colors.palm_darkest.color }};
+        --base-color-brand--palm-darker: {{ theme.brand_colors.palm_darker.color }};
+        --base-color-brand--palm: {{ theme.brand_colors.palm.color }};
+        --base-color-brand--coral: {{ theme.brand_colors.coral.color }};
+        --base-color-brand--coral-light: {{ theme.brand_colors.coral_light.color }};
+        --base-color-brand--sun: {{ theme.brand_colors.sun.color }};
+        --base-color-brand--sun-light: {{ theme.brand_colors.sun_light.color }};
+        --base-color-brand--cream: {{ theme.brand_colors.cream.color }};
+        --base-color-brand--cream-dark: {{ theme.brand_colors.cream_dark.color }};
+        --font-family--display: "{{ theme.fonts.heading_font.font }}", "Jost Fallback", sans-serif;
+        --font-family--primary: "{{ theme.fonts.body_font.font }}", "Nunito Sans Fallback",
+          sans-serif;
+      }
+      {% include "../../css/system.css" %}
+      {% include "../../css/sections/audience-cards.css" %}
+      {% include "../../css/sections/cta-band.css" %}
+      {% include "../../css/sections/faq-accordion.css" %}
+      {% include "../../css/sections/form-card.css" %}
+      {% include "../../css/sections/hero-event.css" %}
+      {% include "../../css/sections/legal-text.css" %}
+      {% include "../../css/sections/project-reveal.css" %}
+      {% include "../../css/sections/project-stack.css" %}
+      {% include "../../css/sections/site-footer.css" %}
+      {% include "../../css/sections/site-header.css" %}
+      {% include "../../css/sections/speakers.css" %}
+      {% include "../../css/sections/stat-row.css" %}
+      {% include "../../css/sections/statement-reveal.css" %}
+      {% include "../../css/sections/steps-list.css" %}
+      {% include "../../css/sections/topic-grid.css" %}
+    </style>
+    {% block head %}
+    {% endblock head %}
+    {{ standard_header_includes }}
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <a class="skip-link_component" href="#main"
+        >{% block skip_link %}{% endblock skip_link %}</a
+      >
+      {% block header %}{% endblock header %}
+      <main class="main-wrapper" id="main">
+        {% block body %}{% endblock body %}
+      </main>
+      {% block footer %}{% endblock footer %}
+    </div>
+    {% block scripts %}{% endblock scripts %}
+    {% if not is_in_editor %}{{ require_js(get_asset_url("../../js/motion.js"), {
+    position: "footer",
+    defer: true
+  }) }}{% endif %}
+    {{ standard_footer_includes }}
+  </body>
 </html>

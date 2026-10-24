@@ -1,0 +1,13 @@
+/* legal-text: styles of the legal-text module. */
+
+.section_legal-text {
+  padding-top: var(--_layout---nav--height);
+}
+.legal-text_content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_layout---spacing--small);
+}
+.legal-text_paragraph {
+  max-width: 65ch;
+}

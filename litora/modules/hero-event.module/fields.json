@@ -190,30 +190,12 @@
             "type": "choice",
             "display": "select",
             "choices": [
-              [
-                "text",
-                "text"
-              ],
-              [
-                "email",
-                "email"
-              ],
-              [
-                "tel",
-                "tel"
-              ],
-              [
-                "radio",
-                "radio"
-              ],
-              [
-                "checkbox",
-                "checkbox"
-              ],
-              [
-                "consent",
-                "consent"
-              ]
+              ["text", "text"],
+              ["email", "email"],
+              ["tel", "tel"],
+              ["radio", "radio"],
+              ["checkbox", "checkbox"],
+              ["consent", "consent"]
             ],
             "default": "text"
           },

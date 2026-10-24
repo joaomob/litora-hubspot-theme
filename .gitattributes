@@ -1,0 +1,6 @@
+# LF everywhere, so the Prettier check gives the same result on Windows and on the CI runner
+* text=auto eol=lf
+*.woff2 binary
+*.webp binary
+*.png binary
+*.jpg binary

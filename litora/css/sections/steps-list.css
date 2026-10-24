@@ -1,0 +1,8 @@
+/* steps-list: styles of the steps-list module. */
+
+.steps-list_list {
+  list-style: none;
+}
+.steps-list_text {
+  max-width: 50rem;
+}
