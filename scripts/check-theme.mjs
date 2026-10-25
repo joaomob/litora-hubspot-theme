@@ -45,6 +45,9 @@ function fieldPaths(fields, prefix = '') {
     const p = prefix + f.name;
     out.add(p);
     if (f.type === 'image') ['src', 'alt', 'width', 'height', 'loading'].forEach((k) => out.add(`${p}.${k}`));
+    // a logo field gives the logo of the brand settings, or its own, with the same keys as an image
+    if (f.type === 'logo')
+      ['src', 'alt', 'width', 'height', 'loading', 'override_inherited_src'].forEach((k) => out.add(`${p}.${k}`));
     if (f.children) for (const c of fieldPaths(f.children, `${p}.`)) out.add(c);
   }
   return out;

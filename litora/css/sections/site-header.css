@@ -98,3 +98,10 @@
     transition: none;
   }
 }
+
+.logo_image {
+  width: auto;
+  max-width: 12rem;
+  height: var(--_layout---spacing--xlarge);
+  object-fit: contain;
+}

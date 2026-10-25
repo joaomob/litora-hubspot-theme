@@ -134,5 +134,25 @@
         }
       }
     ]
+  },
+  {
+    "label": "Footer",
+    "name": "footer",
+    "type": "group",
+    "children": [
+      {
+        "label": "Footer colour",
+        "name": "background",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          ["primary", "Light"],
+          ["secondary", "Light alternate"],
+          ["inverse", "Dark"]
+        ],
+        "default": "secondary",
+        "inline_help_text": "The colour of the footer of the blog and the system pages."
+      }
+    ]
   }
 ]

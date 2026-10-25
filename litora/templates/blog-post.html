@@ -74,14 +74,8 @@
 {% endblock head %}
 {% block skip_link %}{{ site_global.skipLink }}{% endblock skip_link %}
 {% block header %}
-  {% module_block module "site_header"
-    path="../modules/site-header",
-    label="Fixed header with language switch and button",
-    ctaLabel="",
-    ctaTarget="" %}
-    {% module_attribute "links" %}{{ site_links|tojson }}{% end_module_attribute %}
-    {% module_attribute "global" %}{{ site_global|tojson }}{% end_module_attribute %}
-  {% end_module_block %}
+  {% global_partial
+    path="./partials/site-header.html" %}
 {% endblock header %}
 {% block body %}
   <article class="section_blog-post">
@@ -110,12 +104,6 @@
   {% endif %}
 {% endblock body %}
 {% block footer %}
-  {% module_block module "site_footer"
-    path="../modules/site-footer",
-    label="Footer with legal notice and links",
-    background="secondary" %}
-    {% module_attribute "fictionalNotice" %}{{ site_footer_fictional_notice }}{% end_module_attribute %}
-    {% module_attribute "links" %}{{ site_links|tojson }}{% end_module_attribute %}
-    {% module_attribute "global" %}{{ site_global|tojson }}{% end_module_attribute %}
-  {% end_module_block %}
+  {% global_partial
+    path="./partials/site-footer.html" %}
 {% endblock footer %}

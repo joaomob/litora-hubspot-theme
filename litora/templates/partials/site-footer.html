@@ -1,0 +1,26 @@
+<!--
+  templateType: global_partial
+  label: Litora footer
+-->
+{% set site_footer_partial = true %}
+{% set bg_classes = {
+  "primary": "background-color-primary",
+  "secondary": "background-color-secondary",
+  "inverse": "theme-inverse"
+} %}
+<footer class="site-footer_component {{ bg_classes[theme.footer.background] or bg_classes.secondary }}">
+  <div class="padding-global">
+    <div class="container-large">
+      {% dnd_area "footer_top"
+        label="Above the footer" %}{% end_dnd_area %}
+      {% module_block module "site_footer"
+        path="../../modules/site-footer",
+        label="Footer with legal notice and links",
+        background="secondary" %}
+        {% module_attribute "fictionalNotice" %}{{ site_footer_fictional_notice }}{% end_module_attribute %}
+        {% module_attribute "links" %}{{ site_links|tojson }}{% end_module_attribute %}
+        {% module_attribute "global" %}{{ site_global|tojson }}{% end_module_attribute %}
+      {% end_module_block %}
+    </div>
+  </div>
+</footer>

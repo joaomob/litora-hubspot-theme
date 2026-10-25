@@ -1,5 +1,24 @@
 [
   {
+    "name": "logo",
+    "label": "Logo",
+    "type": "logo",
+    "show_loading": false,
+    "inline_help_text": "Comes from the brand settings of the account. Without a logo there, the Litora mark shows.",
+    "default": {
+      "override_inherited_src": false,
+      "src": null,
+      "alt": null
+    }
+  },
+  {
+    "name": "menu",
+    "label": "Links menu",
+    "type": "menu",
+    "inline_help_text": "A navigation menu of the account (Settings, Content, Navigation Menus). Without one, the footer links to the privacy page.",
+    "default": null
+  },
+  {
     "name": "fictionalNotice",
     "label": "Fictional Notice",
     "type": "text",

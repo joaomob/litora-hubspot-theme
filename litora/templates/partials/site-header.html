@@ -1,0 +1,23 @@
+<!--
+  templateType: global_partial
+  label: Litora header
+-->
+{% set site_header_partial = true %}
+<header class="site-header_component is-hidden" data-site-header>
+  <div class="padding-global">
+    <div class="container-large">
+      {% dnd_area "header_top"
+        label="Above the header bar" %}{% end_dnd_area %}
+      {% module_block module "site_header"
+        path="../../modules/site-header",
+        label="Fixed header with language switch and button",
+        ctaLabel="",
+        ctaTarget="" %}
+        {% module_attribute "links" %}{{ site_links|tojson }}{% end_module_attribute %}
+        {% module_attribute "global" %}{{ site_global|tojson }}{% end_module_attribute %}
+      {% end_module_block %}
+      {% dnd_area "header_bottom"
+        label="Below the header bar" %}{% end_dnd_area %}
+    </div>
+  </div>
+</header>
