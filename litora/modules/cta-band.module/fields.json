@@ -209,5 +209,77 @@
         "languageLinkLabel": "English"
       }
     }
+  },
+  {
+    "name": "styles",
+    "label": "Styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "name": "text",
+        "label": "Text",
+        "type": "group",
+        "children": [
+          {
+            "name": "color",
+            "label": "Text colour",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.typography.body_font.color"
+              }
+            },
+            "default": {
+              "color": "#14251d",
+              "opacity": 100
+            },
+            "inline_help_text": "Takes the body text colour of the theme. Dark sections write in white unless set here."
+          },
+          {
+            "name": "heading_font",
+            "label": "Heading font",
+            "type": "font",
+            "load_external_fonts": false,
+            "inline_help_text": "Takes the heading font of the theme unless set.",
+            "visibility": {
+              "hidden_subfields": {
+                "size": true,
+                "bold": true,
+                "italic": true,
+                "underline": true,
+                "color": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "font": "theme.typography.heading_font.font",
+                "font_set": "theme.typography.heading_font.font_set",
+                "fallback": "theme.typography.heading_font.fallback"
+              }
+            },
+            "default": {}
+          }
+        ]
+      },
+      {
+        "name": "spacing",
+        "label": "Spacing",
+        "type": "group",
+        "children": [
+          {
+            "name": "spacing",
+            "label": "Spacing",
+            "type": "spacing",
+            "inline_help_text": "Padding and margin around the section, on top of the spacing of the theme."
+          }
+        ]
+      }
+    ]
   }
 ]

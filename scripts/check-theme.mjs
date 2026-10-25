@@ -1,5 +1,5 @@
 // Checks the theme before any upload:
-//   1. every {% for %}, {% if %}, {% require_head %} and {% dnd_* %} tag is closed, in order
+//   1. every {% for %}, {% if %}, {% require_head %}, {% require_css %}, {% scope_css %} and {% dnd_* %} tag is closed, in order
 //   2. every module.<path> the module.html reads exists in its fields.json
 //   3. every fields.json, meta.json and theme.json parses, and every template extends the base and names real modules
 //   node check-theme.mjs [theme folder]
@@ -15,6 +15,8 @@ const PAIRS = {
   for: 'endfor',
   if: 'endif',
   require_head: 'end_require_head',
+  require_css: 'end_require_css',
+  scope_css: 'end_scope_css',
   dnd_area: 'end_dnd_area',
   dnd_section: 'end_dnd_section',
   dnd_module: 'end_dnd_module',
@@ -48,6 +50,14 @@ function fieldPaths(fields, prefix = '') {
     // a logo field gives the logo of the brand settings, or its own, with the same keys as an image
     if (f.type === 'logo')
       ['src', 'alt', 'width', 'height', 'loading', 'override_inherited_src'].forEach((k) => out.add(`${p}.${k}`));
+    // the style fields give their parts and the css HubSpot writes from them
+    const parts = {
+      color: ['color', 'opacity'],
+      font: ['font', 'font_set', 'fallback', 'color', 'variant', 'css'],
+      spacing: ['css', 'padding', 'margin'],
+      border: ['css'],
+    }[f.type];
+    if (parts) parts.forEach((k) => out.add(`${p}.${k}`));
     if (f.children) for (const c of fieldPaths(f.children, `${p}.`)) out.add(c);
   }
   return out;

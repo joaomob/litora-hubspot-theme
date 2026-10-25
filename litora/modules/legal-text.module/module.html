@@ -3,12 +3,43 @@
   "secondary": "background-color-secondary",
   "inverse": "theme-inverse"
 } %}
+{% set style_color = module.styles.text.color.color|lower %}
+{% set theme_color = theme.typography.body_font.color|lower %}
+{% set style_font = module.styles.text.heading_font.font %}
+{% set style_spacing = module.styles.spacing.spacing.css %}
+{% set color_on = style_color and style_color != theme_color %}
+{% set font_on = style_font and style_font != theme.typography.heading_font.font %}
+{% if color_on or font_on or style_spacing %}
+  {% require_css %}
+    <style>
+      {% scope_css %}
+        .section_legal-text {
+          {% if color_on %}
+            --_theme---text-color--text-primary: {{ style_color }};
+            color: {{ style_color }};
+          {% endif %}
+          {% if font_on %}
+            --_heading---h1--font-family: "{{ style_font }}", sans-serif;
+            --_heading---h2--font-family: "{{ style_font }}", sans-serif;
+            --_heading---h3--font-family: "{{ style_font }}", sans-serif;
+            --_heading---h4--font-family: "{{ style_font }}", sans-serif;
+            --_heading---h5--font-family: "{{ style_font }}", sans-serif;
+            --_heading---h6--font-family: "{{ style_font }}", sans-serif;
+          {% endif %}
+          {{ style_spacing }}
+        }
+      {% end_scope_css %}
+    </style>
+  {% end_require_css %}
+{% endif %}
 <section class="section_legal-text {{ bg_classes[module.background] }}">
   <div class="padding-global padding-section-small">
     <div class="container-small">
       <div class="legal-text_content">
         <h1>{{ module.heading|escape_html|replace("EB-5", "<span class=\"text-style-nowrap\">EB-5</span>") }}</h1>
-        <p class="text-size-small text-color-secondary">{{ module.updated|escape_html }}</p>
+        <p class="text-size-small text-color-secondary">
+          {{ module.updated|escape_html }}
+        </p>
         {% for paragraph in module.paragraphs %}
         <p class="legal-text_paragraph">{{ paragraph.text|escape_html }}</p>
         {% endfor %}
