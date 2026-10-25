@@ -1,0 +1,12 @@
+{
+  "label": "Blog post title, author, date and photo",
+  "icon": "../../images/module-icons/blog-post-header.svg",
+  "css_assets": [],
+  "external_js": [],
+  "global": false,
+  "host_template_types": ["BLOG_POST"],
+  "is_available_for_new_content": true,
+  "smart_type": "NOT_SMART",
+  "content_tags": [],
+  "inline_help_text": "Blog post title, author, date and photo. Every text is a field."
+}

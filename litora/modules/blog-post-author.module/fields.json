@@ -1,0 +1,33 @@
+[
+  {
+    "name": "authorHeading",
+    "label": "Above the author name",
+    "type": "text",
+    "default": "Quem escreveu"
+  },
+  {
+    "name": "websiteLabel",
+    "label": "Author website link",
+    "type": "text",
+    "default": "Site do autor"
+  },
+  {
+    "name": "showRelated",
+    "label": "Show related posts",
+    "type": "boolean",
+    "display": "checkbox",
+    "default": true
+  },
+  {
+    "name": "relatedHeading",
+    "label": "Related posts heading",
+    "type": "text",
+    "default": "Leia também"
+  },
+  {
+    "name": "authorPrefix",
+    "label": "Before the author name",
+    "type": "text",
+    "default": "Por"
+  }
+]

@@ -1,0 +1,43 @@
+<!--
+  templateType: none
+-->
+{#
+  One post as a card: the featured photo, the date and the author, the title and the summary. The title link covers
+  the whole card, so the card has one link and one tab stop. Used by the blog listing and by the related posts of a post.
+#}
+{% import "./images.html" as images %}
+{% macro card(post, author_prefix, heading_level, eager) -%}
+  <li class="blog-card_component">
+    {% if post.featured_image %}
+      <div class="blog-card_media">
+        <img
+          class="blog-card_image"
+          src="{{ resize_image_url(post.featured_image, 800) }}"
+          srcset="{{ images.srcset({
+      "src": post.featured_image
+    }, [ 400, 600, 800, 1200], true) }}"
+          sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 33vw"
+          width="1200"
+          height="800"
+          alt="{{ post.featured_image_alt_text|escape_attr }}"
+          loading="{{ "eager" if eager else "lazy" }}"
+        />
+      </div>
+    {% endif %}
+    <p class="blog-card_meta text-size-small text-color-secondary">
+      <time datetime="{{ post.publish_date|format_date("yyyy-MM-dd") }}">{{ post.publish_date|format_date("long") }}</time>
+      {% if post.blog_post_author %}
+        <span
+          >{{ author_prefix|escape_html }}
+          {{ post.blog_post_author.display_name|escape_html }}</span
+        >
+      {% endif %}
+    </p>
+    <h{{ heading_level }} class="blog-card_title heading-style-h3">
+      <a class="blog-card_link" href="{{ post.absolute_url|escape_url }}">{{ post.name|escape_html }}</a>
+    </h{{ heading_level }}>
+    {% if post.post_summary %}
+      <p class="blog-card_summary text-color-secondary">{{ post.post_summary|striptags|truncate(180) }}</p>
+    {% endif %}
+  </li>
+{%- endmacro %}

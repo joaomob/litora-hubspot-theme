@@ -1,0 +1,60 @@
+{% import "../../templates/partials/blog-card.html" as blog %}
+{% set bg_classes = {
+  "primary": "background-color-primary",
+  "secondary": "background-color-secondary",
+  "inverse": "theme-inverse"
+} %}
+<section class="section_blog-listing {{ bg_classes[module.background] }}">
+  <div class="padding-global padding-section-small">
+    <div class="container-large">
+      <div class="section-header_component">
+        <h1>{{ module.heading|escape_html }}</h1>
+        {% if module.intro %}
+          <p class="text-size-large text-color-secondary max-width-medium">
+            {{ module.intro|escape_html }}
+          </p>
+        {% endif %}
+      </div>
+      {% if contents %}
+        <ul class="blog-listing_list" role="list">
+          {% for post in contents %}
+          {{ blog.card(post, module.authorPrefix, 2, loop.index <= 3) }}
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="text-color-secondary">{{ module.emptyText|escape_html }}</p>
+      {% endif %}
+      {% if last_page_num and last_page_num > 1 %}
+        <nav class="blog-pagination_component" aria-label="{{ module.paginationLabel|escape_attr }}">
+          <div class="blog-pagination_side">
+            {% if current_page_num > 1 %}
+              <a class="button is-secondary" href="{{ blog_page_link(current_page_num - 1)|escape_url }}">
+                <span class="button_text-wrap"
+                  ><span class="button_text">{{ module.previousLabel|escape_html }}</span
+                  ><span class="button_text is-clone" aria-hidden="true"
+                    >{{ module.previousLabel|escape_html }}</span
+                  ></span
+                >
+              </a>
+            {% endif %}
+          </div>
+          <p class="text-size-small text-color-secondary">
+            {{ module.pageLabel|replace("{current}", current_page_num)|replace("{total}", last_page_num)|escape_html }}
+          </p>
+          <div class="blog-pagination_side is-end">
+            {% if next_page_num %}
+              <a class="button" href="{{ blog_page_link(next_page_num)|escape_url }}">
+                <span class="button_text-wrap"
+                  ><span class="button_text">{{ module.nextLabel|escape_html }}</span
+                  ><span class="button_text is-clone" aria-hidden="true"
+                    >{{ module.nextLabel|escape_html }}</span
+                  ></span
+                >
+              </a>
+            {% endif %}
+          </div>
+        </nav>
+      {% endif %}
+    </div>
+  </div>
+</section>

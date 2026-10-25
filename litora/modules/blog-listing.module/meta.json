@@ -1,0 +1,12 @@
+{
+  "label": "Blog posts as cards with pagination",
+  "icon": "../../images/module-icons/blog-listing.svg",
+  "css_assets": [],
+  "external_js": [],
+  "global": false,
+  "host_template_types": ["BLOG_LISTING"],
+  "is_available_for_new_content": true,
+  "smart_type": "NOT_SMART",
+  "content_tags": [],
+  "inline_help_text": "Blog posts as cards with pagination. Every text is a field."
+}

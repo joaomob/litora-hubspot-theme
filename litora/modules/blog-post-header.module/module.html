@@ -1,0 +1,50 @@
+{% import "../../templates/partials/images.html" as images %}
+<header class="section_blog-post-header">
+  <div class="padding-global padding-section-small">
+    <div class="container-small blog-post-header_component">
+      <a class="blog-post_back text-size-small" href="{{ group.absolute_url|escape_url }}"
+        >{{ module.backLabel|escape_html }}</a
+      >
+      {% if content.tag_list %}
+        <ul class="blog-post_tags" role="list" aria-label="{{ module.tagsLabel|escape_attr }}">
+          {% for tag in content.tag_list %}
+          <li>
+            <a class="blog-post_tag text-style-eyebrow" href="{{ blog_tag_url(group.id, tag.slug)|escape_url }}" rel="tag"
+              >{{ tag.name|escape_html }}</a
+            >
+          </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      <h1>{{ content.name|escape_html }}</h1>
+      <p class="blog-post_meta text-color-secondary">
+        {% if content.blog_post_author %}
+          <a href="{{ blog_author_url(group.id, content.blog_post_author.slug)|escape_url }}" rel="author"
+            >{{ module.authorPrefix|escape_html }}
+            {{ content.blog_post_author.display_name|escape_html }}</a
+          >
+        {% endif %}
+        <time datetime="{{ content.publish_date|format_date("yyyy-MM-dd") }}">{{ content.publish_date_localized|escape_html }}</time>
+      </p>
+    </div>
+    {% if content.featured_image %}
+      <div class="container-large">
+        <div class="blog-post_image-wrap">
+          <img
+            class="blog-post_image"
+            src="{{ resize_image_url(content.featured_image, 1280) }}"
+            srcset="{{ images.srcset({
+    "src": content.featured_image
+  }, [ 640, 960, 1280, 1920], true) }}"
+            sizes="(max-width: 1280px) 100vw, 1280px"
+            width="1920"
+            height="1080"
+            alt="{{ content.featured_image_alt_text|escape_attr }}"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</header>

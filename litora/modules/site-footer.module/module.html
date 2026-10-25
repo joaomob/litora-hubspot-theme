@@ -33,15 +33,17 @@
           <li>
             <a class="site-footer_link" href="{{ module.links.privacy|escape_attr }}">{{ module.global.footer.privacyLabel|escape_html }}</a>
           </li>
-          <li>
-            <a
-              class="site-footer_link"
-              href="{{ module.links.alternate|escape_attr }}"
-              hreflang="{{ module.links.alternateLang|escape_attr }}"
-              lang="{{ module.links.alternateLang|escape_attr }}"
-              >{{ module.global.footer.languageLinkLabel|escape_html }}</a
-            >
-          </li>
+          {% if module.links.alternate %}
+            <li>
+              <a
+                class="site-footer_link"
+                href="{{ module.links.alternate|escape_attr }}"
+                hreflang="{{ module.links.alternateLang|escape_attr }}"
+                lang="{{ module.links.alternateLang|escape_attr }}"
+                >{{ module.global.footer.languageLinkLabel|escape_html }}</a
+              >
+            </li>
+          {% endif %}
         </ul>
       </div>
       <div class="site-footer_bottom">

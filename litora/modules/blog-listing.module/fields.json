@@ -1,0 +1,65 @@
+[
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "default": "Blog"
+  },
+  {
+    "name": "intro",
+    "label": "Intro",
+    "type": "text",
+    "default": "Artigos sobre o visto EB-5 e o mercado imobiliário dos Estados Unidos."
+  },
+  {
+    "name": "authorPrefix",
+    "label": "Before the author name",
+    "type": "text",
+    "default": "Por"
+  },
+  {
+    "name": "emptyText",
+    "label": "Text when there are no posts",
+    "type": "text",
+    "default": "Ainda não há artigos publicados."
+  },
+  {
+    "name": "paginationLabel",
+    "label": "Pagination name for screen readers",
+    "type": "text",
+    "default": "Páginas do blog"
+  },
+  {
+    "name": "previousLabel",
+    "label": "Previous page button",
+    "type": "text",
+    "default": "Página anterior"
+  },
+  {
+    "name": "nextLabel",
+    "label": "Next page button",
+    "type": "text",
+    "default": "Próxima página"
+  },
+  {
+    "name": "pageLabel",
+    "label": "Page counter",
+    "type": "text",
+    "default": "Página {current} de {total}",
+    "inline_help_text": "{current} and {total} become the page numbers."
+  },
+  {
+    "name": "background",
+    "label": "Section colour",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      ["primary", "Light"],
+      ["secondary", "Light alternate"],
+      ["inverse", "Dark"]
+    ],
+    "default": "primary",
+    "inline_help_text": "Colours come from the theme settings.",
+    "tab": "STYLE"
+  }
+]

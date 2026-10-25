@@ -1,0 +1,20 @@
+[
+  {
+    "name": "backLabel",
+    "label": "Back to the blog link",
+    "type": "text",
+    "default": "Voltar ao blog"
+  },
+  {
+    "name": "tagsLabel",
+    "label": "Tag list name for screen readers",
+    "type": "text",
+    "default": "Assuntos"
+  },
+  {
+    "name": "authorPrefix",
+    "label": "Before the author name",
+    "type": "text",
+    "default": "Por"
+  }
+]

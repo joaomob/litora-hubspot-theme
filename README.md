@@ -11,9 +11,10 @@ Live on the HubSpot free plan, with noindex:
 
 ## What the marketing team gets
 
-- 15 modules, one per block of the page (hero with schedule and sign up form, project photo that opens through a circle, topic rows, audience and speaker cards, numbers on a ruler with a cost table, stacked full screen photos, questions with a timeline, final call, steps, legal text, header and footer). Every text, photo and alt text is a field, so a page changes without code.
+- 15 page modules, one per block of the page (hero with schedule and sign up form, project photo that opens through a circle, topic rows, audience and speaker cards, numbers on a ruler with a cost table, stacked full screen photos, questions with a timeline, final call, steps, legal text, header and footer). Every text, photo and alt text is a field, so a page changes without code.
 - 13 section templates, so a block can be added to any page from the section library with its layout locked.
 - 10 page templates, one per page and language, each one filled with that page's texts and photos.
+- A blog: a listing of posts as cards with pagination, and a post with tags, the author box, related posts and HubSpot comments in the theme's fields and buttons. Three blog modules hold every label, and the header and the footer follow the blog's language.
 - Theme settings with the brand colours and the two text fonts, under HubSpot's standard names (`primary_color`, `secondary_color`, `heading_font`, `body_font`). Spacing, sizes and the type scale stay fixed in code: the editor picks a section colour, never a number.
 
 ## How it is built
@@ -60,7 +61,7 @@ npm run upload        # verify, then hs cms upload litora litora
 
 ## Checks
 
-- `hs cms theme marketplace-validate litora`: passes except the blog templates, which apply to themes sold on the HubSpot marketplace (this one is for landing pages only).
+- `hs cms theme marketplace-validate litora`: no errors.
 - PageSpeed Insights, webinar page (25 October 2026): performance 92 to 96 on a phone in three runs, 100 on a computer; accessibility 100 and best practices 100. SEO is lower only because of the noindex.
 - Both forms reach the HubSpot CRM with every field.
 

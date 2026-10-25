@@ -9,12 +9,14 @@
                 >{{ module.global.header.languageCurrent|escape_html }}</span
               >
             </li>
-            <li>
-              <a class="language-switch_link" href="{{ module.links.alternate|escape_attr }}" hreflang="{{ module.links.alternateLang|escape_attr }}"
-                ><span aria-hidden="true">{{ module.global.header.languageOther|escape_html }}</span
-                ><span class="visually-hidden">{{ module.global.header.languageOtherLabel|escape_html }}</span></a
-              >
-            </li>
+            {% if module.links.alternate %}
+              <li>
+                <a class="language-switch_link" href="{{ module.links.alternate|escape_attr }}" hreflang="{{ module.links.alternateLang|escape_attr }}"
+                  ><span aria-hidden="true">{{ module.global.header.languageOther|escape_html }}</span
+                  ><span class="visually-hidden">{{ module.global.header.languageOtherLabel|escape_html }}</span></a
+                >
+              </li>
+            {% endif %}
           </ul>
         </div>
         <a class="logo_component" href="{{ module.links.self|escape_attr }}"

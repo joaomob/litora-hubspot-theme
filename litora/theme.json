@@ -8,10 +8,12 @@
     "email": "",
     "url": "https://responsedesign.com.br"
   },
-  "documentation_url": "",
+  "documentation_url": "https://github.com/joaomob/litora-hubspot-theme#readme",
+  "example_url": "https://litora.joaomob.com/webinar-visto-eb5",
   "license": "./license.txt",
   "is_available_for_new_content": true,
   "hide_all_default_modules": true,
+  "enable_domain_stylesheets": false,
   "responsive_breakpoints": [
     {
       "name": "mobile",

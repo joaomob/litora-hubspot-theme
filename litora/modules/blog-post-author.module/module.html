@@ -1,0 +1,60 @@
+{% import "../../templates/partials/blog-card.html" as blog %}
+{% set author = content.blog_post_author %}
+{% if author %}
+  <section class="section_blog-author">
+    <div class="padding-global">
+      <div class="container-small">
+        <div class="blog-author_component">
+          {% if author.avatar %}
+            <img
+              class="blog-author_avatar"
+              src="{{ resize_image_url(author.avatar, 160) }}"
+              width="80"
+              height="80"
+              alt=""
+              loading="lazy"
+            />
+          {% endif %}
+          <div class="blog-author_content">
+            <p class="text-style-eyebrow text-color-secondary">
+              {{ module.authorHeading|escape_html }}
+            </p>
+            <h2 class="heading-style-h3">
+              <a class="blog-author_name" href="{{ blog_author_url(group.id, author.slug)|escape_url }}" rel="author"
+                >{{ author.display_name|escape_html }}</a
+              >
+            </h2>
+            {% if author.bio %}
+              <p class="text-color-secondary">{{ author.bio|striptags }}</p>
+            {% endif %}
+            {% if author.website %}
+              <a class="text-size-small" href="{{ author.website|escape_url }}">{{ module.websiteLabel|escape_html }}</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
+{% if module.showRelated %}
+  {% macro related(post, count, total) %}
+    {% if count == 1 %}
+      <section class="section_blog-related">
+        <div class="padding-global padding-section-small">
+          <div class="container-large">
+            <h2 class="blog-related_heading">{{ module.relatedHeading|escape_html }}</h2>
+            <ul class="blog-listing_list" role="list">
+            {% endif %}
+            {{ blog.card(post, module.authorPrefix, 3, false) }}
+            {% if count == total %}
+            </ul>
+          </div>
+        </div>
+      </section>
+    {% endif %}
+  {% endmacro %}
+  {% related_blog_posts
+    limit=3,
+    no_wrapper=True,
+    post_formatter="related" %}
+{% endif %}
