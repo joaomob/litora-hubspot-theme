@@ -1,5 +1,8 @@
-# Every push and pull request runs the same checks as `npm run upload`, without the upload: theme structure, lint and
-# formatting. Deploying from CI needs the HubSpot key as a repository secret, which is not set up.
+# Every push and pull request runs the same checks as `npm run upload`: theme structure, lint and formatting. A push to
+# main that passes them uploads the theme to the HubSpot account with HubSpot's own deploy action. The key is the
+# repository secret HUBSPOT_PERSONAL_ACCESS_KEY and the account id the variable HUBSPOT_ACCOUNT_ID; pull requests never
+# reach the deploy job, so a fork never sees the key. Pages built on the theme keep their cached HTML until they are
+# republished, so a change shows on the live pages after the next republish.
 name: checks
 
 on:
@@ -22,3 +25,22 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run verify
+
+  deploy:
+    needs: checks
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # one upload at a time; a newer push waits for the running one instead of racing it
+    concurrency:
+      group: hubspot-deploy
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v7
+      - name: Upload the theme to HubSpot
+        uses: HubSpot/hubspot-cms-deploy-action@v2.1.0
+        with:
+          src_dir: litora
+          dest_dir: litora
+          account_id: ${{ vars.HUBSPOT_ACCOUNT_ID }}
+          personal_access_key: ${{ secrets.HUBSPOT_PERSONAL_ACCESS_KEY }}

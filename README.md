@@ -56,7 +56,7 @@ npm run upload        # verify, then hs cms upload litora litora
 
 ## Continuous integration
 
-`.github/workflows/checks.yml` runs `npm run verify` on every push and pull request. It does not deploy: that needs the HubSpot key as a repository secret, which is not set up.
+`.github/workflows/checks.yml` runs `npm run verify` on every push and pull request. A push to `main` that passes the checks uploads `litora/` to the HubSpot account with [HubSpot's CMS deploy action](https://github.com/HubSpot/hubspot-cms-deploy-action). The key is the repository secret `HUBSPOT_PERSONAL_ACCESS_KEY` and the account id the variable `HUBSPOT_ACCOUNT_ID`. Pull requests run only the checks. Pages keep their cached HTML until they are republished, so a theme change shows on the live pages after the next republish.
 
 ## Checks
 
