@@ -8,7 +8,7 @@
   "secondary": "background-color-secondary",
   "inverse": "theme-inverse"
 } %}
-<footer class="site-footer_component {{ bg_classes[theme.footer.background] or bg_classes.secondary }}">
+<footer class="site-footer_component {{ bg_classes[site_footer_background or theme.footer.background] or bg_classes.secondary }}">
   <div class="padding-global">
     <div class="container-large">
       {% dnd_area "footer_top"

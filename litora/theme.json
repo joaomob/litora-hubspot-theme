@@ -1,7 +1,7 @@
 {
   "label": "Litora",
-  "preview_path": "./templates/webinar-pt-br.html",
-  "screenshot_path": "./images/template-previews/webinar-pt-br.jpg",
+  "preview_path": "./templates/webinar.html",
+  "screenshot_path": "./images/template-previews/webinar.jpg",
   "version": "1.0.0",
   "author": {
     "name": "João Marcos",

@@ -1,40 +1,81 @@
 <!--
   templateType: page
   isAvailableForNewContent: true
-  label: Litora event thank you (English)
-  screenshotPath: ../images/template-previews/event-thank-you-en-us.jpg
+  label: Litora event thank you
+  screenshotPath: ../images/template-previews/event-thank-you.jpg
 -->
-{% extends "./layouts/base.html" %}
-{% block skip_link %}Skip to content{% endblock skip_link %}
-{% block header %}
-  {% module "site_header"
-    path="../modules/site-header",
-    label="Fixed header with language switch and button",
-    ctaLabel="",
-    ctaTarget="",
-    links={
-      "self": "/en/eb5-event-sao-paulo/thank-you",
-      "alternate": "/evento-visto-eb5-sao-paulo/obrigado",
-      "alternateLang": "pt-BR",
-      "privacy": "/en/privacy"
+{# the HubSpot parser takes a test only on a plain variable, after no filter and outside a set #}
+{% set lang_code = (html_lang or "")|lower %}
+{% set is_en = false %}
+{% if lang_code is string_startingwith("en") %}{% set is_en = true %}{% endif %}
+{% if is_en %}
+  {% set site_global = {
+    "skipLink": "Skip to content",
+    "header": {
+      "logoText": "Litora",
+      "languageCurrent": "EN",
+      "languageOther": "PT",
+      "languageOtherLabel": "View this page in Portuguese"
     },
-    global={
-      "skipLink": "Skip to content",
-      "header": {
-        "logoText": "Litora",
-        "languageCurrent": "EN",
-        "languageOther": "PT",
-        "languageOtherLabel": "View this page in Portuguese"
-      },
-      "footer": {
-        "logoText": "Litora",
-        "about": "Litora structures U.S. real estate projects for Brazilian investors through EB-5.",
-        "legalNoticeTitle": "Legal notice.",
-        "legalNotice": "This page is for information only. It is not an offer to sell, or a solicitation of an offer to buy, any securities. Any offer would be made only through an offering memorandum, which Litora shares only with accredited investors. Investing in an EB-5 project carries risk, including the loss of capital. Approval, timing and the green card depend on U.S. immigration authorities, and no result is guaranteed. Consult an immigration attorney and a tax advisor before you decide. Program figures are as of October 2026, from USCIS and U.S. law (8 U.S.C. 1153), and will be adjusted for inflation for petitions filed on or after January 1, 2027.",
-        "privacyLabel": "Privacy policy",
-        "languageLinkLabel": "Português"
-      }
-    } %}
+    "footer": {
+      "logoText": "Litora",
+      "about": "Litora structures U.S. real estate projects for Brazilian investors through EB-5.",
+      "legalNoticeTitle": "Legal notice.",
+      "legalNotice": "This page is for information only. It is not an offer to sell, or a solicitation of an offer to buy, any securities. Any offer would be made only through an offering memorandum, which Litora shares only with accredited investors. Investing in an EB-5 project carries risk, including the loss of capital. Approval, timing and the green card depend on U.S. immigration authorities, and no result is guaranteed. Consult an immigration attorney and a tax advisor before you decide. Program figures are as of October 2026, from USCIS and U.S. law (8 U.S.C. 1153), and will be adjusted for inflation for petitions filed on or after January 1, 2027.",
+      "privacyLabel": "Privacy policy",
+      "languageLinkLabel": "Português"
+    }
+  } %}
+  {% set site_home = "/en/eb5-visa-webinar" %}
+  {% set site_header_cta_label = "" %}
+  {% set site_header_cta_target = "" %}
+  {% set site_footer_fictional_notice = "Litora is a fictional brand created for a design portfolio. This page is not an offer to sell securities. The Tavessa project, Rafael Moura and the address are fictional too." %}
+
+{% else %}
+  {% set site_global = {
+    "skipLink": "Ir para o conteúdo",
+    "header": {
+      "logoText": "Litora",
+      "languageCurrent": "PT",
+      "languageOther": "EN",
+      "languageOtherLabel": "Ver esta página em inglês"
+    },
+    "footer": {
+      "logoText": "Litora",
+      "about": "A Litora estrutura projetos imobiliários nos EUA para investidores brasileiros pelo EB-5.",
+      "legalNoticeTitle": "Aviso legal.",
+      "legalNotice": "Esta página tem fim informativo e não é oferta de venda nem pedido de oferta de compra de valores mobiliários. Qualquer oferta seria feita só por memorando de oferta, e a Litora só apresenta esse memorando a investidores qualificados. Investir num projeto do EB-5 tem risco, inclusive o de perder o capital. Aprovação, prazo e green card dependem das autoridades de imigração dos EUA, e nenhum resultado é garantido. Antes de decidir, consulte um advogado de imigração e um contador. Os valores do programa são de outubro de 2026, com fonte no USCIS e na lei americana (8 U.S.C. 1153), e mudam com a inflação para pedidos feitos a partir de 1º de janeiro de 2027.",
+      "privacyLabel": "Política de privacidade",
+      "languageLinkLabel": "English"
+    }
+  } %}
+  {% set site_home = "/webinar-visto-eb5" %}
+  {% set site_header_cta_label = "" %}
+  {% set site_header_cta_target = "" %}
+  {% set site_footer_fictional_notice = "Litora é uma marca fictícia, criada para um portfólio de design. Esta página não é oferta de venda de valores mobiliários. O empreendimento Tavessa, Rafael Moura e o endereço também são fictícios." %}
+
+{% endif %}
+{% set translations = [] %}
+{% if content.translated_content %}
+  {% for code in ([ "pt-br", "pt"] if is_en else [ "en-us", "en"]) %}
+  {% set translation = content.translated_content[code] %}
+  {% if translation and translation.absolute_url %}{% do translations.append(translation) %}{% endif %}
+  {% endfor %}
+{% endif %}
+{% set other_lang = "pt-BR" if is_en else "en-US" %}
+{% set site_links = {
+  "self": request.path,
+  "alternate": (translations|first).absolute_url if translations else "",
+  "alternateLang": other_lang,
+  "privacy": "/en/privacy" if is_en else "/privacidade"
+} %}
+{% extends "./layouts/base.html" %}
+{% block head %}
+{% endblock head %}
+{% block skip_link %}{{ site_global.skipLink }}{% endblock skip_link %}
+{% block header %}
+  {% global_partial
+    path="./partials/site-header.html" %}
 {% endblock header %}
 {% block body %}
   {% dnd_area "main"
@@ -148,33 +189,6 @@
   {% end_dnd_area %}
 {% endblock body %}
 {% block footer %}
-  {% module "site_footer"
-    path="../modules/site-footer",
-    label="Footer with legal notice and links",
-    fictionalNotice="Litora is a fictional brand created for a design portfolio. This page is not an offer to sell securities. The Tavessa project, Rafael Moura and the address are fictional too.",
-    background="secondary",
-    links={
-      "self": "/en/eb5-event-sao-paulo/thank-you",
-      "alternate": "/evento-visto-eb5-sao-paulo/obrigado",
-      "alternateLang": "pt-BR",
-      "privacy": "/en/privacy"
-    },
-    global={
-      "skipLink": "Skip to content",
-      "header": {
-        "logoText": "Litora",
-        "languageCurrent": "EN",
-        "languageOther": "PT",
-        "languageOtherLabel": "View this page in Portuguese"
-      },
-      "footer": {
-        "logoText": "Litora",
-        "about": "Litora structures U.S. real estate projects for Brazilian investors through EB-5.",
-        "legalNoticeTitle": "Legal notice.",
-        "legalNotice": "This page is for information only. It is not an offer to sell, or a solicitation of an offer to buy, any securities. Any offer would be made only through an offering memorandum, which Litora shares only with accredited investors. Investing in an EB-5 project carries risk, including the loss of capital. Approval, timing and the green card depend on U.S. immigration authorities, and no result is guaranteed. Consult an immigration attorney and a tax advisor before you decide. Program figures are as of October 2026, from USCIS and U.S. law (8 U.S.C. 1153), and will be adjusted for inflation for petitions filed on or after January 1, 2027.",
-        "privacyLabel": "Privacy policy",
-        "languageLinkLabel": "Português"
-      }
-    } %}
+  {% global_partial
+    path="./partials/site-footer.html" %}
 {% endblock footer %}
-{% block scripts %}{% endblock scripts %}

@@ -11,14 +11,25 @@
     <div class="container-large">
       {% dnd_area "header_top"
         label="Above the header bar" %}{% end_dnd_area %}
-      {% module_block module "site_header"
-        path="../../modules/site-header",
-        label="Fixed header with language switch and button",
-        ctaLabel="",
-        ctaTarget="" %}
-        {% module_attribute "links" %}{{ site_links|tojson }}{% end_module_attribute %}
-        {% module_attribute "global" %}{{ site_global|tojson }}{% end_module_attribute %}
-      {% end_module_block %}
+      {% if site_header_cta_label %}
+        {% module_block module "site_header"
+          path="../../modules/site-header",
+          label="Fixed header with language switch and button" %}
+          {% module_attribute "ctaLabel" %}{{ site_header_cta_label }}{% end_module_attribute %}
+          {% module_attribute "ctaTarget" %}{{ site_header_cta_target }}{% end_module_attribute %}
+          {% module_attribute "links" %}{{ site_links|tojson }}{% end_module_attribute %}
+          {% module_attribute "global" %}{{ site_global|tojson }}{% end_module_attribute %}
+        {% end_module_block %}
+      {% else %}
+        {% module_block module "site_header"
+          path="../../modules/site-header",
+          label="Fixed header with language switch and button",
+          ctaLabel="",
+          ctaTarget="" %}
+          {% module_attribute "links" %}{{ site_links|tojson }}{% end_module_attribute %}
+          {% module_attribute "global" %}{{ site_global|tojson }}{% end_module_attribute %}
+        {% end_module_block %}
+      {% endif %}
       {% dnd_area "header_bottom"
         label="Below the header bar" %}{% end_dnd_area %}
     </div>

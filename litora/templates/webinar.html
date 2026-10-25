@@ -1,89 +1,81 @@
 <!--
   templateType: page
   isAvailableForNewContent: true
-  label: Litora event (English)
-  screenshotPath: ../images/template-previews/event-en-us.jpg
+  label: Litora webinar
+  screenshotPath: ../images/template-previews/webinar.jpg
 -->
+{# the HubSpot parser takes a test only on a plain variable, after no filter and outside a set #}
+{% set lang_code = (html_lang or "")|lower %}
+{% set is_en = false %}
+{% if lang_code is string_startingwith("en") %}{% set is_en = true %}{% endif %}
+{% if is_en %}
+  {% set site_global = {
+    "skipLink": "Skip to content",
+    "header": {
+      "logoText": "Litora",
+      "languageCurrent": "EN",
+      "languageOther": "PT",
+      "languageOtherLabel": "View this page in Portuguese"
+    },
+    "footer": {
+      "logoText": "Litora",
+      "about": "Litora structures U.S. real estate projects for Brazilian investors through EB-5.",
+      "legalNoticeTitle": "Legal notice.",
+      "legalNotice": "This page is for information only. It is not an offer to sell, or a solicitation of an offer to buy, any securities. Any offer would be made only through an offering memorandum, which Litora shares only with accredited investors. Investing in an EB-5 project carries risk, including the loss of capital. Approval, timing and the green card depend on U.S. immigration authorities, and no result is guaranteed. Consult an immigration attorney and a tax advisor before you decide. Program figures are as of October 2026, from USCIS and U.S. law (8 U.S.C. 1153), and will be adjusted for inflation for petitions filed on or after January 1, 2027.",
+      "privacyLabel": "Privacy policy",
+      "languageLinkLabel": "Português"
+    }
+  } %}
+  {% set site_home = "/en/eb5-visa-webinar" %}
+  {% set site_header_cta_label = "Register" %}
+  {% set site_header_cta_target = "#register" %}
+  {% set site_footer_fictional_notice = "Litora is a fictional brand created for a design portfolio. This page is not an offer to sell securities. The Tavessa project and the speakers are fictional too." %}
+
+{% else %}
+  {% set site_global = {
+    "skipLink": "Ir para o conteúdo",
+    "header": {
+      "logoText": "Litora",
+      "languageCurrent": "PT",
+      "languageOther": "EN",
+      "languageOtherLabel": "Ver esta página em inglês"
+    },
+    "footer": {
+      "logoText": "Litora",
+      "about": "A Litora estrutura projetos imobiliários nos EUA para investidores brasileiros pelo EB-5.",
+      "legalNoticeTitle": "Aviso legal.",
+      "legalNotice": "Esta página tem fim informativo e não é oferta de venda nem pedido de oferta de compra de valores mobiliários. Qualquer oferta seria feita só por memorando de oferta, e a Litora só apresenta esse memorando a investidores qualificados. Investir num projeto do EB-5 tem risco, inclusive o de perder o capital. Aprovação, prazo e green card dependem das autoridades de imigração dos EUA, e nenhum resultado é garantido. Antes de decidir, consulte um advogado de imigração e um contador. Os valores do programa são de outubro de 2026, com fonte no USCIS e na lei americana (8 U.S.C. 1153), e mudam com a inflação para pedidos feitos a partir de 1º de janeiro de 2027.",
+      "privacyLabel": "Política de privacidade",
+      "languageLinkLabel": "English"
+    }
+  } %}
+  {% set site_home = "/webinar-visto-eb5" %}
+  {% set site_header_cta_label = "Inscrever-se" %}
+  {% set site_header_cta_target = "#register" %}
+  {% set site_footer_fictional_notice = "Litora é uma marca fictícia, criada para um portfólio de design. Esta página não é oferta de venda de valores mobiliários. O empreendimento Tavessa e os palestrantes também são fictícios." %}
+
+{% endif %}
+{% set translations = [] %}
+{% if content.translated_content %}
+  {% for code in ([ "pt-br", "pt"] if is_en else [ "en-us", "en"]) %}
+  {% set translation = content.translated_content[code] %}
+  {% if translation and translation.absolute_url %}{% do translations.append(translation) %}{% endif %}
+  {% endfor %}
+{% endif %}
+{% set other_lang = "pt-BR" if is_en else "en-US" %}
+{% set site_links = {
+  "self": request.path,
+  "alternate": (translations|first).absolute_url if translations else "",
+  "alternateLang": other_lang,
+  "privacy": "/en/privacy" if is_en else "/privacidade"
+} %}
 {% extends "./layouts/base.html" %}
 {% block head %}
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Event",
-      "name": "An in-person EB-5 event in São Paulo",
-      "description": "An in-person EB-5 event in São Paulo on Saturday, November 21, 2026. Individual meetings of 45 minutes with the Litora team, held in Portuguese.",
-      "startDate": "2026-11-21T09:00-03:00",
-      "endDate": "2026-11-21T17:00-03:00",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-      "location": {
-        "@type": "Place",
-        "name": "Avenida Brigadeiro Faria Lima, São Paulo",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Avenida Brigadeiro Faria Lima",
-          "addressLocality": "São Paulo",
-          "addressRegion": "SP",
-          "addressCountry": "BR"
-        }
-      },
-      "image": [
-        "https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/share/og-webinar.jpg"
-      ],
-      "inLanguage": "pt-BR",
-      "isAccessibleForFree": true,
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "BRL",
-        "availability": "https://schema.org/InStock",
-        "url": "https://litora.joaomob.com/en/eb5-event-sao-paulo"
-      },
-      "organizer": {
-        "@type": "Organization",
-        "name": "Litora",
-        "url": "https://litora.joaomob.com"
-      },
-      "performer": [
-        {
-          "@type": "Person",
-          "name": "Rafael Moura",
-          "jobTitle": "Investor relations director at Litora"
-        }
-      ]
-    }
-  </script>
 {% endblock head %}
-{% block skip_link %}Skip to content{% endblock skip_link %}
+{% block skip_link %}{{ site_global.skipLink }}{% endblock skip_link %}
 {% block header %}
-  {% module "site_header"
-    path="../modules/site-header",
-    label="Fixed header with language switch and button",
-    ctaLabel="Request a time",
-    ctaTarget="#register",
-    links={
-      "self": "/en/eb5-event-sao-paulo",
-      "alternate": "/evento-visto-eb5-sao-paulo",
-      "alternateLang": "pt-BR",
-      "privacy": "/en/privacy"
-    },
-    global={
-      "skipLink": "Skip to content",
-      "header": {
-        "logoText": "Litora",
-        "languageCurrent": "EN",
-        "languageOther": "PT",
-        "languageOtherLabel": "View this page in Portuguese"
-      },
-      "footer": {
-        "logoText": "Litora",
-        "about": "Litora structures U.S. real estate projects for Brazilian investors through EB-5.",
-        "legalNoticeTitle": "Legal notice.",
-        "legalNotice": "This page is for information only. It is not an offer to sell, or a solicitation of an offer to buy, any securities. Any offer would be made only through an offering memorandum, which Litora shares only with accredited investors. Investing in an EB-5 project carries risk, including the loss of capital. Approval, timing and the green card depend on U.S. immigration authorities, and no result is guaranteed. Consult an immigration attorney and a tax advisor before you decide. Program figures are as of October 2026, from USCIS and U.S. law (8 U.S.C. 1153), and will be adjusted for inflation for petitions filed on or after January 1, 2027.",
-        "privacyLabel": "Privacy policy",
-        "languageLinkLabel": "Português"
-      }
-    } %}
+  {% global_partial
+    path="./partials/site-header.html" %}
 {% endblock header %}
 {% block body %}
   {% dnd_area "main"
@@ -93,28 +85,34 @@
       {% dnd_module
         path="../modules/hero-event",
         label="Event hero with photo, schedule and sign up form",
-        eyebrow="Free, by appointment",
-        heading="An in-person EB-5 event in São Paulo",
+        eyebrow="Free and online",
+        heading="A live EB-5 visa webinar for investors from Brazil",
         details=[
           {
-            "text": "Saturday, November 21, 2026, from 9 a.m. to 5 p.m. São Paulo time."
+            "text": "Thursday, November 12, 2026, at 6 p.m. in New York."
           },
           {
-            "text": "Avenida Brigadeiro Faria Lima, São Paulo."
+            "text": "75 minutes on Zoom, presented in Portuguese."
           }
         ],
         timeBlock={
-          "date": "2026-11-21",
-          "day": "21",
+          "date": "2026-11-12",
+          "day": "12",
           "month": "Nov",
           "rows": [
             {
-              "time": "9 a.m. to 5 p.m.",
+              "time": "8 p.m.",
+              "datetime": "2026-11-12T20:00-03:00",
               "place": "São Paulo"
+            },
+            {
+              "time": "6 p.m.",
+              "datetime": "2026-11-12T18:00-05:00",
+              "place": "New York"
             }
           ]
         },
-        bodyText="At this EB-5 event in São Paulo, you get an individual meeting of 45 minutes with Litora's investor relations team, held in Portuguese. You choose the time of day in the form.",
+        bodyText="The EB-5 visa is the path to a green card for people who invest at least $800,000 in a U.S. business. In this EB-5 visa webinar, Helena Prado, a U.S. immigration attorney, and Rafael Moura of Litora show where the money goes and when it can come back, and take questions at the end.",
         image={
           "src": "https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/hero/hero-wide-1920.webp",
           "alt": "A white residential building with glass balconies on every floor, seen from the water in the late afternoon, with palm trees on the waterfront and two boats at the dock",
@@ -124,8 +122,8 @@
         },
         form={
           "anchorId": "register",
-          "heading": "Request a meeting",
-          "hubspotFormGuid": "1fef69a8-b922-47ee-8063-023076c04d42",
+          "heading": "Register",
+          "hubspotFormGuid": "4c3db844-aa48-49c3-b045-830e43b1b1da",
           "fields": [
             {
               "propertyName": "firstname",
@@ -151,7 +149,7 @@
               "propertyName": "email",
               "type": "email",
               "labelText": "Email",
-              "help": "We confirm your time at this address.",
+              "help": "We send the Zoom link to this address.",
               "autocomplete": "email",
               "errors": {
                 "required": "Enter your email.",
@@ -201,51 +199,29 @@
               }
             },
             {
-              "propertyName": "preferred_period",
-              "type": "radio",
-              "labelText": "Preferred time of day",
-              "options": [
-                {
-                  "value": "morning",
-                  "labelText": "Morning (9 a.m. to 12 p.m.)"
-                },
-                {
-                  "value": "early_afternoon",
-                  "labelText": "Early afternoon (12 p.m. to 3 p.m.)"
-                },
-                {
-                  "value": "late_afternoon",
-                  "labelText": "Late afternoon (3 p.m. to 5 p.m.)"
-                }
-              ],
-              "errors": {
-                "required": "Choose a time of day."
-              }
-            },
-            {
               "propertyName": "eb5_minimum_acknowledged",
               "type": "checkbox",
               "labelText": "I understand that EB-5 requires a minimum investment of $800,000.",
               "errors": {
-                "required": "To request a time, confirm that you know the minimum investment."
+                "required": "To register, confirm that you know the minimum investment."
               }
             },
             {
               "propertyName": "lgpd_consent",
               "type": "consent",
-              "labelText": "I authorize Litora to use my data (name, email, WhatsApp, city and country of residence) to confirm my time at this event and to contact me about EB-5, under Brazil's General Personal Data Protection Law (LGPD, Law No. 13,709/2018). I can ask to correct or delete my data at any time.",
+              "labelText": "I authorize Litora to use my data (name, email, WhatsApp, city and country of residence) to send the link and reminders for this webinar and to contact me about EB-5, under Brazil's General Personal Data Protection Law (LGPD, Law No. 13,709/2018). I can ask to correct or delete my data at any time.",
               "linkLabel": "Privacy policy",
               "errors": {
-                "required": "To request a time, check the box that authorizes the use of your data."
+                "required": "To register, check the box that authorizes the use of your data."
               },
               "linkUrl": "/en/privacy"
             }
           ],
-          "submitLabel": "Request my time",
-          "submitNote": "Our team confirms the exact time and the full address by email.",
+          "submitLabel": "Confirm registration",
+          "submitNote": "You get a confirmation now and the Zoom link 24 hours before.",
           "notice": "Litora is a fictional brand created for a design portfolio. This page is not an offer to sell securities.",
-          "submitError": "Your request wasn't sent. Check your connection and try again.",
-          "redirectUrl": "/en/eb5-event-sao-paulo/thank-you"
+          "submitError": "Your registration wasn't sent. Check your connection and try again.",
+          "redirectUrl": "/en/eb5-visa-webinar/thank-you"
         },
         imageTall={
           "src": "https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/hero/hero-tall-1534.webp",
@@ -255,8 +231,8 @@
           "loading": "lazy"
         },
         links={
-          "self": "/en/eb5-event-sao-paulo",
-          "alternate": "/evento-visto-eb5-sao-paulo",
+          "self": "/en/eb5-visa-webinar",
+          "alternate": "/webinar-visto-eb5",
           "alternateLang": "pt-BR",
           "privacy": "/en/privacy"
         },
@@ -284,12 +260,12 @@
       {% dnd_module
         path="../modules/statement-reveal",
         label="Statement revealed word by word",
-        labelText="The meeting",
-        text="In 45 minutes, you ask your questions about the project and see where your money goes and when it can come back.",
+        labelText="The webinar",
+        text="In 75 minutes, you learn what the green card asks of you and your family, and you leave with the questions to take to your attorney.",
         background="secondary",
         links={
-          "self": "/en/eb5-event-sao-paulo",
-          "alternate": "/evento-visto-eb5-sao-paulo",
+          "self": "/en/eb5-visa-webinar",
+          "alternate": "/webinar-visto-eb5",
           "alternateLang": "pt-BR",
           "privacy": "/en/privacy"
         },
@@ -322,7 +298,7 @@
         nameText="Tavessa, in Fort Pierce, Florida",
         text="Tavessa is a residential rental building in Fort Pierce, Florida. With EB-5, you invest in the company behind a project like this one, which creates the jobs the law requires, and you don't receive an apartment.",
         caption="Aerial view of Tavessa, a fictional project created for this page.",
-        buttonLabel="Request a time",
+        buttonLabel="Register for the webinar",
         buttonTarget="#register",
         image={
           "src": "https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/project/aerial-wide-1920.webp",
@@ -340,8 +316,8 @@
         },
         background="primary",
         links={
-          "self": "/en/eb5-event-sao-paulo",
-          "alternate": "/evento-visto-eb5-sao-paulo",
+          "self": "/en/eb5-visa-webinar",
+          "alternate": "/webinar-visto-eb5",
           "alternateLang": "pt-BR",
           "privacy": "/en/privacy"
         },
@@ -370,8 +346,8 @@
         path="../modules/topic-grid",
         label="Topic rows with number and thumbnail",
         labelText="Topics",
-        heading="What you can cover in the meeting",
-        intro="Six topics, with time for your questions.",
+        heading="What you will learn",
+        intro="",
         items=[
           {
             "heading": "How EB-5 works",
@@ -419,7 +395,7 @@
           },
           {
             "heading": "Risk and getting your capital back",
-            "text": "Where your money sits in the project, what happens if construction runs late and what repayment of your capital depends on. Litora doesn't promise a return, and the meeting shows you why.",
+            "text": "Where your money sits in the project, what happens if construction runs late and what repayment of your capital depends on. Litora doesn't promise a return, and the webinar explains why.",
             "image": {
               "src": "https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/topics/topic-concrete-frame.webp",
               "alt": "Concrete columns and slabs of a building under construction, with rebar showing",
@@ -442,8 +418,8 @@
         ],
         background="inverse",
         links={
-          "self": "/en/eb5-event-sao-paulo",
-          "alternate": "/evento-visto-eb5-sao-paulo",
+          "self": "/en/eb5-visa-webinar",
+          "alternate": "/webinar-visto-eb5",
           "alternateLang": "pt-BR",
           "privacy": "/en/privacy"
         },
@@ -512,8 +488,8 @@
         ],
         background="primary",
         links={
-          "self": "/en/eb5-event-sao-paulo",
-          "alternate": "/evento-visto-eb5-sao-paulo",
+          "self": "/en/eb5-visa-webinar",
+          "alternate": "/webinar-visto-eb5",
           "alternateLang": "pt-BR",
           "privacy": "/en/privacy"
         },
@@ -541,13 +517,25 @@
       {% dnd_module
         path="../modules/speakers",
         label="Speaker photo cards",
-        heading="Who meets with you",
-        note="Rafael Moura is a fictional character, and so is Litora.",
+        heading="Speakers",
+        note="Helena Prado and Rafael Moura are fictional characters, and so is Litora.",
         items=[
+          {
+            "nameText": "Helena Prado",
+            "role": "U.S. immigration attorney",
+            "text": "Covers the USCIS petition, proof of the source of funds and the conditional green card. Takes the immigration questions.",
+            "image": {
+              "src": "https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/speakers/speaker-helena-square-840.webp",
+              "alt": "Portrait of Helena Prado, a woman with dark hair pulled back, a dark green blazer and a light blouse, smiling slightly at the camera in front of a bookshelf",
+              "width": 840,
+              "height": 840,
+              "loading": "lazy"
+            }
+          },
           {
             "nameText": "Rafael Moura",
             "role": "Investor relations director at Litora",
-            "text": "Leads the meetings. Immigration questions about your case go to your attorney.",
+            "text": "Shows how an EB-5 real estate project is structured and where the risks are. Takes the project questions.",
             "image": {
               "src": "https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/speakers/speaker-rafael-square-840.webp",
               "alt": "Portrait of Rafael Moura, a man with short curly hair and a graying beard, in a beige linen jacket and a white shirt, smiling at the camera, with a scale model of a building behind him",
@@ -559,8 +547,8 @@
         ],
         background="secondary",
         links={
-          "self": "/en/eb5-event-sao-paulo",
-          "alternate": "/evento-visto-eb5-sao-paulo",
+          "self": "/en/eb5-visa-webinar",
+          "alternate": "/webinar-visto-eb5",
           "alternateLang": "pt-BR",
           "privacy": "/en/privacy"
         },
@@ -673,8 +661,8 @@
         },
         background="inverse",
         links={
-          "self": "/en/eb5-event-sao-paulo",
-          "alternate": "/evento-visto-eb5-sao-paulo",
+          "self": "/en/eb5-visa-webinar",
+          "alternate": "/webinar-visto-eb5",
           "alternateLang": "pt-BR",
           "privacy": "/en/privacy"
         },
@@ -782,8 +770,8 @@
           }
         ],
         links={
-          "self": "/en/eb5-event-sao-paulo",
-          "alternate": "/evento-visto-eb5-sao-paulo",
+          "self": "/en/eb5-visa-webinar",
+          "alternate": "/webinar-visto-eb5",
           "alternateLang": "pt-BR",
           "privacy": "/en/privacy"
         },
@@ -835,14 +823,6 @@
         },
         items=[
           {
-            "question": "Do I need to bring any documents?",
-            "answer": [
-              {
-                "text": "No. The meeting is for your questions. Documents on the source of funds and on immigration stay with your attorney."
-              }
-            ]
-          },
-          {
             "question": "Does buying a home in the U.S. get me a green card?",
             "answer": [
               {
@@ -854,7 +834,7 @@
             "question": "Can I lose the money I invest?",
             "answer": [
               {
-                "text": "Yes. EB-5 requires the capital to stay invested for at least 2 years in a business, and that business can lose money. In the meeting, Rafael Moura shows where the money goes in the project and which risks stay with the investor."
+                "text": "Yes. EB-5 requires the capital to stay invested for at least 2 years in a business, and that business can lose money. In the webinar, Rafael Moura shows where the money goes in the project and which risks stay with the investor."
               }
             ]
           },
@@ -862,7 +842,7 @@
             "question": "When and how does my capital come back?",
             "answer": [
               {
-                "text": "The law requires the capital to stay invested for at least 2 years. After that, repayment depends on how the project performs, and it isn't guaranteed. The SEC, the U.S. securities regulator, and USCIS say to be suspicious of anyone who promises to give your money back. The offering documents state the conditions for repayment, and Rafael Moura shows in the meeting where to read them."
+                "text": "The law requires the capital to stay invested for at least 2 years. After that, repayment depends on how the project performs, and it isn't guaranteed. The SEC, the U.S. securities regulator, and USCIS say to be suspicious of anyone who promises to give your money back. The offering documents state the conditions for repayment, and Rafael Moura shows in the webinar where to read them."
               }
             ]
           },
@@ -870,7 +850,7 @@
             "question": "Does my green card depend on the project?",
             "answer": [
               {
-                "text": "In part, yes. The first green card is conditional, for 2 years. You file Form I-829 to remove the conditions in the 90 days before it expires. With Form I-829, you show that you kept the capital invested for the 2 years and that the project created the 10 jobs, or will create them within a reasonable time. That's why the project's progress matters for that filing. If USCIS denies Form I-829, the investor, the spouse and the children lose the green card as of the date of the decision. You can ask for a review only in the removal proceedings that USCIS opens next. Your immigration attorney tells you what a delay changes in your case."
+                "text": "In part, yes. The first green card is conditional, for 2 years. You file Form I-829 to remove the conditions in the 90 days before it expires. With Form I-829, you show that you kept the capital invested for the 2 years and that the project created the 10 jobs, or will create them within a reasonable time. That's why the project's progress matters for that filing. If USCIS denies Form I-829, the investor, the spouse and the children lose the green card as of the date of the decision. You can ask for a review only in the removal proceedings that USCIS opens next. Helena Prado explains what happens when construction runs late."
               }
             ]
           },
@@ -886,7 +866,7 @@
             "question": "What is the EB-5 processing time?",
             "answer": [
               {
-                "text": "No one can guarantee the timing, Litora included. Review time depends on USCIS, and the green card depends on a visa being available. In the meeting, our team lays out the steps in order (the petition, the conditional green card for 2 years and Form I-829)."
+                "text": "No one can guarantee the timing, Litora included. Review time depends on USCIS, and the green card depends on a visa being available. In the webinar, Helena Prado lays out the steps in order (the petition, the conditional green card for 2 years and Form I-829)."
               }
             ]
           },
@@ -894,7 +874,7 @@
             "question": "Can I live in the U.S. while I wait?",
             "answer": [
               {
-                "text": "It depends on where you are. If you're in Brazil, you apply to the U.S. government for the immigrant visa, from outside the U.S., after the petition is approved. If you're already in the U.S., you can apply for the green card together with the petition when a visa is available. Your immigration attorney tells you which path applies to you."
+                "text": "It depends on where you are. If you're in Brazil, you apply to the U.S. government for the immigrant visa, from outside the U.S., after the petition is approved. If you're already in the U.S., you can apply for the green card together with the petition when a visa is available. Helena Prado explains both paths in the webinar."
               }
             ]
           },
@@ -946,15 +926,15 @@
                 ]
               },
               {
-                "text": "After the meeting, the next step is a conversation with an immigration attorney of your choice."
+                "text": "After the webinar, the next step is a conversation with an immigration attorney of your choice."
               }
             ]
           }
         ],
         background="primary",
         links={
-          "self": "/en/eb5-event-sao-paulo",
-          "alternate": "/evento-visto-eb5-sao-paulo",
+          "self": "/en/eb5-visa-webinar",
+          "alternate": "/webinar-visto-eb5",
           "alternateLang": "pt-BR",
           "privacy": "/en/privacy"
         },
@@ -982,9 +962,9 @@
       {% dnd_module
         path="../modules/cta-band",
         label="Final call over a photo",
-        heading="Saturday, November 21, in São Paulo",
-        text="An EB-5 event with individual meetings of 45 minutes, in Portuguese. 9 a.m. to 5 p.m., on Avenida Brigadeiro Faria Lima.",
-        buttonLabel="Request a time",
+        heading="Thursday, November 12, at 6 p.m. New York time",
+        text="A free EB-5 visa webinar on Zoom, presented in Portuguese. 8 p.m. in Brasília.",
+        buttonLabel="Register for the webinar",
         buttonTarget="#register",
         image={
           "src": "https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/cta/cta-wide-1920.webp",
@@ -1001,8 +981,8 @@
           "loading": "lazy"
         },
         links={
-          "self": "/en/eb5-event-sao-paulo",
-          "alternate": "/evento-visto-eb5-sao-paulo",
+          "self": "/en/eb5-visa-webinar",
+          "alternate": "/webinar-visto-eb5",
           "alternateLang": "pt-BR",
           "privacy": "/en/privacy"
         },
@@ -1028,34 +1008,8 @@
   {% end_dnd_area %}
 {% endblock body %}
 {% block footer %}
-  {% module "site_footer"
-    path="../modules/site-footer",
-    label="Footer with legal notice and links",
-    fictionalNotice="Litora is a fictional brand created for a design portfolio. This page is not an offer to sell securities. The Tavessa project, Rafael Moura and the address are fictional too.",
-    background="secondary",
-    links={
-      "self": "/en/eb5-event-sao-paulo",
-      "alternate": "/evento-visto-eb5-sao-paulo",
-      "alternateLang": "pt-BR",
-      "privacy": "/en/privacy"
-    },
-    global={
-      "skipLink": "Skip to content",
-      "header": {
-        "logoText": "Litora",
-        "languageCurrent": "EN",
-        "languageOther": "PT",
-        "languageOtherLabel": "View this page in Portuguese"
-      },
-      "footer": {
-        "logoText": "Litora",
-        "about": "Litora structures U.S. real estate projects for Brazilian investors through EB-5.",
-        "legalNoticeTitle": "Legal notice.",
-        "legalNotice": "This page is for information only. It is not an offer to sell, or a solicitation of an offer to buy, any securities. Any offer would be made only through an offering memorandum, which Litora shares only with accredited investors. Investing in an EB-5 project carries risk, including the loss of capital. Approval, timing and the green card depend on U.S. immigration authorities, and no result is guaranteed. Consult an immigration attorney and a tax advisor before you decide. Program figures are as of October 2026, from USCIS and U.S. law (8 U.S.C. 1153), and will be adjusted for inflation for petitions filed on or after January 1, 2027.",
-        "privacyLabel": "Privacy policy",
-        "languageLinkLabel": "Português"
-      }
-    } %}
+  {% global_partial
+    path="./partials/site-footer.html" %}
 {% endblock footer %}
 {% block scripts %}
   {{ require_js(get_asset_url("../js/form.js"), {
