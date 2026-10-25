@@ -15,6 +15,7 @@ Live on the HubSpot free plan, with noindex:
 - 13 section templates, so a block can be added to any page from the section library with its layout locked.
 - 10 page templates, one per page and language, each one filled with that page's texts and photos.
 - A blog: a listing of posts as cards with pagination, and a post with tags, the author box, related posts and HubSpot comments in the theme's fields and buttons. Three blog modules hold every label, and the header and the footer follow the blog's language.
+- The seven system pages HubSpot asks of a theme: 404 and 500 errors, password prompt, email subscription preferences, subscriptions confirmation, backup unsubscribe and search results. Each one has a short message the editor changes like any text, and HubSpot's own form or results under it, in the theme's fields, buttons and type.
 - Theme settings with the brand colours and the two text fonts, under HubSpot's standard names (`primary_color`, `secondary_color`, `heading_font`, `body_font`). Spacing, sizes and the type scale stay fixed in code: the editor picks a section colour, never a number.
 
 ## How it is built
@@ -29,7 +30,7 @@ Live on the HubSpot free plan, with noindex:
 ## Structure
 
 - `litora/theme.json`, `litora/fields.json`: the theme and its settings.
-- `litora/templates/`: the base layout, the page templates, the sections and the image macro.
+- `litora/templates/`: the base layout, the page templates, the blog, the system pages (`templates/system/`), the sections and the image macro.
 - `litora/modules/`: one folder per module (`module.html`, `fields.json`, `meta.json`).
 - `litora/css/`, `litora/js/`, `litora/fonts/`, `litora/images/`: styles, the motion and form scripts, fonts and photos.
 - `scripts/check-theme.mjs`: the structure check.
@@ -61,7 +62,7 @@ npm run upload        # verify, then hs cms upload litora litora
 
 ## Checks
 
-- `hs cms theme marketplace-validate litora`: no errors.
+- `hs cms theme marketplace-validate litora`: no errors. The only warnings are on the base layout and the two partials, which are `templateType: none` on purpose, as in HubSpot's boilerplate theme.
 - PageSpeed Insights, webinar page (25 October 2026): performance 92 to 96 on a phone in three runs, 100 on a computer; accessibility 100 and best practices 100. SEO is lower only because of the noindex.
 - Both forms reach the HubSpot CRM with every field.
 

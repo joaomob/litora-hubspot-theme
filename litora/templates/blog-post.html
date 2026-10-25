@@ -9,7 +9,7 @@
 {% set is_en = false %}
 {% if lang_code is string_startingwith("en") %}{% set is_en = true %}{% endif %}
 {% if is_en %}
-  {% set blog_global = {
+  {% set site_global = {
     "skipLink": "Skip to content",
     "header": {
       "logoText": "Litora",
@@ -26,9 +26,11 @@
       "languageLinkLabel": "Português"
     }
   } %}
-  {% set blog_footer_fictional_notice = "Litora is a fictional brand created for a design portfolio. This page is not an offer to sell securities. The Tavessa project and the speakers are fictional too." %}
+  {% set site_home = "/en/eb5-visa-webinar" %}
+  {% set site_footer_fictional_notice = "Litora is a fictional brand created for a design portfolio. This page is not an offer to sell securities. The Tavessa project and the speakers are fictional too." %}
+
 {% else %}
-  {% set blog_global = {
+  {% set site_global = {
     "skipLink": "Ir para o conteúdo",
     "header": {
       "logoText": "Litora",
@@ -45,7 +47,9 @@
       "languageLinkLabel": "English"
     }
   } %}
-  {% set blog_footer_fictional_notice = "Litora é uma marca fictícia, criada para um portfólio de design. Esta página não é oferta de venda de valores mobiliários. O empreendimento Tavessa e os palestrantes também são fictícios." %}
+  {% set site_home = "/webinar-visto-eb5" %}
+  {% set site_footer_fictional_notice = "Litora é uma marca fictícia, criada para um portfólio de design. Esta página não é oferta de venda de valores mobiliários. O empreendimento Tavessa e os palestrantes também são fictícios." %}
+
 {% endif %}
 {% set translations = [] %}
 {% if content.translated_content %}
@@ -55,7 +59,7 @@
   {% endfor %}
 {% endif %}
 {% set other_lang = "pt-BR" if is_en else "en-US" %}
-{% set blog_links = {
+{% set site_links = {
   "self": group.absolute_url,
   "alternate": (translations|first).absolute_url if translations else "",
   "alternateLang": other_lang,
@@ -65,17 +69,19 @@
 {% block head %}
   <style>
     {% include "../css/templates/blog.css" %}
+    {% include "../css/templates/hubspot-form.css" %}
   </style>
 {% endblock head %}
-{% block skip_link %}{{ blog_global.skipLink }}{% endblock skip_link %}
+{% block skip_link %}{{ site_global.skipLink }}{% endblock skip_link %}
 {% block header %}
-  {% module "site_header"
+  {% module_block module "site_header"
     path="../modules/site-header",
     label="Fixed header with language switch and button",
     ctaLabel="",
-    ctaTarget="",
-    links=blog_links,
-    global=blog_global %}
+    ctaTarget="" %}
+    {% module_attribute "links" %}{{ site_links|tojson }}{% end_module_attribute %}
+    {% module_attribute "global" %}{{ site_global|tojson }}{% end_module_attribute %}
+  {% end_module_block %}
 {% endblock header %}
 {% block body %}
   <article class="section_blog-post">
@@ -94,7 +100,7 @@
   {% if group.allow_comments %}
     <section class="section_blog-comments">
       <div class="padding-global padding-section-small">
-        <div class="container-small blog-comments_component">
+        <div class="container-small hubspot-form_component">
           {% module "blog_comments"
             path="@hubspot/blog_comments",
             label="Blog comments" %}
@@ -104,11 +110,12 @@
   {% endif %}
 {% endblock body %}
 {% block footer %}
-  {% module "site_footer"
+  {% module_block module "site_footer"
     path="../modules/site-footer",
     label="Footer with legal notice and links",
-    background="secondary",
-    fictionalNotice=blog_footer_fictional_notice,
-    links=blog_links,
-    global=blog_global %}
+    background="secondary" %}
+    {% module_attribute "fictionalNotice" %}{{ site_footer_fictional_notice }}{% end_module_attribute %}
+    {% module_attribute "links" %}{{ site_links|tojson }}{% end_module_attribute %}
+    {% module_attribute "global" %}{{ site_global|tojson }}{% end_module_attribute %}
+  {% end_module_block %}
 {% endblock footer %}

@@ -1,0 +1,170 @@
+/* The forms HubSpot writes itself (the blog comments, the password prompt, the email subscription pages) in the fields
+   and the buttons of the theme: the same values as .form_label, .form_input, .form_check-input and .button in
+   css/system.css. A template puts this file in its head and the class hubspot-form_component on the wrapper. */
+
+.hubspot-form_component :is(h1, h2, h3) {
+  margin-bottom: var(--_layout---spacing--medium);
+}
+.hubspot-form_component :is(p, .header p) {
+  color: var(--_theme---text-color--text-secondary);
+}
+.hubspot-form_component form > * + *,
+.hubspot-form_component .hs-form-field,
+.hubspot-form_component .item {
+  margin-top: var(--_layout---spacing--medium);
+}
+.hubspot-form_component .hs-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_layout---spacing--xxsmall);
+}
+.hubspot-form_component :is(.hs-form-field > label, label:not(:has(input)), .fakelabel) {
+  font-size: var(--_typography---text--regular);
+  font-weight: var(--font-weight--medium);
+  line-height: var(--_typography---line-height--snug);
+}
+.hubspot-form_component
+  :is(
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="url"],
+    input[type="tel"],
+    select,
+    textarea
+  ) {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: var(--_layout---spacing--huge);
+  padding: var(--_layout---spacing--xsmall) var(--_layout---spacing--large);
+  border: 1px solid var(--_theme---border-color--border-input);
+  border-radius: var(--_sizes---border-radius--small);
+  background-color: var(--_theme---background-color--background-primary);
+  color: var(--_theme---text-color--text-primary);
+  font-family: var(--font-family--primary);
+  font-size: var(--_typography---text--regular);
+  line-height: var(--_typography---line-height--snug);
+}
+.hubspot-form_component textarea {
+  min-height: 8rem;
+}
+.hubspot-form_component :is(input, select, textarea)::placeholder {
+  color: var(--_theme---text-color--text-tertiary);
+  opacity: 1;
+}
+.hubspot-form_component :is(input, select, textarea):focus-visible {
+  border-color: var(--_theme---border-color--border-focus);
+}
+.hubspot-form_component :is(input[type="checkbox"], input[type="radio"]) {
+  flex: none;
+  width: var(--_layout---spacing--large);
+  height: var(--_layout---spacing--large);
+  margin: 0.0625rem var(--_layout---spacing--xsmall) 0 0;
+  border: 1px solid var(--_theme---border-color--border-input);
+  border-radius: var(--_sizes---border-radius--small);
+  background-color: var(--_theme---background-color--background-primary);
+  vertical-align: top;
+  appearance: none;
+  cursor: pointer;
+}
+.hubspot-form_component input[type="radio"] {
+  border-radius: var(--_sizes---border-radius--round);
+}
+.hubspot-form_component :is(input[type="checkbox"], input[type="radio"]):checked {
+  border-color: var(--_theme---text-color--text-primary);
+  background-color: var(--_theme---text-color--text-primary);
+  box-shadow: inset 0 0 0 0.25rem var(--_theme---background-color--background-primary);
+}
+.hubspot-form_component label:has(input) {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+}
+/* the email subscription pages: the address under the title, the texts of the form at the regular size, and the
+   description of each subscription under its name, past the checkbox */
+.hubspot-form_component .page-header h2 {
+  color: var(--_theme---text-color--text-secondary);
+  font-size: var(--_typography---text--large);
+  font-weight: var(--font-weight--normal);
+}
+.hubspot-form_component form p {
+  font-size: var(--_typography---text--regular);
+}
+.hubspot-form_component form p.header {
+  margin-top: var(--_layout---spacing--large);
+  color: var(--_theme---text-color--text-primary);
+  font-weight: var(--font-weight--medium);
+}
+.hubspot-form_component .item p {
+  margin-top: var(--_layout---spacing--xxsmall);
+  padding-left: calc(var(--_layout---spacing--large) + var(--_layout---spacing--xsmall));
+}
+
+/* the survey of the subscriptions confirmation: a fieldset of radio options and a text box for "Other" */
+.hubspot-form_component fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.hubspot-form_component legend {
+  margin-bottom: var(--_layout---spacing--small);
+  padding: 0;
+  font-weight: var(--font-weight--medium);
+}
+.hubspot-form_component div:has(> label > :is(input[type="radio"], input[type="checkbox"])) + div {
+  margin-top: var(--_layout---spacing--xsmall);
+}
+.hubspot-form_component .success {
+  margin-bottom: var(--_layout---spacing--large);
+  color: var(--_theme---text-color--text-secondary);
+  font-size: var(--_typography---text--large);
+}
+.hs-screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* the backup unsubscribe page writes its message in an h3, which reads as the text under the title */
+.hubspot-form_component .widget-type-email_simple_subscription h3 {
+  color: var(--_theme---text-color--text-secondary);
+  font-family: var(--font-family--primary);
+  font-size: var(--_typography---text--large);
+  font-weight: var(--font-weight--normal);
+  line-height: var(--_typography---line-height--body);
+}
+
+.hubspot-form_component :is(.hs-error-msgs, .hs-error-msg, .error) {
+  list-style: none;
+  color: var(--_theme---text-color--text-error);
+  font-size: var(--_typography---text--small);
+  font-weight: var(--font-weight--medium);
+}
+.hubspot-form_component :is(.hs-button, input[type="submit"], button[type="submit"]) {
+  min-height: var(--_layout---spacing--huge);
+  margin-top: var(--_layout---spacing--large);
+  padding: var(--_layout---spacing--xsmall) var(--_layout---spacing--xlarge);
+  border: 0;
+  border-radius: var(--_sizes---border-radius--small);
+  background-color: var(--_theme---background-color--background-brand);
+  background-image: radial-gradient(
+    90% 140% at 0% 0%,
+    var(--base-color-brand--coral) 0%,
+    color-mix(in srgb, var(--base-color-brand--coral), var(--base-color-brand--sun)) 22%,
+    var(--base-color-brand--sun) 48%
+  );
+  color: var(--_theme---text-color--text-on-brand);
+  font-family: var(--font-family--primary);
+  font-size: var(--_typography---text--regular);
+  font-weight: var(--font-weight--semibold);
+  line-height: var(--_typography---line-height--snug);
+  cursor: pointer;
+}
+.hubspot-form_component :is(.hs-button, input[type="submit"], button[type="submit"]):hover {
+  background-color: var(--_theme---background-color--background-brand-hover);
+  background-image: none;
+}

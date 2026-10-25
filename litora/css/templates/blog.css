@@ -207,67 +207,15 @@
   text-decoration: underline;
 }
 
-/* ---------- comments: the HubSpot comment form and list, in the fields and buttons of the theme ---------- */
-.blog-comments_component .hs-form-field {
-  display: flex;
-  flex-direction: column;
-  gap: var(--_layout---spacing--xxsmall);
-  margin-bottom: var(--_layout---spacing--medium);
-}
-.blog-comments_component .hs-form-field > label {
-  font-size: var(--_typography---text--regular);
-  font-weight: var(--font-weight--medium);
-  line-height: var(--_typography---line-height--snug);
-}
-.blog-comments_component .hs-input:not([type="checkbox"]):not([type="radio"]) {
-  box-sizing: border-box;
-  width: 100%;
-  min-height: var(--_layout---spacing--huge);
-  padding: var(--_layout---spacing--xsmall) var(--_layout---spacing--large);
-  border: 1px solid var(--_theme---border-color--border-input);
-  border-radius: var(--_sizes---border-radius--small);
-  background-color: var(--_theme---background-color--background-primary);
-  color: var(--_theme---text-color--text-primary);
-  font-family: var(--font-family--primary);
-  font-size: var(--_typography---text--regular);
-  line-height: var(--_typography---line-height--snug);
-}
-.blog-comments_component textarea.hs-input {
-  min-height: 8rem;
-}
-.blog-comments_component .hs-input:focus-visible {
-  border-color: var(--_theme---border-color--border-focus);
-}
-.blog-comments_component .hs-error-msgs {
-  list-style: none;
-  color: var(--_theme---text-color--text-error);
-  font-size: var(--_typography---text--small);
-  font-weight: var(--font-weight--medium);
-}
-.blog-comments_component .hs-button {
-  min-height: var(--_layout---spacing--huge);
-  padding: var(--_layout---spacing--xsmall) var(--_layout---spacing--xlarge);
-  border: 0;
-  border-radius: var(--_sizes---border-radius--small);
-  background-color: var(--_theme---background-color--background-brand);
-  color: var(--_theme---text-color--text-on-brand);
-  font-family: var(--font-family--primary);
-  font-size: var(--_typography---text--regular);
-  font-weight: var(--font-weight--semibold);
-  line-height: var(--_typography---line-height--snug);
-  cursor: pointer;
-}
-.blog-comments_component .hs-button:hover {
-  background-color: var(--_theme---background-color--background-brand-hover);
-}
-.blog-comments_component .comment {
+/* ---------- comments: the list; the comment form takes the fields and buttons of css/templates/hubspot-form.css ---------- */
+.section_blog-comments .comment {
   padding: var(--_layout---spacing--large) 0;
   border-top: 1px solid var(--_theme---border-color--border-primary);
 }
-.blog-comments_component .comment-from {
+.section_blog-comments .comment-from {
   font-weight: var(--font-weight--semibold);
 }
-.blog-comments_component .comment-date {
+.section_blog-comments .comment-date {
   color: var(--_theme---text-color--text-secondary);
   font-size: var(--_typography---text--small);
 }

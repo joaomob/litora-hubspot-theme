@@ -16,7 +16,9 @@
           {% endfor %}
         </ul>
       {% endif %}
-      <h1>{{ content.name|escape_html }}</h1>
+      {# HubSpot writes the title already escaped, in the span that makes it editable in place, as in its boilerplate;
+         escaping it again shows that span as text #}
+      <h1>{{ content.name }}</h1>
       <p class="blog-post_meta text-color-secondary">
         {% if content.blog_post_author %}
           <a href="{{ blog_author_url(group.id, content.blog_post_author.slug)|escape_url }}" rel="author"

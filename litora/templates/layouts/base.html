@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ page_meta.html_title }}</title>
+    <title>{{ page_meta.html_title or page_title }}</title>
     <meta name="description" content="{{ page_meta.meta_description }}" />
     <meta name="robots" content="noindex" />
     <link rel="icon" href="{{ get_asset_url("../../images/favicon.svg") }}" type="image/svg+xml" />

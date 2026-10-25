@@ -1,0 +1,104 @@
+/* The system pages (404, 500, password, email subscriptions, search results): one short message, centred in a screen
+   tall section below the fixed header, and the HubSpot module of the page under it. */
+.section_system-page {
+  display: flex;
+  align-items: center;
+  min-height: 100svh;
+  padding-top: var(--_layout---nav--height);
+}
+.section_system-page > .padding-global {
+  flex: 1;
+}
+.system-page_component {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_layout---spacing--large);
+  max-width: 40rem;
+}
+.system-page_component p {
+  color: var(--_theme---text-color--text-secondary);
+  font-size: var(--_typography---text--large);
+}
+.system-page_component p + p,
+.system-page_component h1 + p {
+  margin-top: var(--_layout---spacing--small);
+}
+.system-page_component .button {
+  margin-top: var(--_layout---spacing--large);
+}
+.system-page_search-results .hs-search-results__listing {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_layout---spacing--xlarge);
+  margin-top: var(--_layout---spacing--large);
+  list-style: none;
+}
+.system-page_search-results .hs-search-results__link {
+  color: var(--_theme---text-color--text-primary);
+  text-decoration: none;
+}
+/* the title of each result in the size of the heading of a blog card */
+.system-page_search-results .hs-search-results__title {
+  margin-bottom: var(--_layout---spacing--xsmall);
+  font-size: var(--_typography---heading--h3);
+}
+.system-page_search-results .hs-search-results__link:hover .hs-search-results__title {
+  text-decoration: underline;
+}
+.system-page_search-results :is(.hs-search-results__message, .hs-search-results__description) {
+  font-size: var(--_typography---text--regular);
+}
+/* the pages in one row at the left edge of the results: first, previous, next and last show only their arrow, with
+   the word kept for screen readers */
+.system-page_search-results .hs-search-results__pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--_layout---spacing--xxsmall);
+  margin-top: var(--_layout---spacing--xlarge);
+}
+.system-page_search-results .hs-search-results__pagination__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--_layout---spacing--xxsmall);
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: var(--_sizes---border-radius--small);
+  color: var(--_theme---text-color--text-primary);
+  font-size: var(--_typography---text--regular);
+  text-decoration: none;
+}
+.system-page_search-results .hs-search-results__pagination__link--active {
+  border-color: var(--_theme---border-color--border-input);
+}
+.system-page_search-results
+  .hs-search-results__pagination__link--text-and-icon
+  .hs-search-results__pagination__link-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.system-page_search-results .hs-search-results__pagination__link--ellipsis {
+  color: var(--_theme---text-color--text-secondary);
+}
+.system-page_search-results .hs-search-results__pagination__link-icon svg {
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: currentColor;
+}
+/* on a phone the row keeps the arrows and the current page, which fit in one line */
+@media (max-width: 479px) {
+  .system-page_search-results
+    :is(
+      .hs-search-results__pagination__link--number:not(.hs-search-results__pagination__link--active),
+      .hs-search-results__pagination__link--ellipsis
+    ) {
+    display: none;
+  }
+}
