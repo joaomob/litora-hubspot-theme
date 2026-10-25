@@ -3,7 +3,10 @@
   label: Litora header
 -->
 {% set site_header_partial = true %}
-<header class="site-header_component is-hidden" data-site-header>
+<header
+  class="site-header_component{% if theme.header.background == "inverse" %} theme-inverse{% endif %} is-hidden"
+  data-site-header
+>
   <div class="padding-global">
     <div class="container-large">
       {% dnd_area "header_top"

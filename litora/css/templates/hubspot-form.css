@@ -19,6 +19,7 @@
   gap: var(--_layout---spacing--xxsmall);
 }
 .hubspot-form_component :is(.hs-form-field > label, label:not(:has(input)), .fakelabel) {
+  color: var(--_form---label-color, inherit);
   font-size: var(--_typography---text--regular);
   font-weight: var(--font-weight--medium);
   line-height: var(--_typography---line-height--snug);
@@ -37,10 +38,10 @@
   width: 100%;
   min-height: var(--_layout---spacing--huge);
   padding: var(--_layout---spacing--xsmall) var(--_layout---spacing--large);
-  border: 1px solid var(--_theme---border-color--border-input);
+  border: 1px solid var(--_form---field-border-color, var(--_theme---border-color--border-input));
   border-radius: var(--_sizes---border-radius--small);
-  background-color: var(--_theme---background-color--background-primary);
-  color: var(--_theme---text-color--text-primary);
+  background-color: var(--_form---field-background-color, var(--_theme---background-color--background-primary));
+  color: var(--_form---field-text-color, var(--_theme---text-color--text-primary));
   font-family: var(--font-family--primary);
   font-size: var(--_typography---text--regular);
   line-height: var(--_typography---line-height--snug);
@@ -49,7 +50,7 @@
   min-height: 8rem;
 }
 .hubspot-form_component :is(input, select, textarea)::placeholder {
-  color: var(--_theme---text-color--text-tertiary);
+  color: var(--_form---placeholder-color, var(--_theme---text-color--text-tertiary));
   opacity: 1;
 }
 .hubspot-form_component :is(input, select, textarea):focus-visible {
@@ -60,9 +61,9 @@
   width: var(--_layout---spacing--large);
   height: var(--_layout---spacing--large);
   margin: 0.0625rem var(--_layout---spacing--xsmall) 0 0;
-  border: 1px solid var(--_theme---border-color--border-input);
+  border: 1px solid var(--_form---field-border-color, var(--_theme---border-color--border-input));
   border-radius: var(--_sizes---border-radius--small);
-  background-color: var(--_theme---background-color--background-primary);
+  background-color: var(--_form---field-background-color, var(--_theme---background-color--background-primary));
   vertical-align: top;
   appearance: none;
   cursor: pointer;
@@ -150,21 +151,27 @@
   padding: var(--_layout---spacing--xsmall) var(--_layout---spacing--xlarge);
   border: 0;
   border-radius: var(--_sizes---border-radius--small);
-  background-color: var(--_theme---background-color--background-brand);
+  background-color: var(--_button---background-color, var(--_theme---background-color--background-brand));
   background-image: radial-gradient(
     90% 140% at 0% 0%,
-    var(--base-color-brand--coral) 0%,
-    color-mix(in srgb, var(--base-color-brand--coral), var(--base-color-brand--sun)) 22%,
-    var(--base-color-brand--sun) 48%
+    var(--_button---glow-color, var(--base-color-brand--coral)) 0%,
+    color-mix(
+        in srgb,
+        var(--_button---glow-color, var(--base-color-brand--coral)),
+        var(--_button---background-color, var(--base-color-brand--sun))
+      )
+      22%,
+    var(--_button---background-color, var(--base-color-brand--sun)) 48%
   );
-  color: var(--_theme---text-color--text-on-brand);
-  font-family: var(--font-family--primary);
+  color: var(--_button---text-color, var(--_theme---text-color--text-on-brand));
+  font-family: var(--_button---font-family, var(--font-family--primary));
   font-size: var(--_typography---text--regular);
   font-weight: var(--font-weight--semibold);
   line-height: var(--_typography---line-height--snug);
   cursor: pointer;
 }
 .hubspot-form_component :is(.hs-button, input[type="submit"], button[type="submit"]):hover {
-  background-color: var(--_theme---background-color--background-brand-hover);
+  background-color: var(--_button---background-color-hover, var(--_theme---background-color--background-brand-hover));
   background-image: none;
+  color: var(--_button---text-color-hover, var(--_theme---text-color--text-on-brand));
 }

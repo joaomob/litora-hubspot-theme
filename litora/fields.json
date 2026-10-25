@@ -91,21 +91,23 @@
     ]
   },
   {
-    "label": "Fonts",
-    "name": "fonts",
+    "label": "Typography",
+    "name": "typography",
     "type": "group",
     "children": [
       {
-        "label": "Heading font",
         "name": "heading_font",
+        "label": "Heading font",
         "type": "font",
         "load_external_fonts": false,
-        "inline_help_text": "Titles. The theme carries Jost 300, 400 and 500; another font needs its files in the theme.",
+        "inline_help_text": "The family of every title; a heading below takes another only when set. The theme carries Jost 300, 400 and 500; another font needs its files in the theme.",
         "visibility": {
           "hidden_subfields": {
             "size": true,
-            "color": true,
-            "styles": true
+            "bold": true,
+            "italic": true,
+            "underline": true,
+            "color": true
           }
         },
         "default": {
@@ -115,23 +117,774 @@
         }
       },
       {
-        "label": "Body font",
         "name": "body_font",
+        "label": "Body text",
         "type": "font",
         "load_external_fonts": false,
-        "inline_help_text": "Text. The theme carries Nunito Sans 400, 500 and 600; another font needs its files in the theme.",
+        "inline_help_text": "The text of the light sections, with their titles and fields; dark sections write in white. The theme carries Nunito Sans 400, 500 and 600.",
         "visibility": {
           "hidden_subfields": {
             "size": true,
-            "color": true,
-            "styles": true
+            "bold": true,
+            "italic": true,
+            "underline": true
           }
         },
         "default": {
           "font": "Nunito Sans",
           "font_set": "GOOGLE",
-          "fallback": "sans-serif"
+          "fallback": "sans-serif",
+          "color": "#14251d"
         }
+      },
+      {
+        "label": "Heading 1",
+        "name": "h1",
+        "type": "group",
+        "children": [
+          {
+            "name": "font",
+            "label": "Heading 1 font",
+            "type": "font",
+            "load_external_fonts": false,
+            "inline_help_text": "Takes the heading font unless set. The colour follows the section and the size the type scale of the theme.",
+            "visibility": {
+              "hidden_subfields": {
+                "size": true,
+                "bold": true,
+                "italic": true,
+                "underline": true,
+                "color": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "font": "theme.typography.heading_font.font",
+                "font_set": "theme.typography.heading_font.font_set",
+                "fallback": "theme.typography.heading_font.fallback"
+              }
+            },
+            "default": {}
+          },
+          {
+            "name": "weight",
+            "label": "Heading 1 weight",
+            "type": "choice",
+            "display": "select",
+            "choices": [
+              ["300", "Light"],
+              ["400", "Regular"],
+              ["500", "Medium"]
+            ],
+            "default": "300"
+          }
+        ]
+      },
+      {
+        "label": "Heading 2",
+        "name": "h2",
+        "type": "group",
+        "children": [
+          {
+            "name": "font",
+            "label": "Heading 2 font",
+            "type": "font",
+            "load_external_fonts": false,
+            "inline_help_text": "Takes the heading font unless set. The colour follows the section and the size the type scale of the theme.",
+            "visibility": {
+              "hidden_subfields": {
+                "size": true,
+                "bold": true,
+                "italic": true,
+                "underline": true,
+                "color": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "font": "theme.typography.heading_font.font",
+                "font_set": "theme.typography.heading_font.font_set",
+                "fallback": "theme.typography.heading_font.fallback"
+              }
+            },
+            "default": {}
+          },
+          {
+            "name": "weight",
+            "label": "Heading 2 weight",
+            "type": "choice",
+            "display": "select",
+            "choices": [
+              ["300", "Light"],
+              ["400", "Regular"],
+              ["500", "Medium"]
+            ],
+            "default": "300"
+          }
+        ]
+      },
+      {
+        "label": "Heading 3",
+        "name": "h3",
+        "type": "group",
+        "children": [
+          {
+            "name": "font",
+            "label": "Heading 3 font",
+            "type": "font",
+            "load_external_fonts": false,
+            "inline_help_text": "Takes the heading font unless set. The colour follows the section and the size the type scale of the theme.",
+            "visibility": {
+              "hidden_subfields": {
+                "size": true,
+                "bold": true,
+                "italic": true,
+                "underline": true,
+                "color": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "font": "theme.typography.heading_font.font",
+                "font_set": "theme.typography.heading_font.font_set",
+                "fallback": "theme.typography.heading_font.fallback"
+              }
+            },
+            "default": {}
+          },
+          {
+            "name": "weight",
+            "label": "Heading 3 weight",
+            "type": "choice",
+            "display": "select",
+            "choices": [
+              ["300", "Light"],
+              ["400", "Regular"],
+              ["500", "Medium"]
+            ],
+            "default": "400"
+          }
+        ]
+      },
+      {
+        "label": "Heading 4",
+        "name": "h4",
+        "type": "group",
+        "children": [
+          {
+            "name": "font",
+            "label": "Heading 4 font",
+            "type": "font",
+            "load_external_fonts": false,
+            "inline_help_text": "Takes the heading font unless set. The colour follows the section and the size the type scale of the theme.",
+            "visibility": {
+              "hidden_subfields": {
+                "size": true,
+                "bold": true,
+                "italic": true,
+                "underline": true,
+                "color": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "font": "theme.typography.heading_font.font",
+                "font_set": "theme.typography.heading_font.font_set",
+                "fallback": "theme.typography.heading_font.fallback"
+              }
+            },
+            "default": {}
+          },
+          {
+            "name": "weight",
+            "label": "Heading 4 weight",
+            "type": "choice",
+            "display": "select",
+            "choices": [
+              ["300", "Light"],
+              ["400", "Regular"],
+              ["500", "Medium"]
+            ],
+            "default": "400"
+          }
+        ]
+      },
+      {
+        "label": "Heading 5",
+        "name": "h5",
+        "type": "group",
+        "children": [
+          {
+            "name": "font",
+            "label": "Heading 5 font",
+            "type": "font",
+            "load_external_fonts": false,
+            "inline_help_text": "Takes the heading font unless set. The colour follows the section and the size the type scale of the theme.",
+            "visibility": {
+              "hidden_subfields": {
+                "size": true,
+                "bold": true,
+                "italic": true,
+                "underline": true,
+                "color": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "font": "theme.typography.heading_font.font",
+                "font_set": "theme.typography.heading_font.font_set",
+                "fallback": "theme.typography.heading_font.fallback"
+              }
+            },
+            "default": {}
+          },
+          {
+            "name": "weight",
+            "label": "Heading 5 weight",
+            "type": "choice",
+            "display": "select",
+            "choices": [
+              ["300", "Light"],
+              ["400", "Regular"],
+              ["500", "Medium"]
+            ],
+            "default": "400"
+          }
+        ]
+      },
+      {
+        "label": "Heading 6",
+        "name": "h6",
+        "type": "group",
+        "children": [
+          {
+            "name": "font",
+            "label": "Heading 6 font",
+            "type": "font",
+            "load_external_fonts": false,
+            "inline_help_text": "Takes the heading font unless set. The colour follows the section and the size the type scale of the theme.",
+            "visibility": {
+              "hidden_subfields": {
+                "size": true,
+                "bold": true,
+                "italic": true,
+                "underline": true,
+                "color": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "font": "theme.typography.heading_font.font",
+                "font_set": "theme.typography.heading_font.font_set",
+                "fallback": "theme.typography.heading_font.fallback"
+              }
+            },
+            "default": {}
+          },
+          {
+            "name": "weight",
+            "label": "Heading 6 weight",
+            "type": "choice",
+            "display": "select",
+            "choices": [
+              ["300", "Light"],
+              ["400", "Regular"],
+              ["500", "Medium"]
+            ],
+            "default": "400"
+          }
+        ]
+      },
+      {
+        "label": "Links",
+        "name": "links",
+        "type": "group",
+        "children": [
+          {
+            "name": "color",
+            "label": "Link colour",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.brand_colors.palm.color"
+              }
+            },
+            "default": {
+              "color": "#1c6146",
+              "opacity": 100
+            },
+            "inline_help_text": "Links inside the text of light sections. On dark sections links take the light sun colour."
+          },
+          {
+            "name": "hover_color",
+            "label": "Link hover colour",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.typography.links.color.color"
+              }
+            },
+            "default": {
+              "color": "#1c6146",
+              "opacity": 100
+            },
+            "inline_help_text": "The same colour as the link unless set."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Buttons",
+    "name": "buttons",
+    "type": "group",
+    "inline_help_text": "The main button. The second button of a pair keeps the outline and the colours of its section.",
+    "children": [
+      {
+        "name": "background_color",
+        "label": "Button background colour",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.brand_colors.sun.color"
+          }
+        },
+        "default": {
+          "color": "#f6c23f",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "glow_color",
+        "label": "Button glow colour",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.brand_colors.coral.color"
+          }
+        },
+        "default": {
+          "color": "#ff7a66",
+          "opacity": 100
+        },
+        "inline_help_text": "The warm light in the top left corner. Give it the background colour for a flat button."
+      },
+      {
+        "name": "text_font",
+        "label": "Button text",
+        "type": "font",
+        "load_external_fonts": false,
+        "inline_help_text": "The family and the colour of the button text.",
+        "visibility": {
+          "hidden_subfields": {
+            "size": true,
+            "bold": true,
+            "italic": true,
+            "underline": true
+          }
+        },
+        "inherited_value": {
+          "property_value_paths": {
+            "font": "theme.typography.body_font.font",
+            "font_set": "theme.typography.body_font.font_set",
+            "fallback": "theme.typography.body_font.fallback",
+            "color": "theme.brand_colors.palm_darkest.color"
+          }
+        },
+        "default": {
+          "color": "#0d271e"
+        }
+      },
+      {
+        "label": "Hover",
+        "name": "hover",
+        "type": "group",
+        "children": [
+          {
+            "name": "background_color",
+            "label": "Button hover background colour",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.brand_colors.sun_light.color"
+              }
+            },
+            "default": {
+              "color": "#f9cc63",
+              "opacity": 100
+            }
+          },
+          {
+            "name": "text_color",
+            "label": "Button hover text colour",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.buttons.text_font.color"
+              }
+            },
+            "default": {
+              "color": "#0d271e",
+              "opacity": 100
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Forms",
+    "name": "forms",
+    "type": "group",
+    "children": [
+      {
+        "name": "background_color",
+        "label": "Form background colour",
+        "type": "color",
+        "inline_help_text": "Behind the fields, with padding and rounded corners. At 0 opacity the form sits on its section.",
+        "default": {
+          "color": "#000000",
+          "opacity": 0
+        }
+      },
+      {
+        "name": "border_color",
+        "label": "Form border colour",
+        "type": "color",
+        "inline_help_text": "A 1 px line around the form. At 0 opacity there is none.",
+        "default": {
+          "color": "#000000",
+          "opacity": 0
+        }
+      },
+      {
+        "label": "Forms on light sections",
+        "name": "light",
+        "type": "group",
+        "inline_help_text": "The blog comments, the password page and the subscription pages.",
+        "children": [
+          {
+            "name": "label_color",
+            "label": "Label colour",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.typography.body_font.color"
+              }
+            },
+            "default": {
+              "color": "#14251d",
+              "opacity": 100
+            }
+          },
+          {
+            "name": "field_text_color",
+            "label": "Field text colour",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.typography.body_font.color"
+              }
+            },
+            "default": {
+              "color": "#14251d",
+              "opacity": 100
+            }
+          },
+          {
+            "name": "field_background_color",
+            "label": "Field background colour",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "default": {
+              "color": "#ffffff",
+              "opacity": 100
+            }
+          },
+          {
+            "name": "field_border_color",
+            "label": "Field border colour",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "default": {
+              "color": "#748478",
+              "opacity": 100
+            }
+          },
+          {
+            "name": "placeholder_color",
+            "label": "Placeholder colour",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "default": {
+              "color": "#4f5f55",
+              "opacity": 100
+            }
+          }
+        ]
+      },
+      {
+        "label": "Forms on dark sections",
+        "name": "dark",
+        "type": "group",
+        "inline_help_text": "The sign up form of the event pages.",
+        "children": [
+          {
+            "name": "label_color",
+            "label": "Label colour",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "default": {
+              "color": "#ffffff",
+              "opacity": 100
+            }
+          },
+          {
+            "name": "field_text_color",
+            "label": "Field text colour",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "default": {
+              "color": "#ffffff",
+              "opacity": 100
+            }
+          },
+          {
+            "name": "field_background_color",
+            "label": "Field background colour",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.brand_colors.palm_darkest.color"
+              }
+            },
+            "default": {
+              "color": "#0d271e",
+              "opacity": 100
+            }
+          },
+          {
+            "name": "field_border_color",
+            "label": "Field border colour",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "default": {
+              "color": "#93b3a2",
+              "opacity": 100
+            }
+          },
+          {
+            "name": "placeholder_color",
+            "label": "Placeholder colour",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "default": {
+              "color": "#93b3a2",
+              "opacity": 100
+            }
+          }
+        ]
+      },
+      {
+        "label": "Form button",
+        "name": "button",
+        "type": "group",
+        "inline_help_text": "The submit button. It takes the button settings unless set here.",
+        "children": [
+          {
+            "name": "background_color",
+            "label": "Form button background colour",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.buttons.background_color.color"
+              }
+            },
+            "default": {
+              "color": "#f6c23f",
+              "opacity": 100
+            }
+          },
+          {
+            "name": "text_color",
+            "label": "Form button text colour",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.buttons.text_font.color"
+              }
+            },
+            "default": {
+              "color": "#0d271e",
+              "opacity": 100
+            }
+          },
+          {
+            "name": "hover_background_color",
+            "label": "Form button hover background colour",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.buttons.hover.background_color.color"
+              }
+            },
+            "default": {
+              "color": "#f9cc63",
+              "opacity": 100
+            }
+          },
+          {
+            "name": "hover_text_color",
+            "label": "Form button hover text colour",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.buttons.hover.text_color.color"
+              }
+            },
+            "default": {
+              "color": "#0d271e",
+              "opacity": 100
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Header",
+    "name": "header",
+    "type": "group",
+    "inline_help_text": "The logo comes from the brand settings of the account (Settings, Account defaults, Branding).",
+    "children": [
+      {
+        "label": "Header colour",
+        "name": "background",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          ["primary", "Light"],
+          ["inverse", "Dark"]
+        ],
+        "default": "primary",
+        "inline_help_text": "The colour of the header of the blog and the system pages."
+      },
+      {
+        "name": "font",
+        "label": "Header font",
+        "type": "font",
+        "load_external_fonts": false,
+        "inline_help_text": "The language switch and the button take it; the name beside the mark keeps the heading font.",
+        "visibility": {
+          "hidden_subfields": {
+            "size": true,
+            "bold": true,
+            "italic": true,
+            "underline": true,
+            "color": true
+          }
+        },
+        "inherited_value": {
+          "property_value_paths": {
+            "font": "theme.typography.body_font.font",
+            "font_set": "theme.typography.body_font.font_set",
+            "fallback": "theme.typography.body_font.fallback"
+          }
+        },
+        "default": {}
       }
     ]
   },
@@ -139,6 +892,7 @@
     "label": "Footer",
     "name": "footer",
     "type": "group",
+    "inline_help_text": "The logo comes from the brand settings of the account (Settings, Account defaults, Branding).",
     "children": [
       {
         "label": "Footer colour",
@@ -152,6 +906,30 @@
         ],
         "default": "secondary",
         "inline_help_text": "The colour of the footer of the blog and the system pages."
+      },
+      {
+        "name": "font",
+        "label": "Footer font",
+        "type": "font",
+        "load_external_fonts": false,
+        "inline_help_text": "The notice and the links of the footer.",
+        "visibility": {
+          "hidden_subfields": {
+            "size": true,
+            "bold": true,
+            "italic": true,
+            "underline": true,
+            "color": true
+          }
+        },
+        "inherited_value": {
+          "property_value_paths": {
+            "font": "theme.typography.body_font.font",
+            "font_set": "theme.typography.body_font.font_set",
+            "fallback": "theme.typography.body_font.fallback"
+          }
+        },
+        "default": {}
       }
     ]
   }

@@ -33,9 +33,62 @@
         --base-color-brand--sun-light: {{ theme.brand_colors.sun_light.color }};
         --base-color-brand--cream: {{ theme.brand_colors.cream.color }};
         --base-color-brand--cream-dark: {{ theme.brand_colors.cream_dark.color }};
-        --font-family--display: "{{ theme.fonts.heading_font.font }}", "Jost Fallback", sans-serif;
-        --font-family--primary: "{{ theme.fonts.body_font.font }}", "Nunito Sans Fallback",
+        --font-family--display: "{{ theme.typography.heading_font.font }}", "Jost Fallback", sans-serif;
+        --font-family--primary: "{{ theme.typography.body_font.font }}", "Nunito Sans Fallback",
           sans-serif;
+        --_heading---h1--font-family: "{{ theme.typography.h1.font.font or theme.typography.heading_font.font }}", "Jost Fallback",
+          sans-serif;
+        --_heading---h1--font-weight: {{ theme.typography.h1.weight }};
+        --_heading---h2--font-family: "{{ theme.typography.h2.font.font or theme.typography.heading_font.font }}", "Jost Fallback",
+          sans-serif;
+        --_heading---h2--font-weight: {{ theme.typography.h2.weight }};
+        --_heading---h3--font-family: "{{ theme.typography.h3.font.font or theme.typography.heading_font.font }}", "Jost Fallback",
+          sans-serif;
+        --_heading---h3--font-weight: {{ theme.typography.h3.weight }};
+        --_heading---h4--font-family: "{{ theme.typography.h4.font.font or theme.typography.heading_font.font }}", "Jost Fallback",
+          sans-serif;
+        --_heading---h4--font-weight: {{ theme.typography.h4.weight }};
+        --_heading---h5--font-family: "{{ theme.typography.h5.font.font or theme.typography.heading_font.font }}", "Jost Fallback",
+          sans-serif;
+        --_heading---h5--font-weight: {{ theme.typography.h5.weight }};
+        --_heading---h6--font-family: "{{ theme.typography.h6.font.font or theme.typography.heading_font.font }}", "Jost Fallback",
+          sans-serif;
+        --_heading---h6--font-weight: {{ theme.typography.h6.weight }};
+        --_button---background-color: {{ theme.buttons.background_color.color }};
+        --_button---glow-color: {{ theme.buttons.glow_color.color }};
+        --_button---text-color: {{ theme.buttons.text_font.color or theme.brand_colors.palm_darkest.color }};
+        --_button---font-family: "{{ theme.buttons.text_font.font or theme.typography.body_font.font }}", "Nunito Sans Fallback",
+          sans-serif;
+        --_button---background-color-hover: {{ theme.buttons.hover.background_color.color }};
+        --_button---text-color-hover: {{ theme.buttons.hover.text_color.color }};
+        --_form---button-background-color: {{ theme.forms.button.background_color.color }};
+        --_form---button-text-color: {{ theme.forms.button.text_color.color }};
+        --_form---button-background-color-hover: {{ theme.forms.button.hover_background_color.color }};
+        --_form---button-text-color-hover: {{ theme.forms.button.hover_text_color.color }};
+        --_header---font-family: "{{ theme.header.font.font or theme.typography.body_font.font }}", "Nunito Sans Fallback",
+          sans-serif;
+        --_footer---font-family: "{{ theme.footer.font.font or theme.typography.body_font.font }}", "Nunito Sans Fallback",
+          sans-serif;
+      }
+      :root,
+      .theme-base {
+        --_theme---text-color--text-primary: {{ theme.typography.body_font.color }};
+        --_link---color: {{ theme.typography.links.color.color }};
+        --_link---color-hover: {{ theme.typography.links.hover_color.color }};
+        --_form---label-color: {{ theme.forms.light.label_color.color }};
+        --_form---field-text-color: {{ theme.forms.light.field_text_color.color }};
+        --_form---field-background-color: {{ theme.forms.light.field_background_color.color }};
+        --_form---field-border-color: {{ theme.forms.light.field_border_color.color }};
+        --_form---placeholder-color: {{ theme.forms.light.placeholder_color.color }};
+      }
+      .theme-inverse {
+        --_link---color: var(--_theme---text-color--text-brand);
+        --_link---color-hover: var(--_theme---text-color--text-brand);
+        --_form---label-color: {{ theme.forms.dark.label_color.color }};
+        --_form---field-text-color: {{ theme.forms.dark.field_text_color.color }};
+        --_form---field-background-color: {{ theme.forms.dark.field_background_color.color }};
+        --_form---field-border-color: {{ theme.forms.dark.field_border_color.color }};
+        --_form---placeholder-color: {{ theme.forms.dark.placeholder_color.color }};
       }
       {% include "../../css/system.css" %}
       {% include "../../css/sections/audience-cards.css" %}
@@ -53,6 +106,18 @@
       {% include "../../css/sections/statement-reveal.css" %}
       {% include "../../css/sections/steps-list.css" %}
       {% include "../../css/sections/topic-grid.css" %}
+      {% if theme.forms.background_color.opacity > 0 or theme.forms.border_color.opacity > 0 %}
+        .form-card_form,
+        .hubspot-form_component form {
+          padding: var(--_layout---spacing--large);
+          border-radius: var(--_sizes---border-radius--medium);
+          {% if theme.forms.background_color.opacity > 0 %}
+            background-color: rgba({{ theme.forms.background_color.color|convert_rgb }}, {{ theme.forms.background_color.opacity / 100 }});
+          {% endif %}
+          {% if theme.forms.border_color.opacity > 0 %}
+            border: 1px solid rgba({{ theme.forms.border_color.color|convert_rgb }}, {{ theme.forms.border_color.opacity / 100 }}); {% endif %}
+        }
+      {% endif %}
     </style>
     {% block head %}
     {% endblock head %}

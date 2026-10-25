@@ -1,4 +1,4 @@
-/* Litora design system: base styles, Client-First structure (page-wrapper, section, padding-global, container) and the shared components. */
+/* Litora design system: base styles, Client-First structure (page-wrapper, section, padding-global, container) and the shared components. The colours and fonts of the theme settings come in as the variables of templates/layouts/base.html. */
 
 *,
 *::before,
@@ -33,27 +33,48 @@ figure {
 h1,
 h2,
 h3 {
-  font-family: var(--font-family--display);
-  font-weight: var(--font-weight--light);
   line-height: var(--_typography---line-height--heading);
   letter-spacing: var(--_typography---letter-spacing--tight);
 }
 
 h1 {
+  font-family: var(--_heading---h1--font-family);
+  font-weight: var(--_heading---h1--font-weight);
   font-size: var(--_typography---heading--h1);
   text-wrap: balance;
 }
 h2 {
+  font-family: var(--_heading---h2--font-family);
+  font-weight: var(--_heading---h2--font-weight);
   font-size: var(--_typography---heading--h2);
   text-wrap: balance;
 }
 h3 {
   font-size: var(--_typography---heading--h3);
-  font-weight: var(--font-weight--normal);
+  font-family: var(--_heading---h3--font-family);
+  font-weight: var(--_heading---h3--font-weight);
+}
+h4 {
+  font-family: var(--_heading---h4--font-family);
+  font-weight: var(--_heading---h4--font-weight);
+  line-height: var(--_typography---line-height--heading);
+}
+h5 {
+  font-family: var(--_heading---h5--font-family);
+  font-weight: var(--_heading---h5--font-weight);
+  line-height: var(--_typography---line-height--heading);
+}
+h6 {
+  font-family: var(--_heading---h6--font-family);
+  font-weight: var(--_heading---h6--font-weight);
+  line-height: var(--_typography---line-height--heading);
 }
 a {
-  color: var(--_theme---text-color--text-brand);
+  color: var(--_link---color);
   text-underline-offset: 0.2em;
+}
+:where(a:not([class])):hover {
+  color: var(--_link---color-hover);
 }
 img,
 svg {
@@ -111,23 +132,23 @@ strong {
 }
 
 .heading-style-h1 {
-  font-family: var(--font-family--display);
+  font-family: var(--_heading---h1--font-family);
   font-size: var(--_typography---heading--h1);
-  font-weight: var(--font-weight--light);
+  font-weight: var(--_heading---h1--font-weight);
   line-height: var(--_typography---line-height--heading);
   letter-spacing: var(--_typography---letter-spacing--tight);
 }
 .heading-style-h2 {
-  font-family: var(--font-family--display);
+  font-family: var(--_heading---h2--font-family);
   font-size: var(--_typography---heading--h2);
-  font-weight: var(--font-weight--light);
+  font-weight: var(--_heading---h2--font-weight);
   line-height: var(--_typography---line-height--heading);
   letter-spacing: var(--_typography---letter-spacing--tight);
 }
 .heading-style-h3 {
-  font-family: var(--font-family--display);
+  font-family: var(--_heading---h3--font-family);
   font-size: var(--_typography---heading--h3);
-  font-weight: var(--font-weight--normal);
+  font-weight: var(--_heading---h3--font-weight);
   line-height: var(--_typography---line-height--heading);
   letter-spacing: var(--_typography---letter-spacing--tight);
 }
@@ -249,15 +270,15 @@ strong {
   padding: var(--_layout---spacing--xsmall) var(--_layout---spacing--xlarge);
   border: 0;
   border-radius: var(--_sizes---border-radius--small);
-  background-color: var(--_theme---background-color--background-brand);
+  background-color: var(--_button---background-color);
   background-image: radial-gradient(
     90% 140% at 0% 0%,
-    var(--base-color-brand--coral) 0%,
-    color-mix(in srgb, var(--base-color-brand--coral), var(--base-color-brand--sun)) 22%,
-    var(--base-color-brand--sun) 48%
+    var(--_button---glow-color) 0%,
+    color-mix(in srgb, var(--_button---glow-color), var(--_button---background-color)) 22%,
+    var(--_button---background-color) 48%
   );
-  color: var(--_theme---text-color--text-on-brand);
-  font-family: var(--font-family--primary);
+  color: var(--_button---text-color);
+  font-family: var(--_button---font-family);
   font-size: var(--_typography---text--regular);
   font-weight: var(--font-weight--semibold);
   line-height: var(--_typography---line-height--snug);
@@ -285,8 +306,9 @@ strong {
   color: var(--_theme---text-color--text-primary);
 }
 .button:hover {
-  background-color: var(--_theme---background-color--background-brand-hover);
+  background-color: var(--_button---background-color-hover);
   background-image: none;
+  color: var(--_button---text-color-hover);
 }
 .button.is-secondary:hover {
   border-color: var(--_theme---text-color--text-primary);
@@ -335,6 +357,7 @@ strong {
   grid-column: 1 / -1;
 }
 .form_label {
+  color: var(--_form---label-color);
   font-size: var(--_typography---text--regular);
   font-weight: var(--font-weight--medium);
   line-height: var(--_typography---line-height--snug);
@@ -348,20 +371,20 @@ legend.form_label {
   width: 100%;
   height: var(--_layout---spacing--huge);
   padding: 0 var(--_layout---spacing--large);
-  border: 1px solid var(--_theme---border-color--border-input);
+  border: 1px solid var(--_form---field-border-color);
   border-radius: var(--_sizes---border-radius--small);
-  background-color: var(--_theme---background-color--background-primary);
-  color: var(--_theme---text-color--text-primary);
+  background-color: var(--_form---field-background-color);
+  color: var(--_form---field-text-color);
   font-family: var(--font-family--primary);
   font-size: var(--_typography---text--regular);
   line-height: var(--_typography---line-height--snug);
 }
 
 .theme-inverse .form_input {
-  background-color: var(--_theme---background-color--background-secondary);
+  background-color: var(--_form---field-background-color);
 }
 .form_input::placeholder {
-  color: var(--_theme---text-color--text-tertiary);
+  color: var(--_form---placeholder-color);
   opacity: 1;
 }
 .form_input:focus-visible {
@@ -402,14 +425,14 @@ legend.form_label {
   width: var(--_layout---spacing--large);
   height: var(--_layout---spacing--large);
   margin: 0.0625rem 0 0;
-  border: 1px solid var(--_theme---border-color--border-input);
+  border: 1px solid var(--_form---field-border-color);
   border-radius: var(--_sizes---border-radius--small);
-  background-color: var(--_theme---background-color--background-primary);
+  background-color: var(--_form---field-background-color);
   appearance: none;
   cursor: pointer;
 }
 .theme-inverse .form_check-input {
-  background-color: var(--_theme---background-color--background-secondary);
+  background-color: var(--_form---field-background-color);
 }
 .form_check-input.is-radio {
   border-radius: var(--_sizes---border-radius--round);
@@ -628,4 +651,18 @@ legend.form_label {
   .button:hover .button_text.is-clone {
     transform: translateY(100%);
   }
+}
+
+form,
+.hubspot-form_component {
+  --_button---background-color: var(--_form---button-background-color);
+  --_button---text-color: var(--_form---button-text-color);
+  --_button---background-color-hover: var(--_form---button-background-color-hover);
+  --_button---text-color-hover: var(--_form---button-text-color-hover);
+}
+.site-header_component {
+  font-family: var(--_header---font-family);
+}
+.site-footer_component {
+  font-family: var(--_footer---font-family);
 }
