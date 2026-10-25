@@ -61,7 +61,7 @@ npm run upload        # verify, then hs cms upload litora litora
 ## Checks
 
 - `hs cms theme marketplace-validate litora`: passes except the blog templates, which apply to themes sold on the HubSpot marketplace (this one is for landing pages only).
-- PageSpeed Insights, webinar page: performance 99, 100 and 99 on a phone in three runs, 100 on a computer; accessibility 100 and best practices 100. SEO is lower only because of the noindex.
+- PageSpeed Insights, webinar page (25 October 2026): performance 92 to 96 on a phone in three runs, 100 on a computer; accessibility 100 and best practices 100. SEO is lower only because of the noindex.
 - Both forms reach the HubSpot CRM with every field.
 
 ## Use

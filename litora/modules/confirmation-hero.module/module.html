@@ -90,22 +90,24 @@
           </p>
         {% endif %}
         {% if module.showCalendar %}
+          {% set ics_lines = [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//Litora//EB-5 webinar//EN",
+    "BEGIN:VEVENT",
+    "UID:" ~ module.calendar.startUtc ~ "@litora",
+    "DTSTAMP:20261002T000000Z",
+    "DTSTART:" ~ module.calendar.startUtc,
+    "DTEND:" ~ module.calendar.endUtc,
+    "SUMMARY:" ~ module.calendar.title,
+    "DESCRIPTION:" ~ module.calendar.description,
+    "END:VEVENT",
+    "END:VCALENDAR"
+  ] %}
           <div class="hero_actions">
             <a
               class="button"
-              href="data:text/calendar;charset=utf-8,{{ ("BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Litora//EB-5 webinar//EN
-BEGIN:VEVENT
-UID:" ~ module.calendar.startUtc ~ "@litora
-DTSTAMP:20261002T000000Z
-DTSTART:" ~ module.calendar.startUtc ~ "
-DTEND:" ~ module.calendar.endUtc ~ "
-SUMMARY:" ~ module.calendar.title ~ "
-DESCRIPTION:" ~ module.calendar.description ~ "
-END:VEVENT
-END:VCALENDAR
-")|urlencode|replace("+", "%20") }}"
+              href="data:text/calendar;charset=utf-8,{% for line in ics_lines %}{{ line|urlencode|replace("+", "%20") }}%0D%0A{% endfor %}"
               download="{{ module.calendar.fileName|escape_attr }}"
               ><span class="button_text-wrap"
                 ><span class="button_text">{{ module.calendar.buttonLabel|escape_html }}</span
