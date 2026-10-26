@@ -123,105 +123,12 @@
         form={
           "anchorId": "register",
           "heading": "Register",
-          "hubspotFormGuid": "4c3db844-aa48-49c3-b045-830e43b1b1da",
-          "fields": [
-            {
-              "propertyName": "firstname",
-              "type": "text",
-              "labelText": "First name",
-              "autocomplete": "given-name",
-              "half": true,
-              "errors": {
-                "required": "Enter your first name."
-              }
-            },
-            {
-              "propertyName": "lastname",
-              "type": "text",
-              "labelText": "Last name",
-              "autocomplete": "family-name",
-              "half": true,
-              "errors": {
-                "required": "Enter your last name."
-              }
-            },
-            {
-              "propertyName": "email",
-              "type": "email",
-              "labelText": "Email",
-              "help": "We send the Zoom link to this address.",
-              "autocomplete": "email",
-              "errors": {
-                "required": "Enter your email.",
-                "invalid": "Check your email. It needs an @ and a domain, like gmail.com."
-              }
-            },
-            {
-              "propertyName": "mobilephone",
-              "type": "tel",
-              "labelText": "WhatsApp",
-              "help": "Include the country code and area code, like +55 11 9XXXX XXXX.",
-              "autocomplete": "tel",
-              "errors": {
-                "required": "Enter your WhatsApp number.",
-                "invalid": "Check the number. It needs the country code and area code."
-              }
-            },
-            {
-              "propertyName": "city",
-              "type": "text",
-              "labelText": "City",
-              "autocomplete": "address-level2",
-              "errors": {
-                "required": "Enter your city."
-              }
-            },
-            {
-              "propertyName": "residence",
-              "type": "radio",
-              "labelText": "Where do you live now?",
-              "options": [
-                {
-                  "value": "brazil",
-                  "labelText": "Brazil"
-                },
-                {
-                  "value": "united_states_temporary_visa",
-                  "labelText": "United States, on a temporary visa"
-                },
-                {
-                  "value": "another_country",
-                  "labelText": "Another country"
-                }
-              ],
-              "errors": {
-                "required": "Choose an option."
-              }
-            },
-            {
-              "propertyName": "eb5_minimum_acknowledged",
-              "type": "checkbox",
-              "labelText": "I understand that EB-5 requires a minimum investment of $800,000.",
-              "errors": {
-                "required": "To register, confirm that you know the minimum investment."
-              }
-            },
-            {
-              "propertyName": "lgpd_consent",
-              "type": "consent",
-              "labelText": "I authorize Litora to use my data (name, email, WhatsApp, city and country of residence) to send the link and reminders for this webinar and to contact me about EB-5, under Brazil's General Personal Data Protection Law (LGPD, Law No. 13,709/2018). I can ask to correct or delete my data at any time.",
-              "linkLabel": "Privacy policy",
-              "errors": {
-                "required": "To register, check the box that authorizes the use of your data."
-              },
-              "linkUrl": "/en/privacy"
-            }
-          ],
-          "submitLabel": "Confirm registration",
+          "form": {
+            "response_type": "inline",
+            "message": "Thanks for signing up."
+          },
           "submitNote": "You get a confirmation now and the Zoom link 24 hours before.",
-          "notice": "Litora is a fictional brand created for a design portfolio. This page is not an offer to sell securities.",
-          "submitError": "Your registration wasn't sent. Check your connection and try again.",
-          "redirectUrl": "/en/eb5-visa-webinar/thank-you"
+          "notice": "Litora is a fictional brand created for a design portfolio. This page is not an offer to sell securities."
         },
         imageTall={
           "src": "https://149475007.fs1.hubspotusercontent-eu1.net/hubfs/149475007/litora/images/hero/hero-tall-1534.webp",
@@ -1011,9 +918,3 @@
   {% global_partial
     path="./partials/site-footer.html" %}
 {% endblock footer %}
-{% block scripts %}
-  {{ require_js(get_asset_url("../js/form.js"), {
-    position: "footer",
-    defer: true
-  }) }}
-{% endblock scripts %}

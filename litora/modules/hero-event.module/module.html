@@ -122,122 +122,15 @@
       </div>
       <div class="form-card_component" id="{{ module.form.anchorId|escape_attr }}">
         <h2 class="heading-style-h3">{{ module.form.heading|escape_html|replace("EB-5", "<span class=\"text-style-nowrap\">EB-5</span>") }}</h2>
-        <form
-          class="form-card_form"
-          method="post"
-          action="{{ module.form.redirectUrl|escape_attr }}"
-          data-hubspot-form
-          data-portal-id="{{ hub_id }}"
-          data-form-guid="{{ module.form.hubspotFormGuid|escape_attr }}"
-          data-redirect="{{ module.form.redirectUrl|escape_attr }}"
-          data-page-name="{{ page_meta.html_title|escape_attr }}"
-        >
-          <div class="form_component">
-            {% for field in module.form.fields %}{% if field.type in [ "text", "email", "tel"] %}
-              <div class="form_field{% if field.half %}{% else %} is-full{% endif %}">
-                <label class="form_label" for="{{ module.form.anchorId|escape_attr }}-{{ field.propertyName|replace("_", "-")|escape_attr }}"
-                  >{{ field.labelText|escape_html }}</label
-                >
-                <input
-                  class="form_input"
-                  id="{{ module.form.anchorId|escape_attr }}-{{ field.propertyName|replace("_", "-")|escape_attr }}"
-                  name="{{ field.propertyName|escape_attr }}"
-                  type="{{ field.type|escape_attr }}"
-                  autocomplete="{{ field.autocomplete|escape_attr }}"
-                  required
-                  aria-describedby="{% if field.help %}{{ module.form.anchorId|escape_attr }}-{{ field.propertyName|replace("_", "-")|escape_attr }}-help {% endif %}{{ module.form.anchorId|escape_attr }}-{{ field.propertyName|replace("_", "-")|escape_attr }}-error"
-                  data-form-text
-                  data-error-required="{{ field.errors.required|escape_attr }}"
-                  {% if field.errors.invalid %}
-                    data-error-invalid="{{ field.errors.invalid|escape_attr }}"
-                  {% endif %}
-                />
-                {% if field.help %}
-                  <p class="form_help" id="{{ module.form.anchorId|escape_attr }}-{{ field.propertyName|replace("_", "-")|escape_attr }}-help">
-                    {{ field.help|escape_html }}
-                  </p>
-                {% endif %}
-                <p
-                  class="form_error"
-                  id="{{ module.form.anchorId|escape_attr }}-{{ field.propertyName|replace("_", "-")|escape_attr }}-error"
-                  data-form-error
-                ></p>
-              </div>
-            {% endif %}{% if field.type == "radio" %}
-              <fieldset
-                class="form_field is-full"
-                aria-describedby="{{ module.form.anchorId|escape_attr }}-{{ field.propertyName|replace("_", "-")|escape_attr }}-error"
-                data-form-group
-                data-error-required="{{ field.errors.required|escape_attr }}"
-              >
-                <legend class="form_label">{{ field.labelText|escape_html }}</legend>
-                <div class="form_options">
-                  {% for option in field.options %}<label class="form_check"
-                    ><input
-                      class="form_check-input is-radio"
-                      type="radio"
-                      name="{{ field.propertyName|escape_attr }}"
-                      value="{{ option.value|escape_attr }}"
-                      required
-                    /><span>{{ option.labelText|escape_html }}</span></label
-                  >
-                  {% endfor %}
-                </div>
-                <p
-                  class="form_error"
-                  id="{{ module.form.anchorId|escape_attr }}-{{ field.propertyName|replace("_", "-")|escape_attr }}-error"
-                  data-form-error
-                ></p>
-              </fieldset>
-            {% endif %}{% if field.type in [ "checkbox", "consent"] %}
-              <div class="form_field is-full">
-                <label class="form_check"
-                  ><input
-                    class="form_check-input"
-                    type="checkbox"
-                    id="{{ module.form.anchorId|escape_attr }}-{{ field.propertyName|replace("_", "-")|escape_attr }}"
-                    name="{{ field.propertyName|escape_attr }}"
-                    value="true"
-                    required
-                    aria-describedby="{{ module.form.anchorId|escape_attr }}-{{ field.propertyName|replace("_", "-")|escape_attr }}-error"
-                    data-form-check
-                    data-error-required="{{ field.errors.required|escape_attr }}"
-                    {% if field.type == "consent" %}
-                      data-consent-text="{{ field.labelText|escape_attr }}"
-                    {% endif %}
-                  /><span>{{ field.labelText|escape_html }}</span></label
-                >
-                {% if field.linkLabel %}
-                  <p class="form_help">
-                    <a href="{{ field.linkUrl|escape_attr }}">{{ field.linkLabel|escape_html }}</a>
-                  </p>
-                {% endif %}
-                <p
-                  class="form_error"
-                  id="{{ module.form.anchorId|escape_attr }}-{{ field.propertyName|replace("_", "-")|escape_attr }}-error"
-                  data-form-error
-                ></p>
-              </div>
-            {% endif %}{% endfor %}
-            <div class="form_field is-full">
-              <button class="button" type="submit">
-                <span class="button_text-wrap"
-                  ><span class="button_text">{{ module.form.submitLabel|escape_html }}</span
-                  ><span class="button_text is-clone" aria-hidden="true"
-                    >{{ module.form.submitLabel|escape_html }}</span
-                  ></span
-                >
-              </button>
-              <p class="form_help">{{ module.form.submitNote|escape_html }}</p>
-              <p
-                class="form_error"
-                role="alert"
-                data-form-status
-                data-submit-error="{{ module.form.submitError|escape_attr }}"
-              ></p>
-            </div>
-          </div>
-        </form>
+        <div class="form-card_form">
+          {% form
+            form_to_use="{{ module.form.form.form_id }}",
+            response_response_type="{{ module.form.form.response_type }}",
+            response_message="{{ module.form.form.message }}",
+            response_redirect_id="{{ module.form.form.redirect_id }}",
+            response_redirect_url="{{ module.form.form.redirect_url }}" %}
+        </div>
+        <p class="form-card_submit-note form_help">{{ module.form.submitNote|escape_html }}</p>
         <p class="form-card_notice text-size-small text-color-secondary">
           {{ module.form.notice|escape_html }}
         </p>

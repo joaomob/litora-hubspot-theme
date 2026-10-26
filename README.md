@@ -23,7 +23,7 @@ Live on the HubSpot free plan, with noindex:
 - HubL templates, modules and sections, with Client-First class names.
 - The styles are inlined in the head, from readable files: `css/tokens.css` (fonts and design tokens), `css/system.css` (the shared classes) and one file per section in `css/sections/`. The theme colours and fonts override the tokens in a `:root` block of the base layout. The self-hosted fonts load from the theme, and the font settings do not load a second copy from Google.
 - Every responsive image goes through one macro, `templates/partials/images.html`, which writes the `srcset` from the image and its widths.
-- The sign up form is the theme's own HTML, sent to the HubSpot Forms API, with validation messages written next to each field and an LGPD consent checkbox.
+- The sign up form is a HubSpot form picked in the hero module's "Form" field, styled to the theme in `css/sections/form-card.css`, with an LGPD consent checkbox.
 - Motion runs on GSAP and ScrollTrigger, loaded after the page; nothing hides content inside the HubSpot editor, without JavaScript or with reduced motion.
 - The questions open with the first one, keep one open at a time (`<details name>`) and open and close with an animated height (instant with reduced motion).
 

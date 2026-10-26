@@ -56,6 +56,8 @@ function fieldPaths(fields, prefix = '') {
       font: ['font', 'font_set', 'fallback', 'color', 'variant', 'css'],
       spacing: ['css', 'padding', 'margin'],
       border: ['css'],
+      // a form field gives the form picked and what happens after the submit (developers.hubspot.com, module and field types)
+      form: ['form_id', 'response_type', 'message', 'redirect_id', 'redirect_url'],
     }[f.type];
     if (parts) parts.forEach((k) => out.add(`${p}.${k}`));
     if (f.children) for (const c of fieldPaths(f.children, `${p}.`)) out.add(c);
