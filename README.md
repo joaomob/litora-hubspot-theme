@@ -13,7 +13,7 @@ Live on the HubSpot free plan, with noindex:
 
 - 15 page modules, one per block of the page (hero with schedule and sign up form, project photo that opens through a circle, topic rows, audience and speaker cards, numbers on a ruler with a cost table, stacked full screen photos, questions with a timeline, final call, steps, legal text, header and footer). Every text, photo and alt text is a field, so a page changes without code.
 - 13 section templates, so a block can be added to any page from the section library with its layout locked.
-- 10 page templates, one per page and language, each one filled with that page's texts and photos.
+- 5 page templates, one per purpose, each one filled with sample texts and photos. The second language is a HubSpot language variation of the same page.
 - A blog: a listing of posts as cards with pagination, and a post with tags, the author box, related posts and HubSpot comments in the theme's fields and buttons. Three blog modules hold every label, and the header and the footer follow the blog's language.
 - The seven system pages HubSpot asks of a theme: 404 and 500 errors, password prompt, email subscription preferences, subscriptions confirmation, backup unsubscribe and search results. Each one has a short message the editor changes like any text, and HubSpot's own form or results under it, in the theme's fields, buttons and type.
 - Theme settings with the brand colours and the two text fonts, under HubSpot's standard names (`primary_color`, `secondary_color`, `heading_font`, `body_font`). Spacing, sizes and the type scale stay fixed in code: the editor picks a section colour, never a number.
@@ -32,7 +32,7 @@ Live on the HubSpot free plan, with noindex:
 - `litora/theme.json`, `litora/fields.json`: the theme and its settings.
 - `litora/templates/`: the base layout, the page templates, the blog, the system pages (`templates/system/`), the sections and the image macro.
 - `litora/modules/`: one folder per module (`module.html`, `fields.json`, `meta.json`).
-- `litora/css/`, `litora/js/`, `litora/fonts/`, `litora/images/`: styles, the motion and form scripts, fonts and photos.
+- `litora/css/`, `litora/js/`, `litora/fonts/`, `litora/images/`: styles, the motion script, fonts and photos.
 - `scripts/check-theme.mjs`: the structure check.
 
 ## Tools
@@ -73,5 +73,7 @@ npm install
 npx hs account auth
 npm run upload
 ```
+
+How to use the theme in HubSpot, without code: [DOCUMENTATION.md](DOCUMENTATION.md).
 
 Theme by [João Marcos](https://joaomob.com).

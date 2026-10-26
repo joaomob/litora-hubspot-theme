@@ -1,1 +1,1 @@
-Litora theme, a concept made for a design portfolio. Fonts: Jost, Nunito Sans and Unbounded, SIL Open Font License 1.1 (licence files in fonts/).
+Litora theme by Response Design (https://responsedesign.com.br). Fonts: Jost, Nunito Sans and Unbounded, SIL Open Font License 1.1 (licence files in fonts/).
