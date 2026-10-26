@@ -7,11 +7,30 @@
 <section class="section_blog-listing {{ bg_classes[module.background] }}">
   <div class="padding-global padding-section-small">
     <div class="container-large">
+      {# the author and tag pages of the same listing open with the author or the tag, as in HubSpot's boilerplate #}
+      {% set heading = module.heading %}
+      {% set intro = module.intro %}
+      {% if blog_author %}
+        {% set heading = blog_author.display_name %}
+        {% set intro = blog_author.bio %}
+      {% elif topic %}
+        {% set heading = page_meta.html_title|split(" | ")|last %}
+      {% endif %}
       <div class="section-header_component">
-        <h1>{{ module.heading|escape_html }}</h1>
-        {% if module.intro %}
+        {% if blog_author and blog_author.avatar %}
+          <img
+            class="blog-author_avatar"
+            src="{{ resize_image_url(blog_author.avatar, 160) }}"
+            width="80"
+            height="80"
+            alt=""
+            loading="eager"
+          />
+        {% endif %}
+        <h1>{{ heading|escape_html }}</h1>
+        {% if intro %}
           <p class="text-size-large text-color-secondary max-width-medium">
-            {{ module.intro|escape_html }}
+            {{ intro|escape_html }}
           </p>
         {% endif %}
       </div>

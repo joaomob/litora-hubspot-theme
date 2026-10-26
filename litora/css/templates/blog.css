@@ -7,6 +7,15 @@
   padding-top: var(--_layout---nav--height);
 }
 
+/* the blog texts come from the editor, so the browser keeps the last word of a paragraph from standing alone */
+.section_blog-listing p,
+.section_blog-post-header p,
+.section_blog-post p,
+.section_blog-author p,
+.section_blog-related p {
+  text-wrap: pretty;
+}
+
 /* ---------- listing and related posts: cards ---------- */
 .blog-listing_list {
   display: grid;
