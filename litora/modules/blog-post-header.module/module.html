@@ -26,7 +26,7 @@
             {{ content.blog_post_author.display_name|escape_html }}</a
           >
         {% endif %}
-        <time datetime="{{ content.publish_date|format_date("yyyy-MM-dd") }}">{{ content.publish_date_localized|escape_html }}</time>
+        <time datetime="{{ content.publish_date|format_date("yyyy-MM-dd") }}">{{ content.publish_date|format_date("long")|escape_html }}</time>
       </p>
     </div>
     {% if content.featured_image %}

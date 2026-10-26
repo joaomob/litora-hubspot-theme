@@ -98,10 +98,15 @@
   {% if group.allow_comments %}
     <section class="section_blog-comments">
       <div class="padding-global padding-section-small">
-        <div class="container-small hubspot-form_component">
-          {% module "blog_comments"
-            path="@hubspot/blog_comments",
-            label="Blog comments" %}
+        <div class="container-small">
+          {% module "blog_comments_heading"
+            path="../modules/blog-comments-heading",
+            label="Blog comments heading" %}
+          <div class="hubspot-form_component">
+            {% module "blog_comments"
+              path="@hubspot/blog_comments",
+              label="Blog comments" %}
+          </div>
         </div>
       </div>
     </section>

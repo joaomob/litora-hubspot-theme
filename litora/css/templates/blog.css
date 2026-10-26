@@ -121,17 +121,25 @@
   height: 100%;
   object-fit: cover;
 }
-/* the rich text of the post: one rhythm for every block, a reading width for the text */
+/* the rich text of the post: one rhythm for every block, a reading width for the text. On the live site HubSpot wraps
+   the body in a span (.hs_cos_wrapper), so the blocks are its children and not the container's */
 .blog-post_body {
   font-size: var(--_typography---text--large);
 }
-.blog-post_body > * + * {
+.blog-post_body > * + *,
+.blog-post_body > .hs_cos_wrapper > * + * {
   margin-top: var(--_layout---spacing--small);
 }
-.blog-post_body > :is(p, ul, ol, blockquote, h2, h3, h4) {
+.blog-post_body > :is(p, ul, ol, blockquote, h2, h3, h4),
+.blog-post_body > .hs_cos_wrapper > :is(p, ul, ol, blockquote, h2, h3, h4) {
   max-width: 65ch;
 }
-.blog-post_body > :is(h2, h3, h4) {
+.blog-post_body > :is(h2, h3, h4) + *,
+.blog-post_body > .hs_cos_wrapper > :is(h2, h3, h4) + * {
+  margin-top: var(--_layout---spacing--xsmall);
+}
+.blog-post_body > * + :is(h2, h3, h4),
+.blog-post_body > .hs_cos_wrapper > * + :is(h2, h3, h4) {
   margin-top: var(--_layout---spacing--xlarge);
 }
 .blog-post_body h4 {
@@ -208,6 +216,9 @@
 }
 
 /* ---------- comments: the list; the comment form takes the fields and buttons of css/templates/hubspot-form.css ---------- */
+.blog-comments_heading {
+  margin-bottom: var(--_layout---spacing--large);
+}
 .section_blog-comments .comment {
   padding: var(--_layout---spacing--large) 0;
   border-top: 1px solid var(--_theme---border-color--border-primary);

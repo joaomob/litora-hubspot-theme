@@ -1,0 +1,12 @@
+{
+  "label": "Blog comments heading",
+  "icon": "../../images/module-icons/blog-comments-heading.svg",
+  "css_assets": [],
+  "external_js": [],
+  "global": false,
+  "host_template_types": ["BLOG_POST"],
+  "is_available_for_new_content": true,
+  "smart_type": "NOT_SMART",
+  "content_tags": [],
+  "inline_help_text": "Blog comments heading. Every text is a field."
+}

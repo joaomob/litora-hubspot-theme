@@ -1,0 +1,8 @@
+[
+  {
+    "name": "heading",
+    "label": "Heading above the comment form",
+    "type": "text",
+    "default": "Deixe um comentário"
+  }
+]
